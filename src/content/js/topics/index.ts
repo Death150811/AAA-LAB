@@ -24,6 +24,7 @@ import { storageUrlTimers } from "./storage-url-timers";
 import { errorsDebugging } from "./errors-debugging";
 import { memoryGc } from "./memory-gc";
 import { performanceTopic } from "./performance";
+import { testingArchitecture } from "./testing-architecture";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak, destructuringSpread, modulesEsm, iteratorsGenerators, eventLoop, promises, asyncAwaitAbort, domEvents, formsFetch, storageUrlTimers, errorsDebugging, memoryGc, performanceTopic];
+export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak, destructuringSpread, modulesEsm, iteratorsGenerators, eventLoop, promises, asyncAwaitAbort, domEvents, formsFetch, storageUrlTimers, errorsDebugging, memoryGc, performanceTopic, testingArchitecture];
