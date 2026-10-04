@@ -32,6 +32,7 @@ import { seoFundamentals } from "./seo-fundamentals";
 import { openGraphStructuredData } from "./open-graph-structured-data";
 import { resourceLoading } from "./resource-loading";
 import { webStorage } from "./web-storage";
+import { interactiveElements } from "./interactive-elements";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -78,4 +79,5 @@ export const htmlTopics: Topic[] = [
   // Модуль 10 — Продвинутый HTML
   resourceLoading,
   webStorage,
+  interactiveElements,
 ];
