@@ -22,6 +22,7 @@ import { inputTypes } from "./input-types";
 import { formControls } from "./form-controls";
 import { formValidation } from "./form-validation";
 import { formUxAutocomplete } from "./form-ux-autocomplete";
+import { a11yFundamentals } from "./a11y-fundamentals";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -55,4 +56,6 @@ export const htmlTopics: Topic[] = [
   formControls,
   formValidation,
   formUxAutocomplete,
+  // Модуль 8 — Доступность
+  a11yFundamentals,
 ];
