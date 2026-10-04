@@ -41,6 +41,7 @@ import { designTokens } from "./design-tokens";
 import { specificityManagement } from "./specificity-management";
 import { renderingPipeline } from "./rendering-pipeline";
 import { cssPerformance } from "./css-performance";
+import { debuggingCss } from "./debugging-css";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment, mediaQueries, fluidTypographySpacing, containerQueries, responsiveMedia, customProperties, isWhereHas, logicalProperties, cascadeLayers, nestingModern, transitions, keyframes, transforms, animationPerformanceMotion, organizingCss, methodologies, designTokens, specificityManagement, renderingPipeline, cssPerformance];
+export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment, mediaQueries, fluidTypographySpacing, containerQueries, responsiveMedia, customProperties, isWhereHas, logicalProperties, cascadeLayers, nestingModern, transitions, keyframes, transforms, animationPerformanceMotion, organizingCss, methodologies, designTokens, specificityManagement, renderingPipeline, cssPerformance, debuggingCss];
