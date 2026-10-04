@@ -31,6 +31,10 @@ import { isWhereHas } from "./is-where-has";
 import { logicalProperties } from "./logical-properties";
 import { cascadeLayers } from "./cascade-layers";
 import { nestingModern } from "./nesting-modern";
+import { transitions } from "./transitions";
+import { keyframes } from "./keyframes";
+import { transforms } from "./transforms";
+import { animationPerformanceMotion } from "./animation-performance-motion";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment, mediaQueries, fluidTypographySpacing, containerQueries, responsiveMedia, customProperties, isWhereHas, logicalProperties, cascadeLayers, nestingModern];
+export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment, mediaQueries, fluidTypographySpacing, containerQueries, responsiveMedia, customProperties, isWhereHas, logicalProperties, cascadeLayers, nestingModern, transitions, keyframes, transforms, animationPerformanceMotion];
