@@ -4,6 +4,7 @@ import { variablesTypes } from "./variables-types";
 import { operatorsCoercion } from "./operators-coercion";
 import { controlFlow } from "./control-flow";
 import { functionsBasics } from "./functions-basics";
+import { higherOrderRecursion } from "./higher-order-recursion";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics];
+export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion];
