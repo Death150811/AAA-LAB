@@ -20,6 +20,8 @@ import { flexSizing } from "./flex-sizing";
 import { flexboxPatterns } from "./flexbox-patterns";
 import { gridBasics } from "./grid-basics";
 import { gridAreasPlacement } from "./grid-areas-placement";
+import { gridResponsive } from "./grid-responsive";
+import { subgridAlignment } from "./subgrid-alignment";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement];
+export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment];

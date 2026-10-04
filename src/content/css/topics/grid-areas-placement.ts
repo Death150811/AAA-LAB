@@ -11,15 +11,12 @@ import {
   iq,
   mcq,
   note,
-  ol,
   open,
   p,
   section,
   steps,
   table,
-  tip,
   ul,
-  warn,
   wrongRight,
 } from "../../dsl";
 
