@@ -35,6 +35,9 @@ import { transitions } from "./transitions";
 import { keyframes } from "./keyframes";
 import { transforms } from "./transforms";
 import { animationPerformanceMotion } from "./animation-performance-motion";
+import { organizingCss } from "./organizing-css";
+import { methodologies } from "./methodologies";
+import { designTokens } from "./design-tokens";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment, mediaQueries, fluidTypographySpacing, containerQueries, responsiveMedia, customProperties, isWhereHas, logicalProperties, cascadeLayers, nestingModern, transitions, keyframes, transforms, animationPerformanceMotion];
+export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment, mediaQueries, fluidTypographySpacing, containerQueries, responsiveMedia, customProperties, isWhereHas, logicalProperties, cascadeLayers, nestingModern, transitions, keyframes, transforms, animationPerformanceMotion, organizingCss, methodologies, designTokens];

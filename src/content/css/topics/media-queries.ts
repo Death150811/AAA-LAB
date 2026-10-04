@@ -480,7 +480,7 @@ export const mediaQueries: Topic = {
         "[Контейнерные запросы](/learn/css/container-queries) — реакция на размер контейнера.",
         "[Плавная типографика и отступы](/learn/css/fluid-typography-spacing) — размеры без порогов.",
         "[Каскад](/learn/css/cascade) — порядок и специфичность внутри `@media`.",
-        "[Метаданные документа](/learn/html/metadata-seo) — `<meta name=\"viewport\">` и `color-scheme`.",
+        "[Метаданные документа](/learn/html/head-metadata) — `<meta name=\"viewport\">` и `color-scheme`.",
       ),
     ]),
 
