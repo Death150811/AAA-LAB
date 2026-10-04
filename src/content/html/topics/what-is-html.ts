@@ -933,7 +933,7 @@ export const whatIsHtml: Topic = {
 
   sources: [
     { title: "HTML Living Standard — Introduction", url: "https://html.spec.whatwg.org/multipage/introduction.html", publisher: "WHATWG" },
-    { title: "HTML: язык гипертекстовой разметки", url: "https://developer.mozilla.org/ru/docs/Web/HTML", publisher: "MDN" },
+    { title: "HTML: язык гипертекстовой разметки", url: "https://developer.mozilla.org/en-US/docs/Web/HTML", publisher: "MDN" },
     { title: "HTML Living Standard — Parsing HTML documents", url: "https://html.spec.whatwg.org/multipage/parsing.html", publisher: "WHATWG" },
     { title: "Markup Validation Service", url: "https://validator.w3.org/", publisher: "W3C" },
   ],
