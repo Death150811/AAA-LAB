@@ -8,6 +8,13 @@ import { inlineText } from "./inline-text";
 import { lists } from "./lists";
 import { links } from "./links";
 import { navigationPatterns } from "./navigation-patterns";
+import { images } from "./images";
+import { responsiveImages } from "./responsive-images";
+import { audioVideo } from "./audio-video";
+import { embeddedContent } from "./embedded-content";
+import { landmarks } from "./landmarks";
+import { sectioning } from "./sectioning";
+import { contentSemantics } from "./content-semantics";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -23,4 +30,13 @@ export const htmlTopics: Topic[] = [
   // Модуль 3 — Ссылки и навигация
   links,
   navigationPatterns,
+  // Модуль 4 — Изображения и медиа
+  images,
+  responsiveImages,
+  audioVideo,
+  embeddedContent,
+  // Модуль 5 — Семантический HTML
+  landmarks,
+  sectioning,
+  contentSemantics,
 ];
