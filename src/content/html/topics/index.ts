@@ -34,6 +34,7 @@ import { resourceLoading } from "./resource-loading";
 import { webStorage } from "./web-storage";
 import { interactiveElements } from "./interactive-elements";
 import { templatesCustomElements } from "./templates-custom-elements";
+import { globalAttributes } from "./global-attributes";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -82,4 +83,5 @@ export const htmlTopics: Topic[] = [
   webStorage,
   interactiveElements,
   templatesCustomElements,
+  globalAttributes,
 ];
