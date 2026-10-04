@@ -33,6 +33,7 @@ import { openGraphStructuredData } from "./open-graph-structured-data";
 import { resourceLoading } from "./resource-loading";
 import { webStorage } from "./web-storage";
 import { interactiveElements } from "./interactive-elements";
+import { templatesCustomElements } from "./templates-custom-elements";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -80,4 +81,5 @@ export const htmlTopics: Topic[] = [
   resourceLoading,
   webStorage,
   interactiveElements,
+  templatesCustomElements,
 ];
