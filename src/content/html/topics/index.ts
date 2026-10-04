@@ -38,6 +38,7 @@ import { globalAttributes } from "./global-attributes";
 import { htmlSecurity } from "./html-security";
 import { progressiveEnhancement } from "./progressive-enhancement";
 import { htmlPerformance } from "./html-performance";
+import { htmlQuality } from "./html-quality";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -91,4 +92,5 @@ export const htmlTopics: Topic[] = [
   // Модуль 11 — Production-паттерны
   progressiveEnhancement,
   htmlPerformance,
+  htmlQuality,
 ];
