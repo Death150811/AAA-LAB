@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Check, Circle } from "lucide-react";
+import { ArrowRight, Check, Circle, Hammer } from "lucide-react";
 import Link from "next/link";
 import type { NavDomain } from "@/content/nav";
 import { LEVEL_LABEL, LEVEL_ORDER } from "@/content/sections";
@@ -131,6 +131,17 @@ export function DomainCurriculum({ nav }: { nav: NavDomain }) {
                   );
                 })}
               </ol>
+            )}
+            {m.project && (
+              <Link
+                href={m.project.href}
+                className="group flex items-center gap-3 border-t border-line px-5 py-3 text-[0.93rem] text-fg-muted transition-colors hover:bg-surface-2 hover:text-fg"
+              >
+                <Hammer size={15} aria-hidden className={cn("shrink-0", ACCENT.cyan.text)} />
+                <span className="mono text-[11px] uppercase tracking-wide text-fg-dim">Проект модуля</span>
+                <span className="min-w-0 flex-1 leading-snug">{m.project.title}</span>
+                <span className="mono shrink-0 text-[11px] text-fg-dim tabular">{m.project.hours} ч</span>
+              </Link>
             )}
           </li>
         );

@@ -15,32 +15,34 @@
 ## Выполнено
 - [x] Phase 0–3: архитектура, модель контента, дизайн-система, шапка, глобальный поиск (Ctrl/Cmd+K), главная, страницы домена и темы, движок Topic Document (20 разделов), `validate-content`
 - [x] Практика, экзамен, собеседование, страницы проектов, песочница HTML/CSS/JS (iframe sandbox без `allow-same-origin` + CSP), личный кабинет (`/me`, прогресс, закладки, заметки, импорт/экспорт), флэшкарты (SM-2-lite)
-- [ ] **Phase 4: HTML — 29 тем из ~44 написано** (модули 1–9)
+- [x] **Phase 4: HTML — 41 тема (модули 1–11) + 7 проектов (модуль 12)**
+- [ ] Phase 5+: домены CSS → JavaScript → SQL → Git → Computer Science
 
 ### HTML: состояние по модулям
-| № | Модуль | Темы | Статус |
-|---|--------|------|--------|
-| 1 | Основы документа | what-is-html, document-anatomy, elements-attributes, parsing-dom | ✅ |
-| 2 | Текст и контент | headings-paragraphs, inline-text, lists | ✅ |
-| 3 | Ссылки и навигация | links, navigation-patterns | ✅ |
-| 4 | Изображения и медиа | images, responsive-images, audio-video, embedded-content | ✅ |
-| 5 | Семантический HTML | landmarks, sectioning, content-semantics | ✅ |
-| 6 | Таблицы | tables-structure, tables-accessibility | ✅ |
-| 7 | Формы | forms-basics, input-types, form-controls, form-validation, form-ux-autocomplete | ✅ |
-| 8 | Доступность | a11y-fundamentals, aria, keyboard-focus, accessible-forms, a11y-failures | ✅ |
-| 9 | Метаданные и SEO | head-metadata ✅ · seo-fundamentals · open-graph-structured-data | 🔶 1/3 |
-| 10 | Продвинутый HTML | resource-loading, web-storage, interactive-elements, templates-custom-elements, global-attributes, html-security | ⏳ |
-| 11 | Production | progressive-enhancement, html-performance, html-quality, document-patterns | ⏳ |
-| 12 | Итоговый проект | 6 кумулятивных проектов + финальный (`src/content/html/projects/`) | ⏳ |
+| № | Модуль | Темы | Проект модуля |
+|---|--------|------|---------------|
+| 1 | Основы документа | what-is-html, document-anatomy, elements-attributes, parsing-dom ✅ | — |
+| 2 | Текст и контент | headings-paragraphs, inline-text, lists ✅ | — |
+| 3 | Ссылки и навигация | links, navigation-patterns ✅ | p01-profile |
+| 4 | Изображения и медиа | images, responsive-images, audio-video, embedded-content ✅ | — |
+| 5 | Семантический HTML | landmarks, sectioning, content-semantics ✅ | p02-portfolio |
+| 6 | Таблицы | tables-structure, tables-accessibility ✅ | p03-blog |
+| 7 | Формы | forms-basics, input-types, form-controls, form-validation, form-ux-autocomplete ✅ | p04-docs |
+| 8 | Доступность | a11y-fundamentals, aria, keyboard-focus, accessible-forms, a11y-failures ✅ | — |
+| 9 | Метаданные и SEO | head-metadata, seo-fundamentals, open-graph-structured-data ✅ | p05-product-site |
+| 10 | Продвинутый HTML | resource-loading, web-storage, interactive-elements, templates-custom-elements, global-attributes, html-security ✅ | — |
+| 11 | Production | progressive-enhancement, html-performance, html-quality, document-patterns ✅ | p06-accessible-production |
+| 12 | Итоговый проект | — | p07-final (двуязычный сайт сети библиотек) |
+
+Все решения проектов проверены на реальных инструментах (html-validate, axe, Playwright, Lighthouse CI); код встроен из проверенных файлов.
 
 ## Текущее
-HTML, модуль 9 «Метаданные и SEO»: далее `seo-fundamentals`, `open-graph-structured-data`.
+HTML завершён. Следующий домен — **CSS** (структура модулей: `src/content/css/domain.ts`, темы — `src/content/css/topics/`).
 
 ## Дальше
-1. Закончить модули 9–11 HTML (темы), затем 7 проектов HTML (id `html.pNN-…`, поля: objective, scenario, requirements, constraints, expected, technical, acceptance, hints, advanced, failureModes, rubric (сумма 100), solution) и привязку `module.project`.
-2. Валидатор должен давать **0 ошибок** (сейчас — только «битые» внутренние ссылки в блоках «Связанные понятия» на ещё не написанные темы: они исчезают по мере написания).
-3. Затем домены CSS → JavaScript → SQL (с браузерным SQL-движком) → Git → Computer Science (контент по тем же стандартам; недописанные модули помечаются «Готовится»).
-4. Полировка: анимации, граф зависимостей, адаптивность, a11y-аудит интерфейса, финальный `npm run build` и «тест нового ученика».
+1. Домены CSS → JavaScript → SQL (с браузерным SQL-движком) → Git → Computer Science (контент по тем же стандартам; недописанные модули помечаются «Готовится»). Проекты — `src/content/<domain>/projects/pNN-….ts`, привязка через `module.project`.
+2. Валидатор должен давать **0 ошибок** (сейчас: 41 тема, 7 проектов — 0 ошибок и 0 предупреждений).
+3. Полировка: анимации, граф зависимостей, адаптивность, a11y-аудит интерфейса, финальный `npm run build` и «тест нового ученика».
 
 ## Известные ограничения
 - Внешние URL источников не проверяются автоматически (сетевой прокси песочницы).

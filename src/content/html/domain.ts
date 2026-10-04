@@ -50,6 +50,7 @@ export const htmlDomain: DomainDef = {
       titleEn: "Links & Navigation",
       summary: "URL, гиперссылки, безопасность переходов, паттерны навигации.",
       level: "core",
+      project: "html.p01-profile",
     },
     {
       id: "media",
@@ -66,6 +67,7 @@ export const htmlDomain: DomainDef = {
       titleEn: "Semantic HTML",
       summary: "Структурные элементы, секции, ориентиры и смысловая разметка контента.",
       level: "core",
+      project: "html.p02-portfolio",
     },
     {
       id: "tables",
@@ -74,6 +76,7 @@ export const htmlDomain: DomainDef = {
       titleEn: "Tables",
       summary: "Табличные данные: структура, ячейки-заголовки, сложные и доступные таблицы.",
       level: "intermediate",
+      project: "html.p03-blog",
     },
     {
       id: "forms",
@@ -82,6 +85,7 @@ export const htmlDomain: DomainDef = {
       titleEn: "Forms",
       summary: "Отправка данных, типы полей, элементы управления, валидация и автозаполнение.",
       level: "intermediate",
+      project: "html.p04-docs",
     },
     {
       id: "a11y",
@@ -98,6 +102,7 @@ export const htmlDomain: DomainDef = {
       titleEn: "Metadata & SEO",
       summary: "Элемент head, поисковая оптимизация на уровне разметки, Open Graph, schema.org.",
       level: "advanced",
+      project: "html.p05-product-site",
     },
     {
       id: "advanced",
@@ -114,6 +119,7 @@ export const htmlDomain: DomainDef = {
       titleEn: "Production Patterns",
       summary: "Прогрессивное улучшение, производительность, контроль качества, шаблоны страниц.",
       level: "engineering",
+      project: "html.p06-accessible-production",
     },
     {
       id: "capstone",
@@ -122,6 +128,7 @@ export const htmlDomain: DomainDef = {
       titleEn: "Final Project",
       summary: "Многостраничный сайт производственного качества, объединяющий весь курс.",
       level: "mastery",
+      project: "html.p07-final",
     },
   ],
 };
