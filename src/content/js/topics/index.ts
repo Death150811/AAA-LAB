@@ -9,6 +9,7 @@ import { executionContextScope } from "./execution-context-scope";
 import { closures } from "./closures";
 import { objectsProperties } from "./objects-properties";
 import { prototypesThis } from "./prototypes-this";
+import { classes } from "./classes";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis];
+export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes];
