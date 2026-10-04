@@ -25,6 +25,7 @@ import { formUxAutocomplete } from "./form-ux-autocomplete";
 import { a11yFundamentals } from "./a11y-fundamentals";
 import { aria } from "./aria";
 import { keyboardFocus } from "./keyboard-focus";
+import { accessibleForms } from "./accessible-forms";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -62,4 +63,5 @@ export const htmlTopics: Topic[] = [
   a11yFundamentals,
   aria,
   keyboardFocus,
+  accessibleForms,
 ];
