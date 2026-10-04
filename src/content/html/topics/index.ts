@@ -36,6 +36,7 @@ import { interactiveElements } from "./interactive-elements";
 import { templatesCustomElements } from "./templates-custom-elements";
 import { globalAttributes } from "./global-attributes";
 import { htmlSecurity } from "./html-security";
+import { progressiveEnhancement } from "./progressive-enhancement";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -86,4 +87,6 @@ export const htmlTopics: Topic[] = [
   templatesCustomElements,
   globalAttributes,
   htmlSecurity,
+  // Модуль 11 — Production-паттерны
+  progressiveEnhancement,
 ];
