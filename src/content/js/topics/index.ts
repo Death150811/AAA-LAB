@@ -12,6 +12,7 @@ import { prototypesThis } from "./prototypes-this";
 import { classes } from "./classes";
 import { arrays } from "./arrays";
 import { mapSetWeak } from "./map-set-weak";
+import { destructuringSpread } from "./destructuring-spread";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak];
+export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak, destructuringSpread];

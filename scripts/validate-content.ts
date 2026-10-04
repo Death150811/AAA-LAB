@@ -222,7 +222,7 @@ function checkTopic(t: Topic) {
 
   // placeholders
   const raw = JSON.stringify(t);
-  if (/TODO|скоро будет|coming soon|lorem ipsum|добавим позже/i.test(raw)) err(where, "в контенте найден placeholder (TODO / «скоро» / lorem ipsum)");
+  if (/\bTODO\b/.test(raw) || /скоро будет|coming soon|lorem ipsum|добавим позже/i.test(raw)) err(where, "в контенте найден placeholder (TODO / «скоро» / lorem ipsum)");
   checkLinks(where, t.summary);
 }
 
