@@ -100,7 +100,8 @@ function walkBlocks(where: string, blocks: Block[]) {
     // непарные маркеры разметки — частая опечатка
     for (const t of texts) {
       if ((t.match(/`/g)?.length ?? 0) % 2) err(where, `непарный символ ` + "`" + ` в тексте: «${t.slice(0, 60)}…»`);
-      if ((t.match(/\*\*/g)?.length ?? 0) % 2) err(where, `непарный ** в тексте: «${t.slice(0, 60)}…»`);
+      // `**` внутри кода (оператор возведения в степень) — не разметка
+      if (((t.replace(/`[^`]*`/g, "").match(/\*\*/g)?.length) ?? 0) % 2) err(where, `непарный ** в тексте: «${t.slice(0, 60)}…»`);
     }
   }
 }
