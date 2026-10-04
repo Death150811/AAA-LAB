@@ -20,6 +20,7 @@ import { promises } from "./promises";
 import { asyncAwaitAbort } from "./async-await-abort";
 import { domEvents } from "./dom-events";
 import { formsFetch } from "./forms-fetch";
+import { storageUrlTimers } from "./storage-url-timers";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak, destructuringSpread, modulesEsm, iteratorsGenerators, eventLoop, promises, asyncAwaitAbort, domEvents, formsFetch];
+export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak, destructuringSpread, modulesEsm, iteratorsGenerators, eventLoop, promises, asyncAwaitAbort, domEvents, formsFetch, storageUrlTimers];
