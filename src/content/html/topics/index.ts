@@ -21,6 +21,7 @@ import { formsBasics } from "./forms-basics";
 import { inputTypes } from "./input-types";
 import { formControls } from "./form-controls";
 import { formValidation } from "./form-validation";
+import { formUxAutocomplete } from "./form-ux-autocomplete";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -53,4 +54,5 @@ export const htmlTopics: Topic[] = [
   inputTypes,
   formControls,
   formValidation,
+  formUxAutocomplete,
 ];
