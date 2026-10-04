@@ -19,6 +19,7 @@ import { tablesStructure } from "./tables-structure";
 import { tablesAccessibility } from "./tables-accessibility";
 import { formsBasics } from "./forms-basics";
 import { inputTypes } from "./input-types";
+import { formControls } from "./form-controls";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -49,4 +50,5 @@ export const htmlTopics: Topic[] = [
   // Модуль 7 — Формы
   formsBasics,
   inputTypes,
+  formControls,
 ];
