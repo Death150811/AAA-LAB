@@ -16,6 +16,8 @@ import { destructuringSpread } from "./destructuring-spread";
 import { modulesEsm } from "./modules-esm";
 import { iteratorsGenerators } from "./iterators-generators";
 import { eventLoop } from "./event-loop";
+import { promises } from "./promises";
+import { asyncAwaitAbort } from "./async-await-abort";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak, destructuringSpread, modulesEsm, iteratorsGenerators, eventLoop];
+export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak, destructuringSpread, modulesEsm, iteratorsGenerators, eventLoop, promises, asyncAwaitAbort];
