@@ -18,6 +18,8 @@ import { stackingContexts } from "./stacking-contexts";
 import { flexboxBasics } from "./flexbox-basics";
 import { flexSizing } from "./flex-sizing";
 import { flexboxPatterns } from "./flexbox-patterns";
+import { gridBasics } from "./grid-basics";
+import { gridAreasPlacement } from "./grid-areas-placement";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns];
+export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement];
