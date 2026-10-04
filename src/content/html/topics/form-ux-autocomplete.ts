@@ -152,7 +152,7 @@ export const formUxAutocomplete: Topic = {
       ),
       h("Другие атрибуты ввода"),
       ul(
-        "**`autocapitalize`**: `none` для логинов и почты (иначе мобильная клавиатура поднимет первую букву), `words` для имён и адресов.",
+        "**`autocapitalize`**: `none` для логинов (иначе мобильная клавиатура поднимет первую букву), `words` для имён и адресов. Для `type=\"email\"`, `type=\"url\"` и `type=\"password\"` атрибут не указывают: браузер и так не делает заглавной первую букву, а спецификация его на этих типах не допускает.",
         "**`spellcheck=\"false\"`** для логинов, кодов и токенов — иначе красные подчёркивания и «исправления».",
         "**`autofocus`**: фокус при загрузке. Только один раз на странице и там, где поле — единственная цель (страница поиска, диалог). В прочих случаях фокус «из ниоткуда» дезориентирует, особенно пользователей скринридера.",
         "**`maxlength`**: используйте с запасом и показывайте лимит; не обрезайте ввод молча.",
@@ -203,7 +203,7 @@ export const formUxAutocomplete: Topic = {
 
             <label for="email">Почта</label>
             <input id="email" name="email" type="email" autocomplete="email"
-                   autocapitalize="none" spellcheck="false" enterkeyhint="next" required>
+                   spellcheck="false" enterkeyhint="next" required>
 
             <label for="tel">Телефон</label>
             <input id="tel" name="tel" type="tel" autocomplete="tel" enterkeyhint="next">
@@ -488,7 +488,7 @@ export const formUxAutocomplete: Topic = {
               <label for="n">Имя и фамилия</label>
               <input id="n" name="name" autocomplete="name">
               <label for="e">Почта</label>
-              <input id="e" name="email" type="email" autocomplete="email" autocapitalize="none">
+              <input id="e" name="email" type="email" autocomplete="email">
               <label for="ph">Телефон</label>
               <input id="ph" name="phone" type="tel" autocomplete="tel">
               <label for="cc">Номер карты</label>
@@ -569,7 +569,7 @@ export const formUxAutocomplete: Topic = {
             <label for="r-name">Имя</label>
             <input id="r-name" name="name" autocomplete="name" autocapitalize="words" enterkeyhint="next" required>
             <label for="r-email">Почта</label>
-            <input id="r-email" name="email" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="next" required>
+            <input id="r-email" name="email" type="email" autocomplete="email" spellcheck="false" enterkeyhint="next" required>
             <label for="r-pw">Пароль (не менее 10 символов)</label>
             <input id="r-pw" name="password" type="password" autocomplete="new-password" minlength="10" enterkeyhint="go" required>
             <button type="button" id="r-toggle" aria-controls="r-pw" aria-pressed="false">Показать пароль</button>
@@ -690,7 +690,7 @@ export const formUxAutocomplete: Topic = {
         ["Поле", "Тип и атрибуты", "Обоснование"],
         [
           ["Имя и фамилия", "`autocomplete=\"name\"`, `autocapitalize=\"words\"`", "Одно поле: международные имена; SC 1.3.5"],
-          ["Почта", "`type=\"email\"`, `autocomplete=\"email\"`, `autocapitalize=\"none\"`", "Клавиатура с `@`, подстановка, чек на почту"],
+          ["Почта", "`type=\"email\"`, `autocomplete=\"email\"`, `spellcheck=\"false\"`", "Клавиатура с `@`, подстановка, чек на почту"],
           ["Телефон", "`type=\"tel\"`, `autocomplete=\"tel\"`", "Без жёсткой маски; нормализация на сервере"],
           ["Адрес", "`autocomplete=\"shipping street-address\"`", "Одна строка + необязательные уточнения"],
           ["Город", "`autocomplete=\"shipping address-level2\"`", "Подстановка по сохранённому адресу"],
@@ -711,7 +711,7 @@ export const formUxAutocomplete: Topic = {
             <label for="name">Имя и фамилия</label>
             <input id="name" name="name" autocomplete="name" autocapitalize="words" enterkeyhint="next" required>
             <label for="email">Почта</label>
-            <input id="email" name="email" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="next" required>
+            <input id="email" name="email" type="email" autocomplete="email" spellcheck="false" enterkeyhint="next" required>
             <label for="tel">Телефон</label>
             <input id="tel" name="tel" type="tel" autocomplete="tel" enterkeyhint="next" required>
           </fieldset>
@@ -811,7 +811,7 @@ export const formUxAutocomplete: Topic = {
     mcq("html.form-ux-autocomplete.e1", "foundation", "Какой токен `autocomplete` подходит для поля нового пароля?", ["`password`", "`current-password`", "`new-password`", "`secret`"], 2, "`new-password` сообщает менеджеру, что нужен новый пароль, и он предложит сгенерировать его."),
     mcq("html.form-ux-autocomplete.e2", "foundation", "Что делает `inputmode=\"numeric\"`?", ["Превращает поле в `number`", "Подсказывает цифровую клавиатуру", "Проверяет, что введены цифры", "Запрещает ввод букв"], 1, "Это подсказка раскладки; проверку и ограничение ввода задают `type`, `pattern` и сервер."),
     mcq("html.form-ux-autocomplete.e3", "intermediate", "Как лучше оформить ввод кода из SMS?", ["Шесть полей по одной цифре", "Одно поле с `autocomplete=\"one-time-code\"` и `inputmode=\"numeric\"`", "`type=\"number\"`", "`type=\"password\"`"], 1, "Одно поле с подсказками позволяет подставить код и вставить его целиком."),
-    mcq("html.form-ux-autocomplete.e4", "intermediate", "Какие утверждения верны? Выберите все.", ["Запрет вставки пароля повышает безопасность", "`autocapitalize=\"none\"` полезен для логинов и почты", "Номер карты лучше разбить на четыре поля", "`autofocus` нужно использовать осторожно"], [1, 3], "Блокировка вставки вредит, а дробление карты ломает автозаполнение."),
+    mcq("html.form-ux-autocomplete.e4", "intermediate", "Какие утверждения верны? Выберите все.", ["Запрет вставки пароля повышает безопасность", "`autocapitalize=\"none\"` полезен для логина в текстовом поле", "Номер карты лучше разбить на четыре поля", "`autofocus` нужно использовать осторожно"], [1, 3], "Блокировка вставки вредит, а дробление карты ломает автозаполнение."),
     mcq("html.form-ux-autocomplete.e5", "intermediate", "Какое значение `autocomplete` соответствует адресу доставки, индексу?", ["`shipping postal-code`", "`zip`", "`postal`", "`address-zip`"], 0, "Токен `postal-code` с префиксом `shipping` — стандартный способ указать индекс адреса доставки."),
     mcq("html.form-ux-autocomplete.e6", "advanced", "Что требует WCAG 3.3.8 (Accessible Authentication, Minimum)?", ["Двухфакторную аутентификацию", "Не требовать когнитивных тестов при входе, разрешать вставку и менеджеры паролей", "Капчу на каждой форме", "Пароль не короче 12 символов"], 1, "Критерий исключает необходимость запоминания, расшифровки и вычислений при входе без альтернативы."),
     open("html.form-ux-autocomplete.e7", "intermediate", "Объясните, как атрибуты `autocomplete`, `inputmode` и `enterkeyhint` уменьшают трение при заполнении формы на телефоне, и чем они различаются.", [
