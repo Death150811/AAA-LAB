@@ -22,6 +22,7 @@ import { domEvents } from "./dom-events";
 import { formsFetch } from "./forms-fetch";
 import { storageUrlTimers } from "./storage-url-timers";
 import { errorsDebugging } from "./errors-debugging";
+import { memoryGc } from "./memory-gc";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak, destructuringSpread, modulesEsm, iteratorsGenerators, eventLoop, promises, asyncAwaitAbort, domEvents, formsFetch, storageUrlTimers, errorsDebugging];
+export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays, mapSetWeak, destructuringSpread, modulesEsm, iteratorsGenerators, eventLoop, promises, asyncAwaitAbort, domEvents, formsFetch, storageUrlTimers, errorsDebugging, memoryGc];
