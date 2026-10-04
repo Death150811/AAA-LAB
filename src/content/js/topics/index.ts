@@ -8,6 +8,7 @@ import { higherOrderRecursion } from "./higher-order-recursion";
 import { executionContextScope } from "./execution-context-scope";
 import { closures } from "./closures";
 import { objectsProperties } from "./objects-properties";
+import { prototypesThis } from "./prototypes-this";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties];
+export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis];
