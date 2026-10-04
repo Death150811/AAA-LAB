@@ -12,6 +12,12 @@ import { displayFlow } from "./display-flow";
 import { marginCollapsing } from "./margin-collapsing";
 import { overflowSizing } from "./overflow-sizing";
 import { typography } from "./typography";
+import { positioning } from "./positioning";
+import { containingBlock } from "./containing-block";
+import { stackingContexts } from "./stacking-contexts";
+import { flexboxBasics } from "./flexbox-basics";
+import { flexSizing } from "./flex-sizing";
+import { flexboxPatterns } from "./flexbox-patterns";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography];
+export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns];
