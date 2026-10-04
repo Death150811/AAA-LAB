@@ -10,6 +10,7 @@ import { closures } from "./closures";
 import { objectsProperties } from "./objects-properties";
 import { prototypesThis } from "./prototypes-this";
 import { classes } from "./classes";
+import { arrays } from "./arrays";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes];
+export const jsTopics: Topic[] = [whatIsJs, variablesTypes, operatorsCoercion, controlFlow, functionsBasics, higherOrderRecursion, executionContextScope, closures, objectsProperties, prototypesThis, classes, arrays];
