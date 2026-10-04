@@ -15,6 +15,10 @@ import { embeddedContent } from "./embedded-content";
 import { landmarks } from "./landmarks";
 import { sectioning } from "./sectioning";
 import { contentSemantics } from "./content-semantics";
+import { tablesStructure } from "./tables-structure";
+import { tablesAccessibility } from "./tables-accessibility";
+import { formsBasics } from "./forms-basics";
+import { inputTypes } from "./input-types";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -39,4 +43,10 @@ export const htmlTopics: Topic[] = [
   landmarks,
   sectioning,
   contentSemantics,
+  // Модуль 6 — Таблицы
+  tablesStructure,
+  tablesAccessibility,
+  // Модуль 7 — Формы
+  formsBasics,
+  inputTypes,
 ];
