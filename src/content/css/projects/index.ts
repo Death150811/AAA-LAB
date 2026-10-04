@@ -3,5 +3,7 @@ import { p01ReadableArticle } from "./p01-readable-article";
 import { p02InterfaceLayers } from "./p02-interface-layers";
 import { p03FlexComponents } from "./p03-flex-components";
 import { p04GridDashboard } from "./p04-grid-dashboard";
+import { p05ResponsiveLanding } from "./p05-responsive-landing";
+import { p06DesignSystem } from "./p06-design-system";
 
-export const cssProjects: Project[] = [p01ReadableArticle, p02InterfaceLayers, p03FlexComponents, p04GridDashboard];
+export const cssProjects: Project[] = [p01ReadableArticle, p02InterfaceLayers, p03FlexComponents, p04GridDashboard, p05ResponsiveLanding, p06DesignSystem];
