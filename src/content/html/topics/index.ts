@@ -28,6 +28,8 @@ import { keyboardFocus } from "./keyboard-focus";
 import { accessibleForms } from "./accessible-forms";
 import { a11yFailures } from "./a11y-failures";
 import { headMetadata } from "./head-metadata";
+import { seoFundamentals } from "./seo-fundamentals";
+import { openGraphStructuredData } from "./open-graph-structured-data";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -69,4 +71,6 @@ export const htmlTopics: Topic[] = [
   a11yFailures,
   // Модуль 9 — Метаданные и SEO
   headMetadata,
+  seoFundamentals,
+  openGraphStructuredData,
 ];
