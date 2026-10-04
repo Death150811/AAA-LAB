@@ -22,6 +22,10 @@ import { gridBasics } from "./grid-basics";
 import { gridAreasPlacement } from "./grid-areas-placement";
 import { gridResponsive } from "./grid-responsive";
 import { subgridAlignment } from "./subgrid-alignment";
+import { mediaQueries } from "./media-queries";
+import { fluidTypographySpacing } from "./fluid-typography-spacing";
+import { containerQueries } from "./container-queries";
+import { responsiveMedia } from "./responsive-media";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment];
+export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment, mediaQueries, fluidTypographySpacing, containerQueries, responsiveMedia];
