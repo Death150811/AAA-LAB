@@ -26,6 +26,7 @@ import { a11yFundamentals } from "./a11y-fundamentals";
 import { aria } from "./aria";
 import { keyboardFocus } from "./keyboard-focus";
 import { accessibleForms } from "./accessible-forms";
+import { a11yFailures } from "./a11y-failures";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -64,4 +65,5 @@ export const htmlTopics: Topic[] = [
   aria,
   keyboardFocus,
   accessibleForms,
+  a11yFailures,
 ];
