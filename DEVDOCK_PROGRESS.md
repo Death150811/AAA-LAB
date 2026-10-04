@@ -16,7 +16,8 @@
 - [x] Phase 0–3: архитектура, модель контента, дизайн-система, шапка, глобальный поиск (Ctrl/Cmd+K), главная, страницы домена и темы, движок Topic Document (20 разделов), `validate-content`
 - [x] Практика, экзамен, собеседование, страницы проектов, песочница HTML/CSS/JS (iframe sandbox без `allow-same-origin` + CSP), личный кабинет (`/me`, прогресс, закладки, заметки, импорт/экспорт), флэшкарты (SM-2-lite)
 - [x] **Phase 4: HTML — 41 тема (модули 1–11) + 7 проектов (модуль 12)**
-- [ ] Phase 5+: домены CSS → JavaScript → SQL → Git → Computer Science
+- [x] **Phase 5: CSS — 43 темы (модули 1–10) + 7 проектов (модули 2–7 и итоговый)**
+- [ ] Phase 6+: домены JavaScript → SQL → Git → Computer Science
 
 ### HTML: состояние по модулям
 | № | Модуль | Темы | Проект модуля |
@@ -36,14 +37,31 @@
 
 Все решения проектов проверены на реальных инструментах (html-validate, axe, Playwright, Lighthouse CI); код встроен из проверенных файлов.
 
+### CSS: состояние по модулям
+| № | Модуль | Темы | Проект модуля |
+|---|--------|------|---------------|
+| 1 | Ментальная модель | how-css-works, selectors, pseudo-classes-elements, cascade, specificity, inheritance-values, units-math, colors ✅ | — |
+| 2 | Блочная модель и поток | box-model, display-flow, margin-collapsing, overflow-sizing, typography ✅ | p01-readable-article |
+| 3 | Позиционирование | positioning, containing-block, stacking-contexts ✅ | p02-interface-layers |
+| 4 | Flexbox | flexbox-basics, flex-sizing, flexbox-patterns ✅ | p03-flex-components |
+| 5 | Grid | grid-basics, grid-areas-placement, grid-responsive, subgrid-alignment ✅ | p04-grid-dashboard |
+| 6 | Адаптивный дизайн | media-queries, fluid-typography-spacing, container-queries, responsive-media ✅ | p05-responsive-landing |
+| 7 | Современный CSS | custom-properties, is-where-has, logical-properties, cascade-layers, nesting-modern ✅ | p06-design-system |
+| 8 | Анимация | transitions, keyframes, transforms, animation-performance-motion ✅ | — |
+| 9 | Архитектура CSS | organizing-css, methodologies, design-tokens, specificity-management ✅ | — |
+| 10 | Рендеринг и производительность | rendering-pipeline, css-performance, debugging-css ✅ | — |
+| 11 | Итоговый проект | — | p07-final (сайт студии: токены, темы, формулы, движение, бюджет) |
+
+Все числа в темах CSS получены замерами в Chromium (CDP-трассировка, `getComputedStyle`, `LayerTree`, Playwright coverage, `@bramus/specificity`, stylelint); примеры и скрипты из тем извлекаются и запускаются. Каждый проект CSS сопровождается **самопроверкой** (`check.js`, 15–24 проверки по `getComputedStyle`/CSSOM) и набором «плохих» вариантов, которые она обязана ловить; код решений встроен из проверенных файлов (`scratchpad`-генератор `mkproject.py` экранирует его в TS). Итоговый проект проверяется командой `run-checks.mjs` на 7 ширинах × 2 системные темы.
+
 ## Текущее
-HTML завершён. Следующий домен — **CSS** (структура модулей: `src/content/css/domain.ts`, темы — `src/content/css/topics/`).
+HTML и CSS завершены. Следующий домен — **JavaScript** (структура модулей: `src/content/js/domain.ts`, темы — `src/content/js/topics/`).
 
 ## Дальше
-1. Домены CSS → JavaScript → SQL (с браузерным SQL-движком) → Git → Computer Science (контент по тем же стандартам; недописанные модули помечаются «Готовится»). Проекты — `src/content/<domain>/projects/pNN-….ts`, привязка через `module.project`.
-2. Валидатор должен давать **0 ошибок** (сейчас: 41 тема, 7 проектов — 0 ошибок и 0 предупреждений).
+1. Домены JavaScript → SQL (с браузерным SQL-движком) → Git → Computer Science (контент по тем же стандартам; недописанные модули помечаются «Готовится»). Проекты — `src/content/<domain>/projects/pNN-….ts`, привязка через `module.project`.
+2. Валидатор должен давать **0 ошибок** (сейчас: 84 темы, 14 проектов — 0 ошибок и 0 предупреждений).
 3. Полировка: анимации, граф зависимостей, адаптивность, a11y-аудит интерфейса, финальный `npm run build` и «тест нового ученика».
 
 ## Известные ограничения
 - Внешние URL источников не проверяются автоматически (сетевой прокси песочницы).
-- До появления контента домены CSS/JS/SQL/Git/CS показывают дорожную карту модулей со статусом «Готовится» (без фейковых тем).
+- До появления контента домены JS/SQL/Git/CS показывают дорожную карту модулей со статусом «Готовится» (без фейковых тем).
