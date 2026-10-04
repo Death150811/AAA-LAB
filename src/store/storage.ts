@@ -28,3 +28,20 @@ export const safeLocalStorage: StateStorage = {
     }
   },
 };
+
+/** Синхронные обёртки для небольших локальных настроек (песочница и т.п.). */
+export function readLocal(key: string): string | null {
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+export function writeLocal(key: string, value: string): void {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    /* квота или приватный режим */
+  }
+}

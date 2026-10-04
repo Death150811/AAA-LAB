@@ -22,6 +22,8 @@ export interface CardState {
 interface UserState {
   completedTopics: Record<string, number>;
   completedProjects: Record<string, number>;
+  /** Отмеченные критерии приёмки проектов: projectId → индексы. */
+  projectChecks: Record<string, number[]>;
   xp: number;
   streak: { current: number; lastDay: string | null };
   bookmarks: Bookmark[];
@@ -33,6 +35,7 @@ interface UserState {
 
   toggleTopic: (id: string) => void;
   toggleProject: (id: string) => void;
+  toggleProjectCheck: (projectId: string, index: number) => void;
   visit: (item: Omit<RecentItem, "at">) => void;
   toggleBookmark: (b: Omit<Bookmark, "createdAt">) => void;
   saveNote: (n: { id?: string; topicId: string | null; title: string; body: string }) => void;
@@ -41,6 +44,8 @@ interface UserState {
   deleteSnippet: (id: string) => void;
   recordAttempt: (a: { ref: string; topicId: string | null; domain: DomainId; correct: boolean | null }) => void;
   reviewCard: (id: string, grade: 0 | 1 | 2 | 3) => void;
+  /** Применяет импортированное состояние: принимает только известные поля правильных типов. */
+  importState: (raw: unknown) => void;
   reset: () => void;
 }
 
@@ -63,6 +68,7 @@ const uid = () =>
 const initial = {
   completedTopics: {},
   completedProjects: {},
+  projectChecks: {},
   xp: 0,
   streak: { current: 0, lastDay: null },
   bookmarks: [],
@@ -100,6 +106,13 @@ export const useUserStore = create<UserState>()(
           }
           done[id] = Date.now();
           return { completedProjects: done, xp: s.xp + XP.project, streak: bumpStreak(s.streak) };
+        }),
+
+      toggleProjectCheck: (projectId, index) =>
+        set((s) => {
+          const cur = s.projectChecks[projectId] ?? [];
+          const next = cur.includes(index) ? cur.filter((i) => i !== index) : [...cur, index];
+          return { projectChecks: { ...s.projectChecks, [projectId]: next } };
         }),
 
       visit: (item) =>
@@ -160,6 +173,29 @@ export const useUserStore = create<UserState>()(
           return { cards: { ...s.cards, [id]: { due, interval, ease, reps } }, streak: bumpStreak(s.streak) };
         }),
 
+      importState: (raw) =>
+        set((s) => {
+          if (typeof raw !== "object" || raw === null || Array.isArray(raw)) return s;
+          const st = raw as Record<string, unknown>;
+          const isRecord = (v: unknown): v is Record<string, never> => typeof v === "object" && v !== null && !Array.isArray(v);
+          const patch: Partial<UserState> = {};
+          if (isRecord(st.completedTopics)) patch.completedTopics = st.completedTopics as Record<string, number>;
+          if (isRecord(st.completedProjects)) patch.completedProjects = st.completedProjects as Record<string, number>;
+          if (isRecord(st.projectChecks)) patch.projectChecks = st.projectChecks as Record<string, number[]>;
+          if (isRecord(st.cards)) patch.cards = st.cards as Record<string, CardState>;
+          if (typeof st.xp === "number" && Number.isFinite(st.xp)) patch.xp = st.xp;
+          if (isRecord(st.streak) && typeof st.streak.current === "number") {
+            const last = (st.streak as { lastDay?: unknown }).lastDay;
+            patch.streak = { current: st.streak.current as number, lastDay: typeof last === "string" ? last : null };
+          }
+          if (Array.isArray(st.bookmarks)) patch.bookmarks = st.bookmarks as Bookmark[];
+          if (Array.isArray(st.notes)) patch.notes = st.notes as Note[];
+          if (Array.isArray(st.snippets)) patch.snippets = st.snippets as Snippet[];
+          if (Array.isArray(st.recent)) patch.recent = st.recent as RecentItem[];
+          if (Array.isArray(st.attempts)) patch.attempts = st.attempts as PracticeAttempt[];
+          return { ...s, ...patch };
+        }),
+
       reset: () => set({ ...initial }),
     }),
     {
@@ -171,6 +207,7 @@ export const useUserStore = create<UserState>()(
       partialize: (s) => ({
         completedTopics: s.completedTopics,
         completedProjects: s.completedProjects,
+        projectChecks: s.projectChecks,
         xp: s.xp,
         streak: s.streak,
         bookmarks: s.bookmarks,

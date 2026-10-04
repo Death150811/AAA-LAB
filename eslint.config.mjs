@@ -11,4 +11,9 @@ export default defineConfig([
       "@typescript-eslint/no-explicit-any": "error",
     },
   },
+  {
+    // Файлы контента импортируют набор конструкторов целиком; неиспользованные не считаются дефектом.
+    files: ["src/content/**/*.ts"],
+    rules: { "@typescript-eslint/no-unused-vars": "off" },
+  },
 ]);

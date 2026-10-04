@@ -19,3 +19,17 @@ export function buildQuizItems(
     answerNode: question.type === "open" ? <Blocks blocks={question.modelAnswer} /> : undefined,
   }));
 }
+
+/** Версия для смешанных наборов: у каждого вопроса — своя тема-источник. */
+export function buildMixedQuizItems(
+  list: { question: QuizQuestion; topic: { id: string; title: string; domain: DomainId } }[],
+): QuizItem[] {
+  return list.map(({ question, topic }) => ({
+    question,
+    topicId: topic.id,
+    domain: topic.domain,
+    source: topic.title,
+    codeNode: question.code ? <CodeView lang={question.code.lang} code={question.code.code} bare /> : undefined,
+    answerNode: question.type === "open" ? <Blocks blocks={question.modelAnswer} /> : undefined,
+  }));
+}

@@ -32,7 +32,7 @@ export function ExerciseCard({ id, title, kind, difficulty, topicId, domain, hin
   const record = useUserStore((s) => s.recordAttempt);
 
   return (
-    <article className="rounded-xl border border-line bg-surface/70 p-4 sm:p-5">
+    <article id={id} className="scroll-mt-24 rounded-xl border border-line bg-surface/70 p-4 sm:p-5">
       <header className="mb-3 flex flex-wrap items-center gap-2">
         <span className="mono text-xs text-fg-dim tabular">Задание {index}</span>
         <Badge tone={difficulty === "advanced" ? "rose" : difficulty === "intermediate" ? "amber" : "emerald"}>
