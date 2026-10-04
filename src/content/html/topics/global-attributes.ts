@@ -538,7 +538,7 @@ export const globalAttributes: Topic = {
       difficulty: "intermediate",
       kind: "application",
       prompt: [
-        p("Сделайте список из пяти задач с атрибутами `data-status` (`todo`/`done`) и `data-priority` (число 1–3). Добавьте кнопки-фильтры («Все», «Сделано», «Приоритет 1»). Скрывайте отфильтрованное атрибутом `hidden` (учтите защиту от перебития), выводите число показанных элементов в `role=\"status\"` и подсвечивайте приоритет 1 селектором по `data-priority`. Без `onclick`-атрибутов."),
+        p("Сделайте список из пяти задач с атрибутами `data-status` (`open`/`done`) и `data-priority` (число 1–3). Добавьте кнопки-фильтры («Все», «Сделано», «Приоритет 1»). Скрывайте отфильтрованное атрибутом `hidden` (учтите защиту от перебития), выводите число показанных элементов в `role=\"status\"` и подсвечивайте приоритет 1 селектором по `data-priority`. Без `onclick`-атрибутов."),
       ],
       hints: ["Как сравнить строку из `dataset` с числом?", "Что защищает `hidden`?", "Как стилизовать по атрибуту?"],
       checks: ["`data-*` в разметке", "`hidden` + `[hidden]{display:none!important}`", "Подсчёт в `role=\"status\"`", "Обработчики через `addEventListener`"],
@@ -554,11 +554,11 @@ export const globalAttributes: Topic = {
           <p id="count" role="status"></p>
 
           <ul id="tasks">
-            <li data-status="todo" data-priority="1">Написать тесты</li>
+            <li data-status="open" data-priority="1">Написать тесты</li>
             <li data-status="done" data-priority="2">Обновить зависимости</li>
-            <li data-status="todo" data-priority="3">Починить фавикон</li>
+            <li data-status="open" data-priority="3">Починить фавикон</li>
             <li data-status="done" data-priority="1">Релиз 1.2</li>
-            <li data-status="todo" data-priority="2">Документация</li>
+            <li data-status="open" data-priority="2">Документация</li>
           </ul>
 
           <style>
