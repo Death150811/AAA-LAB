@@ -20,6 +20,7 @@ import { tablesAccessibility } from "./tables-accessibility";
 import { formsBasics } from "./forms-basics";
 import { inputTypes } from "./input-types";
 import { formControls } from "./form-controls";
+import { formValidation } from "./form-validation";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -51,4 +52,5 @@ export const htmlTopics: Topic[] = [
   formsBasics,
   inputTypes,
   formControls,
+  formValidation,
 ];

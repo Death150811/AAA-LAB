@@ -179,7 +179,7 @@ export const inputTypes: Topic = {
         <input id="e" name="email" type="email" autocomplete="email" required>
 
         <label for="ph">Телефон</label>
-        <input id="ph" name="phone" type="tel" autocomplete="tel" pattern="\\+?[0-9\\s()-]{10,}">
+        <input id="ph" name="phone" type="tel" autocomplete="tel" pattern="\\+?[0-9\\s\\(\\)\\-]{10,}">
 
         <label for="qty">Количество (1–10)</label>
         <input id="qty" name="qty" type="number" min="1" max="10" step="1" value="1">
