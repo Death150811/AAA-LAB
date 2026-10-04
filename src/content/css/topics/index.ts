@@ -26,6 +26,11 @@ import { mediaQueries } from "./media-queries";
 import { fluidTypographySpacing } from "./fluid-typography-spacing";
 import { containerQueries } from "./container-queries";
 import { responsiveMedia } from "./responsive-media";
+import { customProperties } from "./custom-properties";
+import { isWhereHas } from "./is-where-has";
+import { logicalProperties } from "./logical-properties";
+import { cascadeLayers } from "./cascade-layers";
+import { nestingModern } from "./nesting-modern";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment, mediaQueries, fluidTypographySpacing, containerQueries, responsiveMedia];
+export const cssTopics: Topic[] = [howCssWorks, selectors, pseudoClassesElements, cascade, specificity, inheritanceValues, unitsMath, colors, boxModel, displayFlow, marginCollapsing, overflowSizing, typography, positioning, containingBlock, stackingContexts, flexboxBasics, flexSizing, flexboxPatterns, gridBasics, gridAreasPlacement, gridResponsive, subgridAlignment, mediaQueries, fluidTypographySpacing, containerQueries, responsiveMedia, customProperties, isWhereHas, logicalProperties, cascadeLayers, nestingModern];
