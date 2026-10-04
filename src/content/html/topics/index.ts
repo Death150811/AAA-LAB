@@ -23,6 +23,7 @@ import { formControls } from "./form-controls";
 import { formValidation } from "./form-validation";
 import { formUxAutocomplete } from "./form-ux-autocomplete";
 import { a11yFundamentals } from "./a11y-fundamentals";
+import { aria } from "./aria";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -58,4 +59,5 @@ export const htmlTopics: Topic[] = [
   formUxAutocomplete,
   // Модуль 8 — Доступность
   a11yFundamentals,
+  aria,
 ];
