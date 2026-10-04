@@ -39,6 +39,7 @@ import { htmlSecurity } from "./html-security";
 import { progressiveEnhancement } from "./progressive-enhancement";
 import { htmlPerformance } from "./html-performance";
 import { htmlQuality } from "./html-quality";
+import { documentPatterns } from "./document-patterns";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
 export const htmlTopics: Topic[] = [
@@ -93,4 +94,5 @@ export const htmlTopics: Topic[] = [
   progressiveEnhancement,
   htmlPerformance,
   htmlQuality,
+  documentPatterns,
 ];
