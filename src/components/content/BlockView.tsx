@@ -57,6 +57,7 @@ export async function BlockView({ block }: { block: Block }) {
           highlight={block.highlight}
           lineNumbers={block.lineNumbers}
           runnable={block.runnable}
+          fixture={block.fixture}
           collapsed={block.collapsed}
         />
       );

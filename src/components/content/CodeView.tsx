@@ -4,6 +4,8 @@ import { CodeLines } from "./CodeLines";
 import type { CodeLang } from "@/content/types";
 import { CopyButton } from "./CopyButton";
 import { PlaygroundLink } from "./PlaygroundLink";
+import { SqlRunner } from "./SqlRunner";
+import { SQL_FIXTURES } from "@/content/sql/fixtures";
 
 export const LANG_LABEL: Record<CodeLang, string> = {
   html: "HTML",
@@ -29,6 +31,7 @@ interface Props {
   highlight?: number[];
   lineNumbers?: boolean;
   runnable?: boolean;
+  fixture?: string;
   collapsed?: boolean;
   /** Компактный вид внутри сравнения/решения. */
   bare?: boolean;
@@ -42,11 +45,12 @@ export async function CodeView({
   highlight: hl = [],
   lineNumbers,
   runnable,
+  fixture,
   collapsed,
   bare,
 }: Props) {
   const lines = await highlight(code, lang);
-  const showNumbers = lineNumbers ?? (!bare && lines.length > 6);
+  const showNumbers = lineNumbers ?? (!bare && lang !== "text" && lines.length > 6);
   const hlSet = new Set(hl);
 
   const body = <CodeLines lines={lines} showNumbers={showNumbers} highlighted={hlSet} />;
@@ -73,6 +77,7 @@ export async function CodeView({
     >
       {header}
       {body}
+      {runnable && lang === "sql" && <SqlRunner code={code} fixtureName={fixture} setup={fixture ? SQL_FIXTURES[fixture] : undefined} />}
       {caption && (
         <figcaption className="border-t border-line bg-surface px-4 py-2 text-[13px] leading-snug text-fg-muted">
           {caption}
