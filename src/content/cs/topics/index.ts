@@ -7,6 +7,7 @@ import { stacksQueues } from "./stacks-queues";
 import { hashTables } from "./hash-tables";
 import { treesHeaps } from "./trees-heaps";
 import { graphs } from "./graphs";
+import { numberSystemsEncoding } from "./number-systems-encoding";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding];
