@@ -9,6 +9,7 @@ import { treesHeaps } from "./trees-heaps";
 import { graphs } from "./graphs";
 import { numberSystemsEncoding } from "./number-systems-encoding";
 import { cpuMemoryCache } from "./cpu-memory-cache";
+import { processesThreads } from "./processes-threads";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads];
