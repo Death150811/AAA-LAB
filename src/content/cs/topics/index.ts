@@ -13,6 +13,7 @@ import { processesThreads } from "./processes-threads";
 import { virtualMemoryFiles } from "./virtual-memory-files";
 import { concurrencyScheduling } from "./concurrency-scheduling";
 import { networkModelIpTcp } from "./network-model-ip-tcp";
+import { dnsHttp } from "./dns-http";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles, concurrencyScheduling, networkModelIpTcp];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles, concurrencyScheduling, networkModelIpTcp, dnsHttp];
