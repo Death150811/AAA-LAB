@@ -1,5 +1,6 @@
 import type { Project } from "../../types";
 import { p01AlgorithmLab } from "./p01-algorithm-lab";
 import { p02DataStructureLibrary } from "./p02-data-structure-library";
+import { p03CpuAndCache } from "./p03-cpu-and-cache";
 
-export const csProjects: Project[] = [p01AlgorithmLab, p02DataStructureLibrary];
+export const csProjects: Project[] = [p01AlgorithmLab, p02DataStructureLibrary, p03CpuAndCache];
