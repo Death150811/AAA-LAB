@@ -12,6 +12,7 @@ import { cpuMemoryCache } from "./cpu-memory-cache";
 import { processesThreads } from "./processes-threads";
 import { virtualMemoryFiles } from "./virtual-memory-files";
 import { concurrencyScheduling } from "./concurrency-scheduling";
+import { networkModelIpTcp } from "./network-model-ip-tcp";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles, concurrencyScheduling];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles, concurrencyScheduling, networkModelIpTcp];
