@@ -10,6 +10,7 @@ import { graphs } from "./graphs";
 import { numberSystemsEncoding } from "./number-systems-encoding";
 import { cpuMemoryCache } from "./cpu-memory-cache";
 import { processesThreads } from "./processes-threads";
+import { virtualMemoryFiles } from "./virtual-memory-files";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles];
