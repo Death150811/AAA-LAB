@@ -8,6 +8,7 @@ import { searchingHistory } from "./searching-history";
 import { branchesHead } from "./branches-head";
 import { merge } from "./merge";
 import { mergeConflicts } from "./merge-conflicts";
+import { remotesFetchPush } from "./remotes-fetch-push";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge, mergeConflicts];
+export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge, mergeConflicts, remotesFetchPush];
