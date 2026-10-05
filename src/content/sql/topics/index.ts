@@ -25,6 +25,7 @@ import { indexesBtree } from "./indexes-btree";
 import { explainPlans } from "./explain-plans";
 import { queryTuning } from "./query-tuning";
 import { migrationsSafeDdl } from "./migrations-safe-ddl";
+import { sqlSecurity } from "./sql-security";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls, subqueries, ctes, recursiveCtes, windowFunctions, normalization, relationships, schemaPatterns, acidTransactions, isolationLevels, lockingDeadlocks, indexesBtree, explainPlans, queryTuning, migrationsSafeDdl];
+export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls, subqueries, ctes, recursiveCtes, windowFunctions, normalization, relationships, schemaPatterns, acidTransactions, isolationLevels, lockingDeadlocks, indexesBtree, explainPlans, queryTuning, migrationsSafeDdl, sqlSecurity];
