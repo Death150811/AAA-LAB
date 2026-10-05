@@ -19,6 +19,7 @@ import { objectsContentAddressing } from "./objects-content-addressing";
 import { refsPackfilesGc } from "./refs-packfiles-gc";
 import { branchingStrategies } from "./branching-strategies";
 import { commitQualityHooks } from "./commit-quality-hooks";
+import { releasesTags } from "./releases-tags";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge, mergeConflicts, remotesFetchPush, remoteCollaboration, rebase, interactiveRebase, cherryPickStash, resetRevertReflog, bisect, objectsContentAddressing, refsPackfilesGc, branchingStrategies, commitQualityHooks];
+export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge, mergeConflicts, remotesFetchPush, remoteCollaboration, rebase, interactiveRebase, cherryPickStash, resetRevertReflog, bisect, objectsContentAddressing, refsPackfilesGc, branchingStrategies, commitQualityHooks, releasesTags];
