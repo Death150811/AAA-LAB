@@ -28,7 +28,7 @@ export const p01TidyHistory: Project = {
       "неотслеживаемые файлы: `.env` с ключом, `notes.log`, `tmp/cache.json`, `dist/bundle.js` и полезная заготовка `docs/usage.md`;",
       "в репозиторий когда-то попал лог сборки `build.log` (его нужно перестать отслеживать, не удаляя с диска и не переписывая историю).",
     ),
-    p("Скрипт `setup.sh` создаёт этот репозиторий: даты и авторы зафиксированы, поэтому у всех получается одно и то же. Работайте в нём как в обычном проекте, затем запустите `check.mjs` — он только читает репозиторий и проверяет **24 факта**. Нужны `git` 2.28+ и Node.js 18+."),
+    p("Скрипт `setup.sh` создаёт этот репозиторий: даты и авторы зафиксированы, поэтому у всех получается одно и то же. Работайте в нём как в обычном проекте, затем запустите `check.mjs` — он только читает репозиторий и проверяет **24 факта**. Нужны `git` 2.32+ и Node.js 18+."),
     code("bash", `mkdir -p ~/devdock-git && cd ~/devdock-git
 # сохраните setup.sh и check.mjs из этой страницы в текущую папку
 bash setup.sh ~/devdock-git/p01        # создать учебный репозиторий
@@ -40,6 +40,7 @@ node ../check.mjs ~/devdock-git/p01`, { filename: "порядок работы" 
 # setup.sh <каталог> — создаёт учебный репозиторий notes-cli с историей коллег и «грязным» рабочим деревом.
 # Даты и авторы фиксированы: у всех получается один и тот же репозиторий.
 set -e
+export GIT_CONFIG_NOSYSTEM=1 GIT_CONFIG_GLOBAL=/dev/null   # ваши глобальные настройки Git (подпись коммитов, шаблоны…) не влияют на результат
 W="\${1:?укажите каталог: bash setup.sh ~/devdock-git/p01}"
 rm -rf "$W"; mkdir -p "$W"; cd "$W"
 git init -q -b main
@@ -344,7 +345,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, join } from "node:path";
 
 const ROOT = resolve(process.argv[2] ?? ".");
-const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_EDITOR: "true" };
+const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_EDITOR: "true" };
 /** git(args, cwd) → { ok, out, err }; вывод без хвостовых пробелов */
 const git = (args, cwd = ROOT) => {
   const r = spawnSync("git", ["-c", "core.quotepath=off", ...args], { cwd, env: ENV, encoding: "utf8" });

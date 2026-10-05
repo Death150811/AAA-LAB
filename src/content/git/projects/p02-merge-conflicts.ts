@@ -25,7 +25,7 @@ export const p02MergeConflicts: Project = {
       "`feature/tax` — Кэрол добавила **налог** (`opts.tax`, в процентах) и тест к нему; обе ветки правят одну и ту же функцию `total` и один и тот же участок `test.js`;",
       "`feature/docs` — Боб описал параметры в `README.md`.",
     ),
-    p("Пока ветки жили, `main` ушёл вперёд: Алиса исправила `subtotal` (игнорировать отрицательные цены). Поэтому ни одна из веток не сливается «перемоткой» — нужны настоящие слияния. Вам предстоит влить ветки **в этом порядке**: `feature/discount`, `feature/tax`, `feature/docs`. Скрипт `setup.sh` создаёт репозиторий (даты и авторы зафиксированы). Затем `check.mjs` проверяет **21 факт** — историю, поведение `price.js` и ваши ответы. Нужны `git` 2.28+ и Node.js 18+."),
+    p("Пока ветки жили, `main` ушёл вперёд: Алиса исправила `subtotal` (игнорировать отрицательные цены). Поэтому ни одна из веток не сливается «перемоткой» — нужны настоящие слияния. Вам предстоит влить ветки **в этом порядке**: `feature/discount`, `feature/tax`, `feature/docs`. Скрипт `setup.sh` создаёт репозиторий (даты и авторы зафиксированы). Затем `check.mjs` проверяет **21 факт** — историю, поведение `price.js` и ваши ответы. Нужны `git` 2.32+ и Node.js 18+."),
     code("bash", `mkdir -p ~/devdock-git && cd ~/devdock-git
 # сохраните setup.sh и check.mjs из этой страницы в текущую папку
 bash setup.sh ~/devdock-git/p02        # создать учебный репозиторий
@@ -37,6 +37,7 @@ node ../check.mjs ~/devdock-git/p02`, { filename: "порядок работы" 
 # setup.sh <каталог> — создаёт репозиторий shop-price: main и три ветки с функциями (скидка, налог, документация).
 # Даты и авторы фиксированы: у всех получается один и тот же репозиторий.
 set -e
+export GIT_CONFIG_NOSYSTEM=1 GIT_CONFIG_GLOBAL=/dev/null   # ваши глобальные настройки Git (подпись коммитов, шаблоны…) не влияют на результат
 W="\${1:?укажите каталог: bash setup.sh ~/devdock-git/p02}"
 rm -rf "$W"; mkdir -p "$W"; cd "$W"
 git init -q -b main
@@ -351,7 +352,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, join } from "node:path";
 
 const ROOT = resolve(process.argv[2] ?? ".");
-const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_EDITOR: "true" };
+const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_EDITOR: "true" };
 /** git(args, cwd) → { ok, out, err }; вывод без хвостовых пробелов */
 const git = (args, cwd = ROOT) => {
   const r = spawnSync("git", ["-c", "core.quotepath=off", ...args], { cwd, env: ENV, encoding: "utf8" });
@@ -371,9 +372,9 @@ const check = (name, fn) => {
 const summary = () => { console.log(\`\\nПройдено проверок: \${okCount} из \${allCount}\`); process.exit(okCount === allCount ? 0 : 1); };
 
 // Исходные коммиты веток и main (setup.sh воспроизводим, поэтому их хэши известны заранее)
-const TIP = { discount: "707896999afcc37fa89276f563c5f8c01e2de03b", tax: "d9f35ed7281a97e8d348bffc1bb8f752b75f6b01", docs: "429fd8909bd4553adfc990148eae9dd1dd6054e9" };
-const FIX = "b035194966c5a928478afa2e5635d4826439cafc"; // «fix: ignore negative prices» — собственный коммит main
-const BASE = "f3be2e77040c1a325bcbff513b031371458c994e"; // общий предок веток: «docs: add README»
+const TIP = { discount: "f82152e0c855808dbe91ecb447777edd7bd446eb", tax: "e8b8e42d3ed172120859b708e97118845d42684d", docs: "c45f8f0db213c90b821226fda4edcc2f417a7be8" };
+const FIX = "8d3d5f8bdb91e8066a32822e78ae67af5bdbb8ad"; // «fix: ignore negative prices» — собственный коммит main
+const BASE = "8c37d1932b042f41f1de1777ea89727f23af8724"; // общий предок веток: «docs: add README»
 const has = (p) => existsSync(join(ROOT, p));
 const ancestor = (c) => git(["merge-base", "--is-ancestor", c, "HEAD"]).ok;
 
