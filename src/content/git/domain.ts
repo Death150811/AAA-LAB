@@ -27,7 +27,7 @@ export const gitDomain: DomainDef = {
   accent: "emerald",
   modules: [
     { id: "fundamentals", index: 1, title: "Основы", titleEn: "Fundamentals", summary: "Репозиторий, рабочее дерево, индекс, коммиты, история.", level: "foundation" },
-    { id: "core-ops", index: 2, title: "Базовые операции", titleEn: "Core Operations", summary: "init, clone, status, add, commit, log, diff, restore, switch.", level: "foundation" },
+    { id: "core-ops", index: 2, project: "git.p01-tidy-history", title: "Базовые операции", titleEn: "Core Operations", summary: "init, clone, status, add, commit, log, diff, restore, switch.", level: "foundation" },
     { id: "branching", index: 3, title: "Ветки и слияние", titleEn: "Branching & Merging", summary: "Ветки как указатели, merge, fast-forward, конфликты.", level: "core" },
     { id: "collaboration", index: 4, title: "Совместная работа", titleEn: "Collaboration", summary: "remote, fetch, pull, push, pull request, code review.", level: "intermediate" },
     { id: "advanced-git", index: 5, title: "Продвинутый Git", titleEn: "Advanced Git", summary: "rebase, interactive rebase, cherry-pick, stash, reset, revert, reflog, bisect.", level: "advanced" },
