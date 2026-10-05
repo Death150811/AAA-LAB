@@ -3,5 +3,6 @@ import { p01DataWithoutSurprises } from "./p01-data-without-surprises";
 import { p02LibraryModel } from "./p02-library-model";
 import { p03DependencyGraph } from "./p03-dependency-graph";
 import { p04Loader } from "./p04-loader";
+import { p05TasksApp } from "./p05-tasks-app";
 
-export const jsProjects: Project[] = [p01DataWithoutSurprises, p02LibraryModel, p03DependencyGraph, p04Loader];
+export const jsProjects: Project[] = [p01DataWithoutSurprises, p02LibraryModel, p03DependencyGraph, p04Loader, p05TasksApp];
