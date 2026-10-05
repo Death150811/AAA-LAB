@@ -12,6 +12,7 @@ import { remotesFetchPush } from "./remotes-fetch-push";
 import { remoteCollaboration } from "./remote-collaboration";
 import { rebase } from "./rebase";
 import { interactiveRebase } from "./interactive-rebase";
+import { cherryPickStash } from "./cherry-pick-stash";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge, mergeConflicts, remotesFetchPush, remoteCollaboration, rebase, interactiveRebase];
+export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge, mergeConflicts, remotesFetchPush, remoteCollaboration, rebase, interactiveRebase, cherryPickStash];
