@@ -352,16 +352,16 @@ const git = (args, cwd = ROOT) => {
 };
 const lines = (s) => (s ? s.split("\\n") : []);
 const read = (p) => readFileSync(p, "utf8");
-let passed = 0, total = 0;
+let okCount = 0, allCount = 0;
 /** check("описание", () => true | false | [false, "подробность"]) — исключение считается провалом */
 const check = (name, fn) => {
-  total++;
+  allCount++;
   let ok = false, detail = "";
   try { const r = fn(); if (Array.isArray(r)) { ok = !!r[0]; detail = r[1] ?? ""; } else ok = !!r; } catch (e) { detail = String(e.message ?? e).split("\\n")[0]; }
-  if (ok) passed++;
+  if (ok) okCount++;
   console.log(\`\${ok ? "✓" : "✗"} \${name}\${!ok && detail ? " — " + detail : ""}\`);
 };
-const summary = () => { console.log(\`\\nПройдено проверок: \${passed} из \${total}\`); process.exit(passed === total ? 0 : 1); };
+const summary = () => { console.log(\`\\nПройдено проверок: \${okCount} из \${allCount}\`); process.exit(okCount === allCount ? 0 : 1); };
 
 const BASE = ["feat: add notes CLI skeleton", "feat: save notes to config", "chore: add build log", "feat: limit number of notes", "docs: describe commands in README"];
 const CONVENTIONAL = /^(feat|fix|docs|chore|refactor|test|style|perf|build|ci)(\\([^)]+\\))?!?: \\S.*$/;
