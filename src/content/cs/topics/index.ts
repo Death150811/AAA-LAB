@@ -6,6 +6,7 @@ import { arraysLinkedLists } from "./arrays-linked-lists";
 import { stacksQueues } from "./stacks-queues";
 import { hashTables } from "./hash-tables";
 import { treesHeaps } from "./trees-heaps";
+import { graphs } from "./graphs";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs];
