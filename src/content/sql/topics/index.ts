@@ -20,6 +20,7 @@ import { relationships } from "./relationships";
 import { schemaPatterns } from "./schema-patterns";
 import { acidTransactions } from "./acid-transactions";
 import { isolationLevels } from "./isolation-levels";
+import { lockingDeadlocks } from "./locking-deadlocks";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls, subqueries, ctes, recursiveCtes, windowFunctions, normalization, relationships, schemaPatterns, acidTransactions, isolationLevels];
+export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls, subqueries, ctes, recursiveCtes, windowFunctions, normalization, relationships, schemaPatterns, acidTransactions, isolationLevels, lockingDeadlocks];
