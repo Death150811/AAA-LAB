@@ -23,6 +23,7 @@ import { isolationLevels } from "./isolation-levels";
 import { lockingDeadlocks } from "./locking-deadlocks";
 import { indexesBtree } from "./indexes-btree";
 import { explainPlans } from "./explain-plans";
+import { queryTuning } from "./query-tuning";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls, subqueries, ctes, recursiveCtes, windowFunctions, normalization, relationships, schemaPatterns, acidTransactions, isolationLevels, lockingDeadlocks, indexesBtree, explainPlans];
+export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls, subqueries, ctes, recursiveCtes, windowFunctions, normalization, relationships, schemaPatterns, acidTransactions, isolationLevels, lockingDeadlocks, indexesBtree, explainPlans, queryTuning];
