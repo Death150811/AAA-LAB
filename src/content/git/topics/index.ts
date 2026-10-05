@@ -7,6 +7,7 @@ import { gitignoreTracking } from "./gitignore-tracking";
 import { searchingHistory } from "./searching-history";
 import { branchesHead } from "./branches-head";
 import { merge } from "./merge";
+import { mergeConflicts } from "./merge-conflicts";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge];
+export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge, mergeConflicts];
