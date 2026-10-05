@@ -3,6 +3,7 @@ import { complexityBigO } from "./complexity-big-o";
 import { searchingSorting } from "./searching-sorting";
 import { recursionDp } from "./recursion-dp";
 import { arraysLinkedLists } from "./arrays-linked-lists";
+import { stacksQueues } from "./stacks-queues";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues];
