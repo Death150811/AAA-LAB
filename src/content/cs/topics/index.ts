@@ -11,6 +11,7 @@ import { numberSystemsEncoding } from "./number-systems-encoding";
 import { cpuMemoryCache } from "./cpu-memory-cache";
 import { processesThreads } from "./processes-threads";
 import { virtualMemoryFiles } from "./virtual-memory-files";
+import { concurrencyScheduling } from "./concurrency-scheduling";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles, concurrencyScheduling];
