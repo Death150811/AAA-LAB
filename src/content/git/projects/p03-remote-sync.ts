@@ -265,7 +265,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, join } from "node:path";
 
 const ROOT = resolve(process.argv[2] ?? ".");
-const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_EDITOR: "true" };
+const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_CEILING_DIRECTORIES: resolve(ROOT, ".."), GIT_EDITOR: "true" };
 /** git(args, cwd) → { ok, out, err }; вывод без хвостовых пробелов */
 const git = (args, cwd = ROOT) => {
   const r = spawnSync("git", ["-c", "core.quotepath=off", ...args], { cwd, env: ENV, encoding: "utf8" });

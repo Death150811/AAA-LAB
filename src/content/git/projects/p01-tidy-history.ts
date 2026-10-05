@@ -345,7 +345,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, join } from "node:path";
 
 const ROOT = resolve(process.argv[2] ?? ".");
-const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_EDITOR: "true" };
+const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_CEILING_DIRECTORIES: resolve(ROOT, ".."), GIT_EDITOR: "true" };
 /** git(args, cwd) → { ok, out, err }; вывод без хвостовых пробелов */
 const git = (args, cwd = ROOT) => {
   const r = spawnSync("git", ["-c", "core.quotepath=off", ...args], { cwd, env: ENV, encoding: "utf8" });
@@ -382,7 +382,7 @@ const answers = has("answers.txt") ? read(join(ROOT, "answers.txt")) : "";
 const answer = (key) => (answers.match(new RegExp(\`^\${key}:\\\\s*(.+)$\`, "m")) ?? [])[1]?.trim() ?? "";
 
 check("история коллег на месте: первые 5 коммитов не изменены", () => [BASE.every((s, i) => subjects[i] === s), subjects.slice(0, 5).join(" | ")]);
-check("опечатка исправлена: шестой коммит — «fix: handle empty note»", () => [subjects[5] === "fix: handle empty note", subjects[5]]);
+check("опечатка исправлена: шестой коммит: «fix: handle empty note»", () => [subjects[5] === "fix: handle empty note", subjects[5]]);
 check("коммит с опечаткой переписан, а не продублирован", () => !subjects.some((s) => s.includes("handel")) && subjects.filter((s) => /empty note/.test(s)).length === 1);
 check("рабочее дерево чистое (нет изменённых и неотслеживаемых файлов)", () => [git(["status", "--porcelain"]).out === "", git(["status", "--porcelain"]).out.split("\\n").join(", ")]);
 check(".gitignore добавлен в репозиторий", () => git(["ls-files", ".gitignore"]).out === ".gitignore");
@@ -425,7 +425,7 @@ check("author: указан автор этого коммита", () => [answer
 
 summary();`, { filename: "check.mjs", collapsed: true }),
     code("text", `✓ история коллег на месте: первые 5 коммитов не изменены
-✓ опечатка исправлена: шестой коммит — «fix: handle empty note»
+✓ опечатка исправлена: шестой коммит: «fix: handle empty note»
 ✓ коммит с опечаткой переписан, а не продублирован
 ✓ рабочее дерево чистое (нет изменённых и неотслеживаемых файлов)
 ✓ .gitignore добавлен в репозиторий
@@ -451,7 +451,7 @@ summary();`, { filename: "check.mjs", collapsed: true }),
 
 Пройдено проверок: 24 из 24`, { filename: "результат node check.mjs (эталонное решение, git 2.43.0)" }),
     code("text", `✓ история коллег на месте: первые 5 коммитов не изменены
-✗ опечатка исправлена: шестой коммит — «fix: handle empty note» — fix: handel empty note
+✗ опечатка исправлена: шестой коммит: «fix: handle empty note» — fix: handel empty note
 ✗ коммит с опечаткой переписан, а не продублирован
 ✗ рабочее дерево чистое (нет изменённых и неотслеживаемых файлов) —  M app.js,  M config.json, ?? .env, ?? dist/, ?? docs/, ?? notes.log, ?? tmp/
 ✗ .gitignore добавлен в репозиторий
@@ -476,7 +476,7 @@ summary();`, { filename: "check.mjs", collapsed: true }),
 ✗ author: указан автор этого коммита
 
 Пройдено проверок: 5 из 24`, { filename: "результат для заготовки (сразу после setup.sh)" }),
-    code("text", `заготовка — 5 из 24 (красных: 19; первая: опечатка исправлена: шестой коммит)
+    code("text", `заготовка — 5 из 24 (красных: 19; первая: опечатка исправлена: шестой коммит: «fix: handle empty note»)
 эталонное решение — 24 из 24
 b1: нет .gitignore — 18 из 24 (красных: 6; первая: рабочее дерево чистое (нет изменённых и неотслеживаемых файлов))
 b2: всё одним коммитом «update» — 14 из 24 (красных: 10; первая: игнорируется: .env)
@@ -484,7 +484,7 @@ b3: .env попал в историю — 23 из 24 (красных: 1; пер�
 b4: build.log удалён с диска (git rm без --cached) — 23 из 24 (красных: 1; первая: build.log остался на диске (удалили из индекса, а не с диска))
 b5: правка config.json закоммичена — 22 из 24 (красных: 2; первая: config.json совпадает с версией из истории (случайная правка отброшена))
 b6: в ответе хэш не того коммита — 23 из 24 (красных: 1; первая: introduced: указан коммит, в котором появилась константа MAX_NOTES)
-b7: опечатка в сообщении не исправлена — 22 из 24 (красных: 2; первая: опечатка исправлена: шестой коммит)
+b7: опечатка в сообщении не исправлена — 22 из 24 (красных: 2; первая: опечатка исправлена: шестой коммит: «fix: handle empty note»)
 b8: отладочная строка DEBUG попала в коммит — 22 из 24 (красных: 2; первая: в app.js нет отладочной строки DEBUG)`, { filename: "результаты check.mjs для вариантов с ошибками" }),
     tip("Проверка не меняет ваш репозиторий: она запускает только читающие команды Git. Аргумент — путь к репозиторию (по умолчанию текущий каталог)."),
     warn("Хэши и дата коммитов коллег одинаковы у всех благодаря `setup.sh`, а ваши — нет, поэтому проверка опирается на сообщения и состав коммитов, а не на хэши."),

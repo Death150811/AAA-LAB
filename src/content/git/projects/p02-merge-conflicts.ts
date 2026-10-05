@@ -352,7 +352,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, join } from "node:path";
 
 const ROOT = resolve(process.argv[2] ?? ".");
-const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_EDITOR: "true" };
+const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_CEILING_DIRECTORIES: resolve(ROOT, ".."), GIT_EDITOR: "true" };
 /** git(args, cwd) → { ok, out, err }; вывод без хвостовых пробелов */
 const git = (args, cwd = ROOT) => {
   const r = spawnSync("git", ["-c", "core.quotepath=off", ...args], { cwd, env: ENV, encoding: "utf8" });
@@ -392,7 +392,7 @@ check("feature/discount влита: исходные коммиты ветки �
 check("feature/tax влита: исходные коммиты ветки в истории main", () => ancestor(TIP.tax));
 check("feature/docs влита: исходные коммиты ветки в истории main", () => ancestor(TIP.docs));
 check("собственный коммит main («fix: ignore negative prices») не потерян", () => ancestor(FIX));
-check("в main ровно три коммита слияния, и все — на первой линии родителей", () => [merges.length === 3 && git(["rev-list", "--merges", "--count", "HEAD"]).out === "3", \`на первой линии: \${merges.length}, всего: \${git(["rev-list", "--merges", "--count", "HEAD"]).out}\`]);
+check("в main ровно три коммита слияния, и все: на первой линии родителей", () => [merges.length === 3 && git(["rev-list", "--merges", "--count", "HEAD"]).out === "3", \`на первой линии: \${merges.length}, всего: \${git(["rev-list", "--merges", "--count", "HEAD"]).out}\`]);
 check("сообщения слияний называют ветки (discount, tax, docs)", () => ["feature/discount", "feature/tax", "feature/docs"].every((b) => merges.some((m) => m.includes(b))));
 check("в зафиксированных файлах нет маркеров конфликта", () => !git(["grep", "-q", "-E", "^(<{7} |={7}$|>{7} )", "HEAD"]).ok);
 check("\`node test.js\` проходит", () => { const r = spawnSync("node", ["test.js"], { cwd: ROOT, encoding: "utf8" }); return [r.status === 0 && r.stdout.includes("OK"), (r.stderr || "").split("\\n").find((l) => l.trim()) ?? ""]; });
@@ -415,7 +415,7 @@ summary();`, { filename: "check.mjs", collapsed: true }),
 ✓ feature/tax влита: исходные коммиты ветки в истории main
 ✓ feature/docs влита: исходные коммиты ветки в истории main
 ✓ собственный коммит main («fix: ignore negative prices») не потерян
-✓ в main ровно три коммита слияния, и все — на первой линии родителей
+✓ в main ровно три коммита слияния, и все: на первой линии родителей
 ✓ сообщения слияний называют ветки (discount, tax, docs)
 ✓ в зафиксированных файлах нет маркеров конфликта
 ✓ \`node test.js\` проходит
@@ -438,7 +438,7 @@ summary();`, { filename: "check.mjs", collapsed: true }),
 ✗ feature/tax влита: исходные коммиты ветки в истории main
 ✗ feature/docs влита: исходные коммиты ветки в истории main
 ✓ собственный коммит main («fix: ignore negative prices») не потерян
-✗ в main ровно три коммита слияния, и все — на первой линии родителей — на первой линии: 0, всего: 0
+✗ в main ровно три коммита слияния, и все: на первой линии родителей — на первой линии: 0, всего: 0
 ✗ сообщения слияний называют ветки (discount, tax, docs)
 ✓ в зафиксированных файлах нет маркеров конфликта
 ✓ \`node test.js\` проходит

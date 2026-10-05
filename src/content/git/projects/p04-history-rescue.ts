@@ -327,7 +327,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, join } from "node:path";
 
 const ROOT = resolve(process.argv[2] ?? ".");
-const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_EDITOR: "true" };
+const ENV = { ...process.env, GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: "/dev/null", GIT_TERMINAL_PROMPT: "0", LC_ALL: "C.UTF-8", GIT_PAGER: "cat", GIT_CEILING_DIRECTORIES: resolve(ROOT, ".."), GIT_EDITOR: "true" };
 /** git(args, cwd) → { ok, out, err }; вывод без хвостовых пробелов */
 const git = (args, cwd = ROOT) => {
   const r = spawnSync("git", ["-c", "core.quotepath=off", ...args], { cwd, env: ENV, encoding: "utf8" });
@@ -371,7 +371,7 @@ check("секрет API_KEY не встречается ни в одном ко�
 check("файл config.local не встречается в истории ветки", () => out(["log", "feature/search", "--format=%H", "--", "config.local"]) === "");
 check("история действительно переписана: прежняя вершина ветки в ней отсутствует", () => ok(["rev-parse", "--verify", "-q", "feature/search"]) && !ok(["merge-base", "--is-ancestor", OLD_FEATURE, "feature/search"]));
 check("release/1.0: восстановлены исходные коммиты (хэш вершины совпадает с «потерянным»)", () => [out(["rev-parse", "release/1.0"]) === LOST, out(["rev-parse", "--short", "release/1.0"])]);
-check("release/1.0 — это тег v1.0 и ровно два коммита поверх него", () => ok(["merge-base", "--is-ancestor", V10, "release/1.0"]) && out(["rev-list", "--count", \`\${V10}..release/1.0\`]) === "2");
+check("release/1.0: это тег v1.0 и ровно два коммита поверх него", () => ok(["merge-base", "--is-ancestor", V10, "release/1.0"]) && out(["rev-list", "--count", \`\${V10}..release/1.0\`]) === "2");
 check("answers.txt, first-bad: найден коммит, сломавший totalValue", () => [same(answer("first-bad"), BAD), answer("first-bad") || "нет строки «first-bad: <хэш>»"]);
 check("answers.txt, author: автор коммита с регрессией", () => [answer("author") === "Bob Coder", answer("author") || "нет строки «author: <имя>»"]);
 check("answers.txt, steps: число шагов, обещанное bisect в начале поиска", () => [answer("steps") === STEPS, answer("steps") || "нет строки «steps: <число>»"]);
@@ -390,7 +390,7 @@ summary();`, { filename: "check.mjs", collapsed: true }),
 ✓ файл config.local не встречается в истории ветки
 ✓ история действительно переписана: прежняя вершина ветки в ней отсутствует
 ✓ release/1.0: восстановлены исходные коммиты (хэш вершины совпадает с «потерянным»)
-✓ release/1.0 — это тег v1.0 и ровно два коммита поверх него
+✓ release/1.0: это тег v1.0 и ровно два коммита поверх него
 ✓ answers.txt, first-bad: найден коммит, сломавший totalValue
 ✓ answers.txt, author: автор коммита с регрессией
 ✓ answers.txt, steps: число шагов, обещанное bisect в начале поиска
@@ -409,7 +409,7 @@ summary();`, { filename: "check.mjs", collapsed: true }),
 ✗ файл config.local не встречается в истории ветки
 ✗ история действительно переписана: прежняя вершина ветки в ней отсутствует
 ✗ release/1.0: восстановлены исходные коммиты (хэш вершины совпадает с «потерянным») — 6d2ebf3
-✗ release/1.0 — это тег v1.0 и ровно два коммита поверх него
+✗ release/1.0: это тег v1.0 и ровно два коммита поверх него
 ✗ answers.txt, first-bad: найден коммит, сломавший totalValue — нет строки «first-bad: <хэш>»
 ✗ answers.txt, author: автор коммита с регрессией — нет строки «author: <имя>»
 ✗ answers.txt, steps: число шагов, обещанное bisect в начале поиска — нет строки «steps: <число>»
