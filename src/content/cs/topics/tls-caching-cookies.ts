@@ -952,6 +952,7 @@ GET /me с подсунутым sid → 401 не авторизован
         "[Сетевая модель, IP и TCP](/learn/cs/network-model-ip-tcp) — рукопожатие TCP и RTT, к которым добавляется TLS.",
         "[Биты и байты](/learn/cs/number-systems-encoding) — Base64, UTF-8 и представление ключей.",
         "[Хеш-таблицы](/learn/cs/hash-tables) — криптографические и обычные хеши, лавинный эффект.",
+        "[Транзакции и согласованность](/learn/cs/transactions-consistency-theory) — согласованность кешей и данных.",
         "[JavaScript: формы и fetch](/learn/js/forms-fetch) — запросы с учётными данными и режимы кеша `fetch`.",
         "[JavaScript: хранилища, URL и таймеры](/learn/js/storage-url-timers) — `localStorage`, cookie и их границы.",
         "[HTML: хранилище в вебе](/learn/html/web-storage) — cookie, `localStorage` и `sessionStorage`.",

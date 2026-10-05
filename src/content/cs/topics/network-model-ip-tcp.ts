@@ -694,6 +694,8 @@ for (const p of [0.0001, 0.001, 0.01, 0.05]) console.log("  потери", (p * 
         "[Биты и байты](/learn/cs/number-systems-encoding) — сетевой порядок байтов, контрольные суммы и представление чисел.",
         "[Процессы и потоки](/learn/cs/processes-threads) — сокеты как файловые дескрипторы, каналы между процессами.",
         "[Конкурентность и планирование](/learn/cs/concurrency-scheduling) — очереди, закон Литтла и загрузка серверов.",
+        "[DNS и HTTP](/learn/cs/dns-http) — имена, запросы и ответы поверх TCP.",
+        "[TLS, кеширование и cookie](/learn/cs/tls-caching-cookies) — защищённые соединения и кеши.",
         "[Стеки и очереди](/learn/cs/stacks-queues) — буферы приёма и передачи как очереди.",
         "[JavaScript: формы и fetch](/learn/js/forms-fetch) — HTTP-запросы из браузера.",
         "[JavaScript: хранилища, URL и таймеры](/learn/js/storage-url-timers) — разбор URL и таймауты.",

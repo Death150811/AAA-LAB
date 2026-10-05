@@ -1087,6 +1087,7 @@ decodeURIComponent('%E0%A4%A') выбрасывает исключение: URIE
     section("related", [
       ul(
         "[Сетевая модель, IP и TCP](/learn/cs/network-model-ip-tcp) — соединения, окно и задержки, на которых стоит HTTP.",
+        "[TLS, кеширование и cookie](/learn/cs/tls-caching-cookies) — шифрование, кеширование ответов и состояние клиента.",
         "[Биты и байты](/learn/cs/number-systems-encoding) — UTF-8, процентное кодирование и подсчёт длины в байтах.",
         "[Конкурентность и планирование](/learn/cs/concurrency-scheduling) — очереди, повторы и задержки.",
         "[Хеш-таблицы](/learn/cs/hash-tables) — кеши и ключи.",

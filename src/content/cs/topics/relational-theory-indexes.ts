@@ -854,6 +854,7 @@ console.log("поэтому оптимизаторы используют дин
         "[Хеш-таблицы](/learn/cs/hash-tables) — хеш-индексы и хеш-соединение.",
         "[Поиск и сортировка](/learn/cs/searching-sorting) — сортировка и слияние, двоичный поиск.",
         "[Виртуальная память и файловые системы](/learn/cs/virtual-memory-files) — страницы, `fsync` и стоимость записи на диск.",
+        "[Транзакции и согласованность](/learn/cs/transactions-consistency-theory) — ACID, изоляция и восстановление.",
         "[SQL: реляционная модель](/learn/sql/relational-model) — отношения, ключи и ограничения на практике.",
         "[SQL: нормализация](/learn/sql/normalization) — нормальные формы и аномалии на примерах PostgreSQL.",
         "[SQL: индексы и B-деревья](/learn/sql/indexes-btree) — планы и индексы PostgreSQL.",

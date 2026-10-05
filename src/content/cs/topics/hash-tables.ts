@@ -381,6 +381,8 @@ Map.get и Set.has — одного порядка (отличие менее ч
         "[Сложность алгоритмов](/learn/cs/complexity-big-o) — амортизированный анализ роста таблицы.",
         "[Массивы и связные списки](/learn/cs/arrays-linked-lists) — корзины и цепочки как массив и список.",
         "[Поиск и сортировка](/learn/cs/searching-sorting) — альтернативы: упорядоченный поиск за `O(log n)`.",
+        "[Деревья и кучи](/learn/cs/trees-heaps) — когда нужен порядок и диапазоны.",
+        "[TLS, кеширование и cookie](/learn/cs/tls-caching-cookies) — криптографические хеши и ключи кеша.",
         "[JavaScript: Map, Set и слабые коллекции](/learn/js/map-set-weak) — API и семантика.",
         "[JavaScript: объекты и свойства](/learn/js/objects-properties) — прототипы и порядок ключей.",
         "[Git: объекты и адресация по содержимому](/learn/git/objects-content-addressing) — хеш как имя объекта.",

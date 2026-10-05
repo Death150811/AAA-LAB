@@ -411,6 +411,9 @@ console.log("ответы совпадают:", JSON.stringify(nextGreater(big).
       ul(
         "[Массивы и связные списки](/learn/cs/arrays-linked-lists) — на чём реализуются стек и очередь.",
         "[Рекурсия и динамическое программирование](/learn/cs/recursion-dp) — замена рекурсии явным стеком.",
+        "[Деревья и кучи](/learn/cs/trees-heaps) — приоритетная очередь на куче.",
+        "[Графы](/learn/cs/graphs) — обход в глубину (стек) и в ширину (очередь).",
+        "[Параллельность и планирование](/learn/cs/concurrency-scheduling) — очереди готовых процессов и потоков.",
         "[JavaScript: цикл событий](/learn/js/event-loop) — макро- и микрозадачи подробно.",
         "[JavaScript: промисы](/learn/js/promises) — очередь микрозадач на практике.",
         "[Git: cherry-pick и stash](/learn/git/cherry-pick-stash) — `git stash` как стек отложенных изменений.",
