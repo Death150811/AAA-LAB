@@ -3,6 +3,7 @@ import { gitMentalModel } from "./git-mental-model";
 import { threeAreas } from "./three-areas";
 import { commitsHistory } from "./commits-history";
 import { undoingChanges } from "./undoing-changes";
+import { gitignoreTracking } from "./gitignore-tracking";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges];
+export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking];
