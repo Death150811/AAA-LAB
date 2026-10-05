@@ -357,6 +357,10 @@ LINE 1: INSERT INTO t VALUES ('abc');
 
     section("related", [
       ul(
+        "[Типы данных и NULL](/learn/sql/data-types-null) — что можно хранить и как работает «неизвестно».",
+        "[Ключи и ограничения](/learn/sql/keys-constraints) — как СУБД защищает данные.",
+        "[SELECT и WHERE](/learn/sql/select-where) — подробно про выборку и условия.",
+        "[Нормализация](/learn/sql/normalization) — как разбивать данные по таблицам.",
       ),
     ]),
 

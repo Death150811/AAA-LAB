@@ -506,6 +506,9 @@ SELECT course_id, count(*) AS students FROM enrollments GROUP BY course_id ORDER
         "[Нормализация](/learn/sql/normalization) — откуда берутся отдельные таблицы и связи между ними.",
         "[INNER и LEFT JOIN](/learn/sql/inner-left-joins) — как читать связи запросами.",
         "[RIGHT, FULL, CROSS и SELF JOIN](/learn/sql/other-joins) — самоссылки и иерархии.",
+        "[Паттерны проектирования схем](/learn/sql/schema-patterns) — история изменений, мягкое удаление, справочники.",
+        "[Индексы и B-дерево](/learn/sql/indexes-btree) — индексы по внешним ключам.",
+        "[Миграции и безопасный DDL](/learn/sql/migrations-safe-ddl) — добавление внешних ключей на живой базе.",
       ),
     ]),
 

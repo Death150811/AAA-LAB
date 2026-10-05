@@ -412,7 +412,7 @@ SELECT c.id FROM customers_big c WHERE c.id IN (SELECT customer_id FROM orders_b
          Buckets: 2048  Batches: 1  Memory Usage: 34kB
          ->  HashAggregate (actual rows=495 loops=1)
                Group Key: o.customer_id
-               Batches: 1  Memory Usage: 97kB
+               Batches: 1  Memory Usage: 145kB
                ->  Seq Scan on orders_big o (actual rows=2196 loops=1)
                      Filter: (amount > '9000'::numeric)
                      Rows Removed by Filter: 197804
@@ -427,7 +427,7 @@ SELECT c.id FROM customers_big c WHERE c.id IN (SELECT customer_id FROM orders_b
          Buckets: 2048  Batches: 1  Memory Usage: 34kB
          ->  HashAggregate (actual rows=495 loops=1)
                Group Key: orders_big.customer_id
-               Batches: 1  Memory Usage: 97kB
+               Batches: 1  Memory Usage: 145kB
                ->  Seq Scan on orders_big (actual rows=2196 loops=1)
                      Filter: (amount > '9000'::numeric)
                      Rows Removed by Filter: 197804
@@ -612,6 +612,7 @@ SELECT * FROM orders_big ORDER BY id LIMIT 20 OFFSET 190000;`, { filename: "10-e
         "[Планы запросов](/learn/sql/explain-plans) — как измерять число страниц и читать узлы.",
         "[Подзапросы](/learn/sql/subqueries) — `EXISTS`, `IN`, `NOT IN` и их семантика.",
         "[ORDER BY, LIMIT и DISTINCT](/learn/sql/order-limit-distinct) — сортировка и ограничение выборки.",
+        "[Безопасность SQL](/learn/sql/sql-security) — параметризованные запросы и массивы параметров вместо склейки `IN (…)`.",
       ),
     ]),
 

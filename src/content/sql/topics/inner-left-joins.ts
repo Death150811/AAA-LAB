@@ -387,6 +387,11 @@ FROM customers NATURAL JOIN orders;`, { filename: "06-using-natural.sql", runnab
       ul(
         "[Ключи и ограничения](/learn/sql/keys-constraints) — внешние ключи, по которым строятся соединения.",
         "[Агрегаты, GROUP BY и HAVING](/learn/sql/group-by-having) — агрегаты после соединений.",
+        "[RIGHT, FULL, CROSS и SELF JOIN](/learn/sql/other-joins) — остальные виды соединений.",
+        "[Ловушки соединений](/learn/sql/join-pitfalls) — размножение строк, фильтры, `NULL`.",
+        "[Подзапросы](/learn/sql/subqueries) — `EXISTS` как альтернатива соединению.",
+        "[Индексы и B-дерево](/learn/sql/indexes-btree) — индексы для соединений.",
+        "[Планы выполнения](/learn/sql/explain-plans) — как читать Hash Join и Nested Loop.",
       ),
     ]),
 

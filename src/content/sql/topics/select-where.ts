@@ -360,6 +360,11 @@ SELECT title, price * 2 AS doubled FROM products WHERE doubled > 3000 ORDER BY d
       ul(
         "[Реляционная модель и первые таблицы](/learn/sql/relational-model) — таблицы и строки.",
         "[Типы данных и NULL](/learn/sql/data-types-null) — трёхзначная логика в `WHERE`.",
+        "[ORDER BY, LIMIT, DISTINCT](/learn/sql/order-limit-distinct) — порядок, обрезка, уникальные значения.",
+        "[GROUP BY и HAVING](/learn/sql/group-by-having) — фильтр групп.",
+        "[Выражения, CASE и даты](/learn/sql/expressions-case-dates) — функции, `CASE`, работа со временем.",
+        "[Индексы и B-дерево](/learn/sql/indexes-btree) — когда условие использует индекс.",
+        "[Безопасность SQL](/learn/sql/sql-security) — параметры вместо склейки условий.",
       ),
     ]),
 

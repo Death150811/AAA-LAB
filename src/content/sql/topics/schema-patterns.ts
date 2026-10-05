@@ -660,6 +660,8 @@ FROM users AS u LEFT JOIN logins AS l ON l.user_id = u.id;`, { filename: "13-ex-
         "[Связи между таблицами](/learn/sql/relationships) — внешние ключи, каскады и исключающая дуга.",
         "[Ключи и ограничения](/learn/sql/keys-constraints) — `UNIQUE`, `CHECK`, составные ключи.",
         "[Рекурсивные CTE](/learn/sql/recursive-ctes) — чтение иерархий в списке смежности.",
+        "[Индексы и B-дерево](/learn/sql/indexes-btree) — частичные индексы и индексы для путей.",
+        "[Миграции и безопасный DDL](/learn/sql/migrations-safe-ddl) — как добавить `deleted_at`, журнал или справочник на живой базе.",
       ),
     ]),
 

@@ -369,6 +369,10 @@ SELECT 'после запроса с GROUP BY строк нет, а без не�
         "[SELECT и WHERE](/learn/sql/select-where) — фильтрация строк до группировки.",
         "[Типы данных и NULL](/learn/sql/data-types-null) — агрегаты и `NULL`.",
         "[ORDER BY, LIMIT и DISTINCT](/learn/sql/order-limit-distinct) — `DISTINCT` как группировка.",
+        "[INNER и LEFT JOIN](/learn/sql/inner-left-joins) — соединения, на которых строятся отчёты.",
+        "[Ловушки соединений](/learn/sql/join-pitfalls) — агрегаты после `JOIN` и размножение строк.",
+        "[Оконные функции](/learn/sql/window-functions) — агрегаты без свёртки строк.",
+        "[Выражения, CASE и даты](/learn/sql/expressions-case-dates) — `date_trunc`, `CASE` внутри агрегатов.",
       ),
     ]),
 

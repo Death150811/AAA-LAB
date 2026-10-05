@@ -205,7 +205,7 @@ EXPLAIN SELECT * FROM orders_big WHERE customer_id = 42;`, { filename: "01-costs
 
                             QUERY PLAN                            
 ------------------------------------------------------------------
- Seq Scan on orders_big  (cost=0.00..3972.00 rows=90388 width=22)
+ Seq Scan on orders_big  (cost=0.00..3972.00 rows=90936 width=22)
    Filter: (amount > '5000'::numeric)
 (2 rows)
 
@@ -262,14 +262,14 @@ SELECT * FROM orders_big WHERE status = 'xyz';`, { filename: "02-estimate-vs-act
 
                                           QUERY PLAN                                          
 ----------------------------------------------------------------------------------------------
- Seq Scan on orders_big  (cost=0.00..3972.00 rows=90415 width=22) (actual rows=91070 loops=1)
+ Seq Scan on orders_big  (cost=0.00..3972.00 rows=90219 width=22) (actual rows=91070 loops=1)
    Filter: (amount > '5000'::numeric)
    Rows Removed by Filter: 108930
 (3 rows)
 
                                           QUERY PLAN                                          
 ----------------------------------------------------------------------------------------------
- Seq Scan on orders_big  (cost=0.00..3972.00 rows=19920 width=22) (actual rows=20000 loops=1)
+ Seq Scan on orders_big  (cost=0.00..3972.00 rows=20400 width=22) (actual rows=20000 loops=1)
    Filter: (status = 'new'::text)
    Rows Removed by Filter: 180000
 (3 rows)
@@ -280,7 +280,7 @@ SELECT * FROM orders_big WHERE status = 'xyz';`, { filename: "02-estimate-vs-act
    Filter: (status = 'xyz'::text)
    Rows Removed by Filter: 200000
 (3 rows)`, { filename: "результат (PostgreSQL 16.14)" }),
-      p("Простой `EXPLAIN` запрос не выполняет: фактических строк нет. `EXPLAIN ANALYZE` добавил `actual rows=91070` и `Rows Removed by Filter: 108930` (в сумме 200 000). Оценка для `amount > 5000` — порядка 91 тысяч строк против фактических 91 070; для `status = 'new'` — порядка 20 тысяч против 20 000; для несуществующего значения — 1 против 0. Небольшие расхождения нормальны; настораживают отличия на порядки."),
+      p("Простой `EXPLAIN` запрос не выполняет: фактических строк нет. `EXPLAIN ANALYZE` добавил `actual rows=91070` и `Rows Removed by Filter: 108930` (в сумме 200 000). Оценка для `amount > 5000` — порядка 90 тысяч строк против фактических 91 070; для `status = 'new'` — порядка 20 тысяч против 20 000; для несуществующего значения — 1 против 0. Небольшие расхождения нормальны; настораживают отличия на порядки."),
       h("Три алгоритма соединения"),
       code("sql", `SET max_parallel_workers_per_gather = 0;
 
@@ -449,16 +449,16 @@ SELECT t.name, count(*) FROM events e JOIN tags t ON t.id = e.tag_id WHERE e.kin
                      Buffers: shared hit=300000
 (16 rows)
 
-                                               QUERY PLAN                                                
----------------------------------------------------------------------------------------------------------
- HashAggregate  (cost=2602.82..2612.82 rows=1000 width=15) (actual rows=1000 loops=1)
+                                               QUERY PLAN                                               
+--------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=2602.10..2612.10 rows=1000 width=15) (actual rows=1000 loops=1)
    Group Key: t.name
    Batches: 1  Memory Usage: 129kB
    Buffers: shared hit=554
-   ->  Hash Join  (cost=30.50..2102.68 rows=100027 width=7) (actual rows=100000 loops=1)
+   ->  Hash Join  (cost=30.50..2102.44 rows=99933 width=7) (actual rows=100000 loops=1)
          Hash Cond: (e.tag_id = t.id)
          Buffers: shared hit=554
-         ->  Seq Scan on events e  (cost=0.00..1808.50 rows=100027 width=4) (actual rows=100000 loops=1)
+         ->  Seq Scan on events e  (cost=0.00..1808.50 rows=99933 width=4) (actual rows=100000 loops=1)
                Filter: (kind = 'error'::text)
                Rows Removed by Filter: 1000
                Buffers: shared hit=546
@@ -606,6 +606,7 @@ SELECT sum(amount) AS total_after FROM orders_big WHERE customer_id = 42;`, { fi
         "[INNER и LEFT JOIN](/learn/sql/inner-left-joins) — запросы, которые планировщик превращает в соединения.",
         "[GROUP BY и HAVING](/learn/sql/group-by-having) — узлы `HashAggregate` и `GroupAggregate`.",
         "[Уровни изоляции](/learn/sql/isolation-levels) — почему долгие транзакции мешают очистке и статистике.",
+        "[Оптимизация запросов](/learn/sql/query-tuning) — приёмы, которые дают лучший план.",
       ),
     ]),
 
@@ -687,16 +688,16 @@ SELECT sum(amount) AS total_after FROM orders_big WHERE customer_id = 42;`, { fi
                      Buffers: shared hit=300000
 (16 rows)
 
-                                               QUERY PLAN                                                
----------------------------------------------------------------------------------------------------------
- HashAggregate  (cost=2602.69..2612.69 rows=1000 width=15) (actual rows=1000 loops=1)
+                                               QUERY PLAN                                               
+--------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=2602.28..2612.28 rows=1000 width=15) (actual rows=1000 loops=1)
    Group Key: t.name
    Batches: 1  Memory Usage: 129kB
    Buffers: shared hit=554
-   ->  Hash Join  (cost=30.50..2102.64 rows=100010 width=7) (actual rows=100000 loops=1)
+   ->  Hash Join  (cost=30.50..2102.50 rows=99956 width=7) (actual rows=100000 loops=1)
          Hash Cond: (e.tag_id = t.id)
          Buffers: shared hit=554
-         ->  Seq Scan on events e  (cost=0.00..1808.50 rows=100010 width=4) (actual rows=100000 loops=1)
+         ->  Seq Scan on events e  (cost=0.00..1808.50 rows=99956 width=4) (actual rows=100000 loops=1)
                Filter: (kind = 'error'::text)
                Rows Removed by Filter: 1000
                Buffers: shared hit=546

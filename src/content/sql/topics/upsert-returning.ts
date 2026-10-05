@@ -479,6 +479,10 @@ SELECT 'inbox' AS tbl, count(*) AS n FROM inbox UNION ALL SELECT 'archive', coun
       ul(
         "[INSERT, UPDATE, DELETE](/learn/sql/insert-update-delete) — основы изменения данных.",
         "[Ключи и ограничения](/learn/sql/keys-constraints) — уникальные ограничения, на которых строится `ON CONFLICT`.",
+        "[Транзакции и ACID](/learn/sql/acid-transactions) — атомарность и её границы.",
+        "[Уровни изоляции](/learn/sql/isolation-levels) — аномалии при конкурентных вставках.",
+        "[Блокировки и взаимные блокировки](/learn/sql/locking-deadlocks) — как `ON CONFLICT` блокирует строку.",
+        "[CTE](/learn/sql/ctes) — модифицирующие CTE (`WITH … DELETE … RETURNING`).",
       ),
     ]),
 

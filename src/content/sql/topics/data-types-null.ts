@@ -468,6 +468,11 @@ SELECT name, city FROM customers ORDER BY city DESC, name;`, { filename: "07b-or
     section("related", [
       ul(
         "[Реляционная модель и первые таблицы](/learn/sql/relational-model) — таблицы, строки, ограничения.",
+        "[Ключи и ограничения](/learn/sql/keys-constraints) — `NOT NULL`, `UNIQUE`, `CHECK`, `FOREIGN KEY`.",
+        "[SELECT и WHERE](/learn/sql/select-where) — условия, `IN`, `BETWEEN`, `LIKE`.",
+        "[Выражения, CASE и даты](/learn/sql/expressions-case-dates) — `COALESCE`, `CASE`, работа со временем.",
+        "[GROUP BY и HAVING](/learn/sql/group-by-having) — агрегаты и `NULL`.",
+        "[Подзапросы](/learn/sql/subqueries) — `IN`, `EXISTS` и ловушка `NOT IN`.",
       ),
     ]),
 

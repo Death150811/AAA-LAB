@@ -26,8 +26,8 @@ export const sqlDomain: DomainDef = {
   estimatedHours: 70,
   accent: "steel",
   modules: [
-    { id: "relational", index: 1, title: "Реляционная модель", titleEn: "Relational Model", summary: "Таблицы, строки, ключи, ограничения, NULL, типы данных.", level: "foundation" },
-    { id: "queries", index: 2, title: "Запросы", titleEn: "Querying", summary: "SELECT, WHERE, ORDER BY, GROUP BY, HAVING, DISTINCT, LIMIT.", level: "foundation" },
+    { id: "relational", index: 1, project: "sql.p01-shop-schema", title: "Реляционная модель", titleEn: "Relational Model", summary: "Таблицы, строки, ключи, ограничения, NULL, типы данных.", level: "foundation" },
+    { id: "queries", index: 2, project: "sql.p02-sales-analytics", title: "Запросы", titleEn: "Querying", summary: "SELECT, WHERE, ORDER BY, GROUP BY, HAVING, DISTINCT, LIMIT.", level: "foundation" },
     { id: "modification", index: 3, title: "Изменение данных", titleEn: "Data Modification", summary: "INSERT, UPDATE, DELETE, upsert.", level: "core" },
     { id: "joins", index: 4, title: "JOIN", summary: "INNER, LEFT, RIGHT, FULL, CROSS, SELF: визуально и концептуально.", level: "core" },
     { id: "advanced-sql", index: 5, title: "Продвинутый SQL", titleEn: "Advanced SQL", summary: "Подзапросы, CTE, рекурсивные CTE, оконные функции.", level: "intermediate" },

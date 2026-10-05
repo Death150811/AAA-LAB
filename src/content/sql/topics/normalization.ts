@@ -558,6 +558,9 @@ ORDER BY c.order_id;`, { filename: "06-denormalize.sql", runnable: true, fixture
         "[Ключи и ограничения](/learn/sql/keys-constraints) — механизмы, которые закрепляют результат нормализации.",
         "[INNER и LEFT JOIN](/learn/sql/inner-left-joins) — как собрать нормализованные таблицы обратно.",
         "[GROUP BY и HAVING](/learn/sql/group-by-having) — запрос-проверка функциональных зависимостей.",
+        "[Связи между таблицами](/learn/sql/relationships) — один-к-одному, один-ко-многим, многие-ко-многим.",
+        "[Паттерны проектирования схем](/learn/sql/schema-patterns) — история изменений, мягкое удаление, иерархии.",
+        "[Миграции и безопасный DDL](/learn/sql/migrations-safe-ddl) — как перейти от плоской таблицы к нормализованной на живой базе.",
       ),
     ]),
 

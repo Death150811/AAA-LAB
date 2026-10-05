@@ -472,6 +472,9 @@ INSERT 0 1000
         "[INSERT, UPDATE, DELETE](/learn/sql/insert-update-delete) — команды, которые объединяют в транзакции.",
         "[Ключи и ограничения](/learn/sql/keys-constraints) — инварианты, на которых держится согласованность.",
         "[Связи между таблицами](/learn/sql/relationships) — внешние ключи и ссылочная целостность.",
+        "[Уровни изоляции](/learn/sql/isolation-levels) — что видят параллельные транзакции.",
+        "[Блокировки и взаимоблокировки](/learn/sql/locking-deadlocks) — цена долгих транзакций.",
+        "[Миграции и безопасный DDL](/learn/sql/migrations-safe-ddl) — транзакционный DDL на практике.",
       ),
     ]),
 

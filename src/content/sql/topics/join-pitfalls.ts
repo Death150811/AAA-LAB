@@ -384,6 +384,10 @@ ORDER BY o.id;`, { filename: "10-fix-solution.sql", runnable: true, fixture: "sh
         "[INNER и LEFT JOIN](/learn/sql/inner-left-joins) — основы соединений и размножение строк.",
         "[RIGHT, FULL, CROSS и SELF JOIN](/learn/sql/other-joins) — остальные виды соединений.",
         "[Агрегаты, GROUP BY и HAVING](/learn/sql/group-by-having) — `count(DISTINCT)` и агрегаты после соединений.",
+        "[Подзапросы](/learn/sql/subqueries) — свёртки в `FROM` и `EXISTS`.",
+        "[CTE](/learn/sql/ctes) — именованные свёртки.",
+        "[Оконные функции](/learn/sql/window-functions) — агрегаты без размножения и без `GROUP BY`.",
+        "[Нормализация](/learn/sql/normalization) — откуда берутся связи «один ко многим».",
       ),
     ]),
 

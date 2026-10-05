@@ -597,6 +597,9 @@ SELECT indexrelname, idx_scan FROM pg_stat_user_indexes WHERE relname = 'orders_
         "[SELECT и WHERE](/learn/sql/select-where) — условия, которые индекс обслуживает.",
         "[ORDER BY, LIMIT и DISTINCT](/learn/sql/order-limit-distinct) — сортировка и топ-N.",
         "[Связи между таблицами](/learn/sql/relationships) — индексы по внешним ключам.",
+        "[Планы запросов](/learn/sql/explain-plans) — как читать `Seq Scan`, `Index Scan`, `Buffers`.",
+        "[Оптимизация запросов](/learn/sql/query-tuning) — запросы, дружественные индексам.",
+        "[Миграции и безопасный DDL](/learn/sql/migrations-safe-ddl) — `CREATE INDEX CONCURRENTLY` на живой базе.",
       ),
     ]),
 

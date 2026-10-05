@@ -438,6 +438,10 @@ ORDER BY customer_id, ordered_on DESC, id DESC;`, { filename: "07-distinct-on.pg
       ul(
         "[SELECT и WHERE](/learn/sql/select-where) — условия и список выбора.",
         "[Типы данных и NULL](/learn/sql/data-types-null) — порядок `NULL` в сортировке.",
+        "[GROUP BY и HAVING](/learn/sql/group-by-having) — группировка; `DISTINCT` как частный случай.",
+        "[Оконные функции](/learn/sql/window-functions) — `row_number`, «последняя запись каждой группы».",
+        "[Индексы и B-дерево](/learn/sql/indexes-btree) — индекс как готовый порядок.",
+        "[Планы выполнения](/learn/sql/explain-plans) — как читать `Limit` и `Index Only Scan`.",
       ),
     ]),
 

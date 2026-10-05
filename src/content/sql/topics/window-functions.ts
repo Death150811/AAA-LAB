@@ -559,6 +559,8 @@ LINE 1: SELECT name, salary FROM employees WHERE rank() OVER (ORDER ...
         "[Подзапросы](/learn/sql/subqueries) — обёртка для фильтрации по результату окна.",
         "[CTE: именованные шаги запроса](/learn/sql/ctes) — читаемая запись «ранжирование → фильтр».",
         "[Рекурсивные CTE](/learn/sql/recursive-ctes) — обходы, в которых окна считают размеры и уровни.",
+        "[Индексы и B-дерево](/learn/sql/indexes-btree) — как индекс избавляет окно от сортировки.",
+        "[Планы запросов](/learn/sql/explain-plans) — как читать `WindowAgg`, `Sort` и `SubPlan`.",
       ),
     ]),
 

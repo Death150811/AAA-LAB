@@ -452,6 +452,8 @@ B> SELECT pg_try_advisory_lock(42) AS got_lock
         "[Транзакции и ACID](/learn/sql/acid-transactions) — границы транзакций и откат, освобождающий блокировки.",
         "[Уровни изоляции](/learn/sql/isolation-levels) — `FOR UPDATE`, перепроверка `WHERE`, потерянные обновления.",
         "[Связи между таблицами](/learn/sql/relationships) — внешние ключи и их блокировки.",
+        "[Миграции и безопасный DDL](/learn/sql/migrations-safe-ddl) — `lock_timeout`, `NOT VALID`, `CONCURRENTLY`.",
+        "[Индексы и B-дерево](/learn/sql/indexes-btree) — `CREATE INDEX CONCURRENTLY`.",
       ),
     ]),
 

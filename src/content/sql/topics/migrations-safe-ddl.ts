@@ -580,6 +580,7 @@ LINE 1: SELECT fullname FROM users LIMIT 1;
         "[Связи между таблицами](/learn/sql/relationships) — внешние ключи и их проверка.",
         "[Индексы и B-дерево](/learn/sql/indexes-btree) — `CREATE INDEX CONCURRENTLY`.",
         "[Паттерны проектирования схем](/learn/sql/schema-patterns) — что именно добавляют миграциями: журналы, мягкое удаление, история.",
+        "[Безопасность SQL](/learn/sql/sql-security) — права для миграций и ролей приложения.",
       ),
     ]),
 

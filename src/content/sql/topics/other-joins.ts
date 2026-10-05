@@ -396,6 +396,10 @@ ORDER BY a.name, b.name;`, { filename: "11-fix-solution.sql", runnable: true, fi
       ul(
         "[INNER и LEFT JOIN](/learn/sql/inner-left-joins) — основа: `ON` и `WHERE`, размножение.",
         "[Агрегаты, GROUP BY и HAVING](/learn/sql/group-by-having) — агрегаты по результатам соединений.",
+        "[Ловушки соединений](/learn/sql/join-pitfalls) — размножение строк и `NULL` в ключах.",
+        "[Подзапросы](/learn/sql/subqueries) — `EXISTS`, `IN` и коррелированные подзапросы.",
+        "[Рекурсивные CTE](/learn/sql/recursive-ctes) — иерархии произвольной глубины.",
+        "[Оконные функции](/learn/sql/window-functions) — `lag()`/`lead()` вместо `SELF JOIN`.",
       ),
     ]),
 

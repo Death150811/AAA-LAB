@@ -448,6 +448,10 @@ ROLLBACK`, { filename: "результат (PostgreSQL 16.14)" }),
       ul(
         "[Ключи и ограничения](/learn/sql/keys-constraints) — что защищает данные от неверных изменений.",
         "[SELECT и WHERE](/learn/sql/select-where) — условие `WHERE` одинаково для чтения и изменения.",
+        "[Upsert и RETURNING](/learn/sql/upsert-returning) — `INSERT … ON CONFLICT` и возврат изменённых строк.",
+        "[Транзакции и ACID](/learn/sql/acid-transactions) — `BEGIN`, `COMMIT`, `ROLLBACK`.",
+        "[Блокировки и взаимные блокировки](/learn/sql/locking-deadlocks) — что удерживает `UPDATE`.",
+        "[Миграции и безопасный DDL](/learn/sql/migrations-safe-ddl) — массовые изменения данных партиями.",
       ),
     ]),
 

@@ -429,6 +429,10 @@ ORDER BY p.category;`, { filename: "10-fix-solution.sql", runnable: true, fixtur
         "[INNER и LEFT JOIN](/learn/sql/inner-left-joins) — соединения как альтернатива подзапросам.",
         "[RIGHT, FULL, CROSS и SELF JOIN](/learn/sql/other-joins) — `LATERAL` и полусоединение.",
         "[Типы данных и NULL](/learn/sql/data-types-null) — ловушка `NOT IN`.",
+        "[CTE](/learn/sql/ctes) — именованные подзапросы для читаемости и повторного использования.",
+        "[Оконные функции](/learn/sql/window-functions) — альтернатива коррелированным подзапросам.",
+        "[Планы выполнения](/learn/sql/explain-plans) — как читать `SubPlan`, `Hash Semi Join`.",
+        "[Настройка запросов](/learn/sql/query-tuning) — переписывание подзапросов.",
       ),
     ]),
 

@@ -482,6 +482,8 @@ A> SELECT count(*) AS on_call FROM doctors WHERE on_call
         "[Транзакции и ACID](/learn/sql/acid-transactions) — границы транзакции, откат, точки сохранения.",
         "[INSERT, UPDATE, DELETE](/learn/sql/insert-update-delete) — команды, конкурирующие между собой.",
         "[Подзапросы](/learn/sql/subqueries) — «проверка условия» как отдельный запрос и её гонки.",
+        "[Блокировки и взаимоблокировки](/learn/sql/locking-deadlocks) — `FOR UPDATE`, ожидание, `NOWAIT`, взаимоблокировки.",
+        "[Планы запросов](/learn/sql/explain-plans) — почему долгая транзакция мешает очистке версий строк.",
       ),
     ]),
 

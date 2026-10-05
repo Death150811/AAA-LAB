@@ -426,6 +426,12 @@ DETAIL:  Failing row contains (шайбы, -1).
       ul(
         "[Типы данных и NULL](/learn/sql/data-types-null) — трёхзначная логика, на которой стоят `CHECK` и `UNIQUE`.",
         "[Реляционная модель и первые таблицы](/learn/sql/relational-model) — таблица, строка, схема.",
+        "[INSERT, UPDATE, DELETE](/learn/sql/insert-update-delete) — как ограничения проявляются при изменении данных.",
+        "[Upsert и RETURNING](/learn/sql/upsert-returning) — `ON CONFLICT` использует уникальные ограничения.",
+        "[Нормализация](/learn/sql/normalization) — ключи и зависимости между столбцами.",
+        "[Проектирование связей](/learn/sql/relationships) — 1:N, N:M, самоссылки.",
+        "[Индексы и B-дерево](/learn/sql/indexes-btree) — на чём держится уникальность и как индексировать внешние ключи.",
+        "[Миграции и безопасный DDL](/learn/sql/migrations-safe-ddl) — добавление ограничений без простоя.",
       ),
     ]),
 
