@@ -35,6 +35,6 @@ export const sqlDomain: DomainDef = {
     { id: "transactions", index: 7, project: "sql.p06-reliable-booking", title: "Транзакции", titleEn: "Transactions", summary: "ACID, границы транзакций, изоляция, конкурентность.", level: "advanced" },
     { id: "performance", index: 8, title: "Производительность", titleEn: "Performance", summary: "Индексы, B-tree, планировщик, EXPLAIN ANALYZE.", level: "advanced" },
     { id: "production", index: 9, title: "Production-мышление", titleEn: "Production Thinking", summary: "Рассуждение о задачах данных, миграции, безопасность запросов.", level: "engineering" },
-    { id: "capstone", index: 10, title: "Итоговый проект", titleEn: "Final Project", summary: "Схема и аналитические запросы для реалистичной предметной области.", level: "mastery" },
+    { id: "capstone", index: 10, project: "sql.p07-shop-final", title: "Итоговый проект", titleEn: "Final Project", summary: "Схема и аналитические запросы для реалистичной предметной области.", level: "mastery" },
   ],
 };

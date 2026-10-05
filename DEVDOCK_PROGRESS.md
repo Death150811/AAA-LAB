@@ -18,7 +18,8 @@
 - [x] **Phase 4: HTML — 41 тема (модули 1–11) + 7 проектов (модуль 12)**
 - [x] **Phase 5: CSS — 43 темы (модули 1–10) + 7 проектов (модули 2–7 и итоговый)**
 - [x] **Phase 6: JavaScript — 26 тем (модули 1–9) + 7 проектов (модули 1, 4, 5, 7, 8, 9 и итоговый)**
-- [ ] Phase 7+: домены SQL → Git → Computer Science
+- [x] **Phase 7: SQL — 27 тем (модули 1–9) + 7 проектов (модули 1–7 и итоговый)** — все примеры и числа получены замерами на PostgreSQL 16.14 (портируемые — ещё и на SQLite 3.49)
+- [ ] Phase 8+: домены Git → Computer Science
 
 ### HTML: состояние по модулям
 | № | Модуль | Темы | Проект модуля |
@@ -71,12 +72,30 @@
 
 Все числа в темах JS получены замерами (Node.js 22.22.0, Chromium 141 через Playwright, CDP `Performance.getMetrics`, `--allow-natives-syntax`, `--expose-gc`). Каждый проект JS — это `check.mjs` + заготовка + эталон + набор «плохих» вариантов (мутаций), которые проверка обязана ловить; результаты (`Пройдено проверок: X из N`) встроены в страницу проекта.
 
+### SQL: состояние по модулям
+| № | Модуль | Темы | Проект модуля |
+|---|--------|------|---------------|
+| 1 | Реляционная модель | relational-model, data-types-null, keys-constraints ✅ | p01-shop-schema |
+| 2 | Запросы | select-where, order-limit-distinct, group-by-having, expressions-case-dates ✅ | p02-sales-analytics |
+| 3 | Изменение данных | insert-update-delete, upsert-returning ✅ | — |
+| 4 | JOIN | inner-left-joins, other-joins, join-pitfalls ✅ | p03-join-reports |
+| 5 | Продвинутый SQL | subqueries, ctes, recursive-ctes, window-functions ✅ | p04-rankings-hierarchies |
+| 6 | Проектирование БД | normalization, relationships, schema-patterns ✅ | p05-school-normalization |
+| 7 | Транзакции | acid-transactions, isolation-levels, locking-deadlocks ✅ | p06-reliable-booking (28 проверок, до 40 параллельных соединений) |
+| 8 | Производительность | indexes-btree, explain-plans, query-tuning ✅ | — |
+| 9 | Production-мышление | migrations-safe-ddl, sql-security ✅ | — |
+| 10 | Итоговый проект | — | p07-shop-final (56 проверок: схема, индексы по числу страниц буфера, представление, роли, 6 отчётов на 60 000 заказов) |
+
+Методология SQL: каждое утверждение и число в темах — из замеров PostgreSQL 16.14 (детерминизм: несколько прогонов, прогрев, `max_parallel_workers_per_gather = 0`, `autovacuum_enabled = false`; числа, зависящие от случайной выборки `ANALYZE`, в тексте только приближённые). Каждый проект — `check.mjs` (временная база, `psql`, пакет `pg`) + заготовка + решение + 8 «плохих» вариантов; в странице проекта показаны реальные результаты запусков решения, заготовки и мутантов (три прогона подряд дают одинаковые числа). Темы ссылаются вперёд друг на друга (`@@REL@@` при сборке) — после добавления новой темы пересобирать темы, на которые она должна ссылаться.
+
+Инструментарий создания SQL-контента (шаблоны тем, сборщики, фикстуры, `check.mjs`-генераторы) лежал во временной директории сеанса и **в репозиторий не входит**; сгенерированные файлы `src/content/sql/**` — окончательный источник. Для проверки примеров нужен PostgreSQL 16 (в песочнице запускался под пользователем `nobody`: `pg_ctl -D /tmp/devdock-pg/data -o "-p 54329 -c listen_addresses=127.0.0.1 -c unix_socket_directories=/tmp -c fsync=off" start`).
+
 ## Текущее
-HTML, CSS и JavaScript завершены. Следующий домен — **SQL** (браузерный SQL-движок; структура модулей: `src/content/sql/domain.ts`).
+HTML, CSS, JavaScript и SQL завершены. Следующий домен — **Git** (примеры — на реальном `git`; структура модулей: `src/content/git/domain.ts`), затем **Computer Science**.
 
 ## Дальше
-1. Домены SQL (с браузерным SQL-движком) → Git → Computer Science (контент по тем же стандартам; недописанные модули помечаются «Готовится»). Проекты — `src/content/<domain>/projects/pNN-….ts`, привязка через `module.project`.
-2. Валидатор должен давать **0 ошибок** (сейчас: 110 тем, 21 проект — 0 ошибок и 0 предупреждений).
+1. Домены Git → Computer Science (контент по тем же стандартам; недописанные модули помечаются «Готовится»). Проекты — `src/content/<domain>/projects/pNN-….ts`, привязка через `module.project`.
+2. Валидатор должен давать **0 ошибок** (сейчас: 137 тем, 28 проектов — 0 ошибок и 0 предупреждений).
 3. Полировка: анимации, граф зависимостей, адаптивность, a11y-аудит интерфейса, финальный `npm run build` и «тест нового ученика».
 
 ## Известные ограничения
