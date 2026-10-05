@@ -11,6 +11,9 @@ import { upsertReturning } from "./upsert-returning";
 import { innerLeftJoins } from "./inner-left-joins";
 import { otherJoins } from "./other-joins";
 import { joinPitfalls } from "./join-pitfalls";
+import { subqueries } from "./subqueries";
+import { ctes } from "./ctes";
+import { recursiveCtes } from "./recursive-ctes";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls];
+export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls, subqueries, ctes, recursiveCtes];
