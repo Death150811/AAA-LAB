@@ -20,6 +20,7 @@ import { transactionsConsistencyTheory } from "./transactions-consistency-theory
 import { compilationInterpretation } from "./compilation-interpretation";
 import { typesMemoryModels } from "./types-memory-models";
 import { abstractionModularity } from "./abstraction-modularity";
+import { softwareTestingDesign } from "./software-testing-design";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles, concurrencyScheduling, networkModelIpTcp, dnsHttp, tlsCachingCookies, relationalTheoryIndexes, transactionsConsistencyTheory, compilationInterpretation, typesMemoryModels, abstractionModularity];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles, concurrencyScheduling, networkModelIpTcp, dnsHttp, tlsCachingCookies, relationalTheoryIndexes, transactionsConsistencyTheory, compilationInterpretation, typesMemoryModels, abstractionModularity, softwareTestingDesign];
