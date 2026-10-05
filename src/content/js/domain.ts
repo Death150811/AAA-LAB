@@ -35,6 +35,6 @@ export const jsDomain: DomainDef = {
     { id: "async", index: 7, project: "js.p04-loader", title: "Асинхронность", titleEn: "Asynchronous JavaScript", summary: "Цикл событий, микро- и макрозадачи, Promise, async/await, AbortController.", level: "advanced" },
     { id: "browser", index: 8, project: "js.p05-tasks-app", title: "Браузерные API", titleEn: "Browser APIs", summary: "DOM, события, делегирование, формы, fetch, хранилища, URL, таймеры.", level: "advanced" },
     { id: "engineering", index: 9, project: "js.p06-tiny-test", title: "Инженерия JavaScript", titleEn: "JavaScript Engineering", summary: "Память, сборка мусора, производительность, ошибки, архитектура, отладка.", level: "engineering" },
-    { id: "capstone", index: 10, title: "Итоговый проект", titleEn: "Final Project", summary: "Приложение на чистом JavaScript с модульной архитектурой.", level: "mastery" },
+    { id: "capstone", index: 10, project: "js.p07-notes-app", title: "Итоговый проект", titleEn: "Final Project", summary: "Приложение на чистом JavaScript с модульной архитектурой.", level: "mastery" },
   ],
 };

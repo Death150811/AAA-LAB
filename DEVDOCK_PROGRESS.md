@@ -17,7 +17,8 @@
 - [x] Практика, экзамен, собеседование, страницы проектов, песочница HTML/CSS/JS (iframe sandbox без `allow-same-origin` + CSP), личный кабинет (`/me`, прогресс, закладки, заметки, импорт/экспорт), флэшкарты (SM-2-lite)
 - [x] **Phase 4: HTML — 41 тема (модули 1–11) + 7 проектов (модуль 12)**
 - [x] **Phase 5: CSS — 43 темы (модули 1–10) + 7 проектов (модули 2–7 и итоговый)**
-- [ ] Phase 6+: домены JavaScript → SQL → Git → Computer Science
+- [x] **Phase 6: JavaScript — 26 тем (модули 1–9) + 7 проектов (модули 1, 4, 5, 7, 8, 9 и итоговый)**
+- [ ] Phase 7+: домены SQL → Git → Computer Science
 
 ### HTML: состояние по модулям
 | № | Модуль | Темы | Проект модуля |
@@ -54,12 +55,28 @@
 
 Все числа в темах CSS получены замерами в Chromium (CDP-трассировка, `getComputedStyle`, `LayerTree`, Playwright coverage, `@bramus/specificity`, stylelint); примеры и скрипты из тем извлекаются и запускаются. Каждый проект CSS сопровождается **самопроверкой** (`check.js`, 15–24 проверки по `getComputedStyle`/CSSOM) и набором «плохих» вариантов, которые она обязана ловить; код решений встроен из проверенных файлов (`scratchpad`-генератор `mkproject.py` экранирует его в TS). Итоговый проект проверяется командой `run-checks.mjs` на 7 ширинах × 2 системные темы.
 
+### JavaScript: состояние по модулям
+| № | Модуль | Темы | Проект модуля |
+|---|--------|------|---------------|
+| 1 | Основы языка | what-is-js, variables-types, operators-coercion, control-flow ✅ | p01-data-without-surprises (117 проверок, 3 часовых пояса) |
+| 2 | Функции | functions-basics, higher-order-recursion ✅ | — |
+| 3 | Выполнение | execution-context-scope, closures ✅ | — |
+| 4 | Объекты и прототипы | objects-properties, prototypes-this, classes ✅ | p02-library-model (56 проверок) |
+| 5 | Структуры данных | arrays, map-set-weak ✅ | p03-dependency-graph (38 проверок) |
+| 6 | Современный JS | destructuring-spread, modules-esm, iterators-generators ✅ | — |
+| 7 | Асинхронность | event-loop, promises, async-await-abort ✅ | p04-loader (31 проверка, настоящий http-сервер) |
+| 8 | Браузерные API | dom-events, forms-fetch, storage-url-timers ✅ | p05-tasks-app (28 проверок в Chromium) |
+| 9 | Инженерия JavaScript | errors-debugging, memory-gc, performance, testing-architecture ✅ | p06-tiny-test (46 проверок: память, производительность, ложные «зелёные») |
+| 10 | Итоговый проект | — | p07-notes-app (44 проверки: домен + клиент API + приложение в Chromium, офлайн-очередь) |
+
+Все числа в темах JS получены замерами (Node.js 22.22.0, Chromium 141 через Playwright, CDP `Performance.getMetrics`, `--allow-natives-syntax`, `--expose-gc`). Каждый проект JS — это `check.mjs` + заготовка + эталон + набор «плохих» вариантов (мутаций), которые проверка обязана ловить; результаты (`Пройдено проверок: X из N`) встроены в страницу проекта.
+
 ## Текущее
-HTML и CSS завершены. Следующий домен — **JavaScript** (структура модулей: `src/content/js/domain.ts`, темы — `src/content/js/topics/`).
+HTML, CSS и JavaScript завершены. Следующий домен — **SQL** (браузерный SQL-движок; структура модулей: `src/content/sql/domain.ts`).
 
 ## Дальше
-1. Домены JavaScript → SQL (с браузерным SQL-движком) → Git → Computer Science (контент по тем же стандартам; недописанные модули помечаются «Готовится»). Проекты — `src/content/<domain>/projects/pNN-….ts`, привязка через `module.project`.
-2. Валидатор должен давать **0 ошибок** (сейчас: 84 темы, 14 проектов — 0 ошибок и 0 предупреждений).
+1. Домены SQL (с браузерным SQL-движком) → Git → Computer Science (контент по тем же стандартам; недописанные модули помечаются «Готовится»). Проекты — `src/content/<domain>/projects/pNN-….ts`, привязка через `module.project`.
+2. Валидатор должен давать **0 ошибок** (сейчас: 110 тем, 21 проект — 0 ошибок и 0 предупреждений).
 3. Полировка: анимации, граф зависимостей, адаптивность, a11y-аудит интерфейса, финальный `npm run build` и «тест нового ученика».
 
 ## Известные ограничения
