@@ -15,6 +15,7 @@ import { subqueries } from "./subqueries";
 import { ctes } from "./ctes";
 import { recursiveCtes } from "./recursive-ctes";
 import { windowFunctions } from "./window-functions";
+import { normalization } from "./normalization";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls, subqueries, ctes, recursiveCtes, windowFunctions];
+export const sqlTopics: Topic[] = [relationalModel, dataTypesNull, keysConstraints, selectWhere, orderLimitDistinct, groupByHaving, expressionsCaseDates, insertUpdateDelete, upsertReturning, innerLeftJoins, otherJoins, joinPitfalls, subqueries, ctes, recursiveCtes, windowFunctions, normalization];
