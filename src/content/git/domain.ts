@@ -32,6 +32,6 @@ export const gitDomain: DomainDef = {
     { id: "collaboration", index: 4, project: "git.p03-remote-sync", title: "Совместная работа", titleEn: "Collaboration", summary: "remote, fetch, pull, push, pull request, code review.", level: "intermediate" },
     { id: "advanced-git", index: 5, project: "git.p04-history-rescue", title: "Продвинутый Git", titleEn: "Advanced Git", summary: "rebase, interactive rebase, cherry-pick, stash, reset, revert, reflog, bisect.", level: "advanced" },
     { id: "internals", index: 6, project: "git.p05-plumbing-repo", title: "Внутреннее устройство", titleEn: "Git Internals", summary: "Объекты, blob, tree, commit, ссылки, content addressing.", level: "advanced" },
-    { id: "workflow", index: 7, title: "Инженерный процесс", titleEn: "Engineering Workflow", summary: "Стратегии ветвления, conventional commits, релизы.", level: "engineering" },
+    { id: "workflow", index: 7, project: "git.p06-release-flow", title: "Инженерный процесс", titleEn: "Engineering Workflow", summary: "Стратегии ветвления, conventional commits, релизы.", level: "engineering" },
   ],
 };
