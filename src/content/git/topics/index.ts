@@ -15,6 +15,7 @@ import { interactiveRebase } from "./interactive-rebase";
 import { cherryPickStash } from "./cherry-pick-stash";
 import { resetRevertReflog } from "./reset-revert-reflog";
 import { bisect } from "./bisect";
+import { objectsContentAddressing } from "./objects-content-addressing";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge, mergeConflicts, remotesFetchPush, remoteCollaboration, rebase, interactiveRebase, cherryPickStash, resetRevertReflog, bisect];
+export const gitTopics: Topic[] = [gitMentalModel, threeAreas, commitsHistory, undoingChanges, gitignoreTracking, searchingHistory, branchesHead, merge, mergeConflicts, remotesFetchPush, remoteCollaboration, rebase, interactiveRebase, cherryPickStash, resetRevertReflog, bisect, objectsContentAddressing];
