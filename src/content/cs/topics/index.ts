@@ -16,6 +16,7 @@ import { networkModelIpTcp } from "./network-model-ip-tcp";
 import { dnsHttp } from "./dns-http";
 import { tlsCachingCookies } from "./tls-caching-cookies";
 import { relationalTheoryIndexes } from "./relational-theory-indexes";
+import { transactionsConsistencyTheory } from "./transactions-consistency-theory";
 
 /** Темы домена в порядке изучения. Порядок определяет состав модулей. */
-export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles, concurrencyScheduling, networkModelIpTcp, dnsHttp, tlsCachingCookies, relationalTheoryIndexes];
+export const csTopics: Topic[] = [complexityBigO, searchingSorting, recursionDp, arraysLinkedLists, stacksQueues, hashTables, treesHeaps, graphs, numberSystemsEncoding, cpuMemoryCache, processesThreads, virtualMemoryFiles, concurrencyScheduling, networkModelIpTcp, dnsHttp, tlsCachingCookies, relationalTheoryIndexes, transactionsConsistencyTheory];
