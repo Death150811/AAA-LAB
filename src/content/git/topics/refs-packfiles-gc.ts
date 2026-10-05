@@ -392,6 +392,7 @@ chain length = 9: 3 objects`, { filename: "сеанс: count-objects до и п�
         "[Ветки и HEAD](/learn/git/branches-head) — ветка как ссылка; оторванный HEAD.",
         "[Reset, revert и reflog](/learn/git/reset-revert-reflog) — журнал ссылок и восстановление.",
         "[Удалённые репозитории](/learn/git/remotes-fetch-push) — ветки слежения и передача пакетов.",
+        "[Релизы и теги](/learn/git/releases-tags) — объекты тегов и `refs/tags`.",
       ),
     ]),
 

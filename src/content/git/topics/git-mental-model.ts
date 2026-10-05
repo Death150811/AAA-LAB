@@ -371,6 +371,12 @@ $ git rev-parse HEAD
 
     section("related", [
       ul(
+        "[Рабочее дерево, индекс и репозиторий](/learn/git/three-areas) — путь изменения от файла до коммита.",
+        "[Коммиты и история](/learn/git/commits-history) — граф коммитов, `log`, HEAD и диапазоны.",
+        "[Ветки и HEAD](/learn/git/branches-head) — ветки как указатели и «оторванная» голова.",
+        "[Объекты и адресация по содержимому](/learn/git/objects-content-addressing) — blob, tree, commit и tag «изнутри».",
+        "[Ссылки, пакеты и сборка мусора](/learn/git/refs-packfiles-gc) — как Git хранит и чистит объекты.",
+        "[Удалённые репозитории](/learn/git/remotes-fetch-push) — как коммиты переходят из одного репозитория в другой.",
       ),
     ]),
 

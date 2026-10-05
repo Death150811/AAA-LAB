@@ -433,6 +433,8 @@ $ git log --oneline -3
         "[Поиск по истории](/learn/git/searching-history) — `log -S`, `blame` и `-L`, когда известно место в коде.",
         "[Reset, revert и reflog](/learn/git/reset-revert-reflog) — откат найденного коммита.",
         "[Интерактивный rebase](/learn/git/interactive-rebase) — `--exec` помогает сделать историю бисектабельной.",
+        "[Качество коммитов и хуки](/learn/git/commit-quality-hooks) — атомарные коммиты и проверки перед ними.",
+        "[Релизы и теги](/learn/git/releases-tags) — теги как «последний хороший» коммит.",
       ),
     ]),
 

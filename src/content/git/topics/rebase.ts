@@ -448,6 +448,10 @@ $ git log --oneline --graph --decorate
         "[Слияние веток](/learn/git/merge) — альтернатива rebase и итоговая перемотка.",
         "[Конфликты слияния](/learn/git/merge-conflicts) — разрешение; `rerere` и `--abort`.",
         "[Совместная работа](/learn/git/remote-collaboration) — `pull --rebase` и `--force-with-lease`.",
+        "[Интерактивный rebase](/learn/git/interactive-rebase) — `squash`, `fixup`, `reword`, перестановка коммитов.",
+        "[Cherry-pick и stash](/learn/git/cherry-pick-stash) — перенос отдельных коммитов, на чём построен rebase.",
+        "[Reset, revert и reflog](/learn/git/reset-revert-reflog) — откат и восстановление после rebase.",
+        "[Стратегии ветвления](/learn/git/branching-strategies) — когда команды выбирают rebase.",
       ),
     ]),
 

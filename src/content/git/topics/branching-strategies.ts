@@ -331,6 +331,8 @@ $ git log --oneline --graph --all --decorate
         "[Слияние веток](/learn/git/merge) — `--no-ff`, `--ff-only`, squash: формы слияния, из которых строятся модели.",
         "[Совместная работа](/learn/git/remote-collaboration) — цикл запроса на слияние и правила переписывания истории.",
         "[Cherry-pick и stash](/learn/git/cherry-pick-stash) — перенос исправлений между релизными ветками.",
+        "[Релизы и теги](/learn/git/releases-tags) — теги версий и выпуск.",
+        "[Качество коммитов и хуки](/learn/git/commit-quality-hooks) — проверки и соглашения.",
       ),
     ]),
 

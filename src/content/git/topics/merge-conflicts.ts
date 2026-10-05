@@ -495,6 +495,9 @@ $ git log --oneline --graph --all --decorate
         "[Слияние веток](/learn/git/merge) — когда Git справляется без вас.",
         "[Рабочее дерево, индекс и репозиторий](/learn/git/three-areas) — стадии конфликта в индексе.",
         "[Поиск по истории](/learn/git/searching-history) — как понять, кто и зачем изменил спорную строку (`blame`, `log -L`).",
+        "[Rebase](/learn/git/rebase) — конфликты при перебазировании.",
+        "[Cherry-pick и stash](/learn/git/cherry-pick-stash) — конфликты при переносе коммитов и возврате спрятанных правок.",
+        "[Стратегии ветвления](/learn/git/branching-strategies) — как организовать работу, чтобы конфликтов было меньше.",
       ),
     ]),
 

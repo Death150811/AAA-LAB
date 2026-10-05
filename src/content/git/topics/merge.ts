@@ -423,6 +423,11 @@ $ git log --oneline --graph --all --decorate
       ul(
         "[Ветки и HEAD](/learn/git/branches-head) — на какую ветку вы встаёте перед слиянием.",
         "[Коммиты и история](/learn/git/commits-history) — `main..feature`, `--first-parent`, `^2`.",
+        "[Конфликты слияния](/learn/git/merge-conflicts) — что делать, когда обе стороны правили одно место.",
+        "[Rebase](/learn/git/rebase) — альтернатива слиянию для линейной истории.",
+        "[Стратегии ветвления](/learn/git/branching-strategies) — как команды выбирают форму слияния.",
+        "[Reset, revert и reflog](/learn/git/reset-revert-reflog) — откат слияния.",
+        "[Совместная работа](/learn/git/remote-collaboration) — pull = fetch + merge.",
       ),
     ]),
 

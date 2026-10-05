@@ -480,6 +480,11 @@ D  run.sh`, { filename: "сеанс: пустой коммит, смена ре�
     section("related", [
       ul(
         "[Что такое Git: снимки, объекты и ссылки](/learn/git/git-mental-model) — объекты и ссылки, на которых стоят три области.",
+        "[Коммиты и история](/learn/git/commits-history) — как читать результат коммитов.",
+        "[Отмена изменений](/learn/git/undoing-changes) — `restore`, `restore --staged`, `commit --amend`.",
+        "[Игнорирование и отслеживание файлов](/learn/git/gitignore-tracking) — как не допустить в индекс лишнее.",
+        "[Конфликты слияния](/learn/git/merge-conflicts) — стадии 1–3 в индексе.",
+        "[Качество коммитов и хуки](/learn/git/commit-quality-hooks) — атомарные коммиты и автоматические проверки.",
       ),
     ]),
 

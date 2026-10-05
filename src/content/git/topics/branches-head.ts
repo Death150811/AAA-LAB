@@ -444,6 +444,10 @@ $ cat exp.txt
         "[Что такое Git: снимки, объекты и ссылки](/learn/git/git-mental-model) — ветка как файл со ссылкой.",
         "[Коммиты и история](/learn/git/commits-history) — `main..feature` и граф веток.",
         "[Отмена изменений](/learn/git/undoing-changes) — `restore` для файлов при переключении.",
+        "[Слияние](/learn/git/merge) — как объединять ветки.",
+        "[Cherry-pick и stash](/learn/git/cherry-pick-stash) — спрятать правки перед переключением.",
+        "[Reset, revert и reflog](/learn/git/reset-revert-reflog) — восстановление потерянных коммитов.",
+        "[Стратегии ветвления](/learn/git/branching-strategies) — как команды организуют ветки.",
       ),
     ]),
 

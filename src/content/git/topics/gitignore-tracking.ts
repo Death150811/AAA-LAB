@@ -432,6 +432,9 @@ important.log`, { filename: "сеанс: add и игнорируемые фай�
       ul(
         "[Рабочее дерево, индекс и репозиторий](/learn/git/three-areas) — индекс определяет, какие файлы отслеживаются.",
         "[Отмена изменений](/learn/git/undoing-changes) — `git clean` и `restore`, когда мусор уже появился.",
+        "[Поиск по истории](/learn/git/searching-history) — как найти, когда и кем файл был добавлен или удалён.",
+        "[Качество коммитов и хуки](/learn/git/commit-quality-hooks) — автоматическая защита от секретов в коммитах.",
+        "[Совместная работа](/learn/git/remote-collaboration) — общий `.gitignore` и `.gitattributes` для команды.",
       ),
     ]),
 

@@ -368,6 +368,7 @@ Signed-off-by: Alice Dev <alice@example.com>`, { filename: "сеанс: трей
         "[Интерактивный rebase](/learn/git/interactive-rebase) — приведение истории в порядок до публикации.",
         "[Игнорирование и отслеживание файлов](/learn/git/gitignore-tracking) — предотвращение попадания файлов в историю.",
         "[Стратегии ветвления](/learn/git/branching-strategies) — правила процесса, которые поддерживают хуки.",
+        "[Релизы и теги](/learn/git/releases-tags) — версии и журналы изменений.",
       ),
     ]),
 

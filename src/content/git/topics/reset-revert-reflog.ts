@@ -421,6 +421,8 @@ $ git log -1 --oneline HEAD@{4}
         "[Rebase](/learn/git/rebase) — `ORIG_HEAD` и отмена перебазирования.",
         "[Ветки и HEAD](/learn/git/branches-head) — спасение коммитов оторванного HEAD.",
         "[Слияние веток](/learn/git/merge) — коммиты слияния и их родители.",
+        "[Ссылки, пакеты и сборка мусора](/learn/git/refs-packfiles-gc) — когда исчезают недостижимые коммиты.",
+        "[Bisect](/learn/git/bisect) — найти коммит, который стоит откатить.",
       ),
     ]),
 

@@ -538,6 +538,9 @@ Alice Dev <alice@example.com> Wed Jan 15 09:04:00 2025 +0000`, { filename: "се
         "[Rebase](/learn/git/rebase) — массовый cherry-pick и пропуск уже перенесённых патчей.",
         "[Ветки и HEAD](/learn/git/branches-head) — ограничение при переключении с правками.",
         "[Отмена изменений](/learn/git/undoing-changes) — `restore` и `reset` для откатов после переноса.",
+        "[Reset, revert и reflog](/learn/git/reset-revert-reflog) — откат неправильно перенесённых коммитов.",
+        "[Стратегии ветвления](/learn/git/branching-strategies) — как организовать исправления для релизных веток.",
+        "[Релизы и теги](/learn/git/releases-tags) — backport исправлений в поддерживаемые версии.",
       ),
     ]),
 

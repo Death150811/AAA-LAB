@@ -499,6 +499,9 @@ $ git diff -w --stat HEAD~4 HEAD~3`, { filename: "сеанс: варианты g
         "[Коммиты и история](/learn/git/commits-history) — ревизии, диапазоны и фильтры, которые используются в поиске.",
         "[Рабочее дерево, индекс и репозиторий](/learn/git/three-areas) — основа `git diff`.",
         "[Игнорирование и отслеживание файлов](/learn/git/gitignore-tracking) — `--follow` и переименования.",
+        "[Bisect](/learn/git/bisect) — бинарный поиск коммита, принёсшего ошибку, когда нет подсказки в коде.",
+        "[Reset, revert и reflog](/learn/git/reset-revert-reflog) — как отменить найденный коммит.",
+        "[Качество коммитов и хуки](/learn/git/commit-quality-hooks) — атомарные коммиты упрощают поиск.",
       ),
     ]),
 

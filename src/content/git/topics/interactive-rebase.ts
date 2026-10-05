@@ -467,6 +467,9 @@ e719fb2 Добавить вход
         "[Rebase](/learn/git/rebase) — алгоритм перебазирования, `--onto`, `ORIG_HEAD`.",
         "[Отмена изменений](/learn/git/undoing-changes) — `commit --amend` для последнего коммита.",
         "[Совместная работа](/learn/git/remote-collaboration) — публикация перебазированной ветки `--force-with-lease`.",
+        "[Cherry-pick и stash](/learn/git/cherry-pick-stash) — перенос коммитов и временное хранение правок.",
+        "[Bisect](/learn/git/bisect) — поиск ошибки, который требует «рабочих» коммитов.",
+        "[Качество коммитов и хуки](/learn/git/commit-quality-hooks) — единый стиль сообщений.",
       ),
     ]),
 

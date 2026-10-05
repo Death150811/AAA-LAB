@@ -502,6 +502,12 @@ $ git log --oneline --reverse HEAD~2..
       ul(
         "[Что такое Git: снимки, объекты и ссылки](/learn/git/git-mental-model) — коммит как объект с родителями.",
         "[Рабочее дерево, индекс и репозиторий](/learn/git/three-areas) — откуда берутся коммиты.",
+        "[Поиск по истории](/learn/git/searching-history) — `log -S`, `blame`, `--follow`.",
+        "[Ветки и HEAD](/learn/git/branches-head) — на что указывают ветки и HEAD.",
+        "[Слияние](/learn/git/merge) — коммит с двумя родителями.",
+        "[Cherry-pick и stash](/learn/git/cherry-pick-stash) — диапазоны в `cherry-pick`.",
+        "[Релизы и теги](/learn/git/releases-tags) — диапазоны между тегами.",
+        "[Качество коммитов и хуки](/learn/git/commit-quality-hooks) — как поддерживать читаемую историю.",
       ),
     ]),
 

@@ -395,6 +395,10 @@ def run():
       ul(
         "[Рабочее дерево, индекс и репозиторий](/learn/git/three-areas) — три области, между которыми копирует `restore`.",
         "[Коммиты и история](/learn/git/commits-history) — ревизии для `--source` и `revert`.",
+        "[Игнорирование и отслеживание файлов](/learn/git/gitignore-tracking) — как не допускать мусор в рабочий каталог.",
+        "[Reset, revert и reflog](/learn/git/reset-revert-reflog) — перемещение веток и восстановление потерянных коммитов.",
+        "[Cherry-pick и stash](/learn/git/cherry-pick-stash) — безопасно спрятать правки перед рискованной операцией.",
+        "[Совместная работа](/learn/git/remote-collaboration) — почему нельзя переписывать опубликованную историю.",
       ),
     ]),
 
