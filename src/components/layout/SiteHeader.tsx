@@ -49,6 +49,12 @@ export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line-strong bg-bg">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-[3px] focus:bg-accent focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-accent-ink"
+      >
+        Перейти к содержимому
+      </a>
       <div className="mx-auto flex h-[var(--header-h)] max-w-[1600px] items-center gap-3 px-4 sm:px-6">
         <Logo />
 
@@ -66,7 +72,7 @@ export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
           <Link href="/playground" className={linkCls(pathname.startsWith("/playground"))}>
             Песочница
           </Link>
-          <Link href="/flashcards" className={linkCls(pathname.startsWith("/flashcards"))}>
+          <Link href="/flashcards" prefetch={false} className={linkCls(pathname.startsWith("/flashcards"))}>
             Карточки
           </Link>
         </nav>

@@ -80,25 +80,63 @@
   --fg: #1c1913;
   --fg-body: #2a261c;
   --fg-muted: #4b4435;
-  --fg-dim: #685f4a;
+  --fg-dim: #5a523e;
   --bone: #1c1913;
-  --vermilion: #b8341a;
-  --lapis: #2f55c0;
-  --gamboge: #8a5f00;
-  --verdigris: #1f7a63;
-  --madder: #a8345d;
-  --tyrian: #6a49a8;
+  --vermilion: #a82e16;
+  --lapis: #2a4cb0;
+  --gamboge: #704b00;
+  --verdigris: #135f4a;
+  --madder: #9a2b54;
+  --tyrian: #5f3f9c;
   --accent-ink: #f4eede;
-  --emerald: #1f7a63;
-  --amber: #8a5f00;
-  --rose: #b3321f;
-  --indigo: #2f55c0;
-  --steel: #5e5644;
+  --emerald: #135f4a;
+  --amber: #704b00;
+  --rose: #a22b19;
+  --indigo: #2a4cb0;
+  --steel: #564e3c;
 }
 [data-theme="paper"] [data-domain],
 [data-theme="paper"][data-domain] {
   --accent-text: var(--accent);
 }
+
+/* Плашки с кодом остаются тёмными и на «бумаге»: внутри них действуют ночные токены */
+[data-theme="paper"] .bg-code {
+  color-scheme: dark;
+  --bg: #0f0e0c;
+  --bg-raised: #14120f;
+  --surface: #191712;
+  --surface-2: #1f1c16;
+  --surface-3: #27231b;
+  --line: #2f2b21;
+  --line-strong: #4a4332;
+  --fg: #ece5d3;
+  --fg-body: #ddd5c1;
+  --fg-muted: #b8ae98;
+  --fg-dim: #968d77;
+  --vermilion: #e8603f;
+  --lapis: #6f95ee;
+  --gamboge: #e6b43e;
+  --verdigris: #52bda0;
+  --madder: #dc7396;
+  --tyrian: #a98adb;
+  --emerald: #52bda0;
+  --amber: #e6b43e;
+  --rose: #e5675a;
+  --indigo: #6f95ee;
+  --steel: #a39a85;
+  --accent: #ece5d3;
+  --accent-ink: #0f0e0c;
+  --accent-text: #ece5d3;
+  /* color наследуется уже вычисленным: без явного значения внутри останется цвет «бумаги» */
+  color: var(--fg-body);
+}
+[data-theme="paper"] [data-domain="html"] .bg-code { --accent: #e8603f; --accent-text: #ee7455; }
+[data-theme="paper"] [data-domain="css"] .bg-code { --accent: #6f95ee; --accent-text: #86a6f2; }
+[data-theme="paper"] [data-domain="js"] .bg-code { --accent: #e6b43e; --accent-text: #e6b43e; }
+[data-theme="paper"] [data-domain="sql"] .bg-code { --accent: #52bda0; --accent-text: #66cbb0; }
+[data-theme="paper"] [data-domain="git"] .bg-code { --accent: #dc7396; --accent-text: #e58aa9; }
+[data-theme="paper"] [data-domain="cs"] .bg-code { --accent: #a98adb; --accent-text: #b79be3; }
 
 @theme inline {
   --color-bg: var(--bg);

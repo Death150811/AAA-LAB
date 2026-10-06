@@ -98,7 +98,7 @@ export function KnowledgeMap({ nodes, edges, domains, width, height }: Props) {
     <figure className="relative m-0" aria-label="Карта знаний">
       <svg
         viewBox={`0 0 ${width} ${height}`}
-        role="img"
+        role="group"
         aria-label={`Карта знаний: ${nodes.length} тем шести доменов, ${edges.length} связей «опирается на». Изучено тем: ${doneCount}.`}
         className="block h-auto w-full overflow-visible"
       >

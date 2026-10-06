@@ -68,7 +68,7 @@ export function Ledger({ totalTopics, className }: { totalTopics: number; classN
             <span className="ml-2 text-[13px] text-fg-muted">{plural(days, ["день", "дня", "дней"])}<span className="hidden sm:inline"> подряд</span></span>
           </div>
         </div>
-        <Link href="/flashcards" className={cn(cell, "group border-l transition-colors hover:bg-surface/60")}>
+        <Link href="/flashcards" prefetch={false} className={cn(cell, "group border-l transition-colors hover:bg-surface/60")}>
           <div className="label text-fg-dim">К повторению</div>
           <div>
             <span className={num}>{due}</span>

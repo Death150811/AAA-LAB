@@ -26,7 +26,7 @@ export function ContinueButton({ nav }: { nav: NavDomain }) {
       className="group inline-flex h-12 items-center gap-2.5 rounded-[3px] border border-accent bg-accent px-6 text-[0.95rem] font-semibold text-accent-ink transition-[transform,background-color] hover:bg-accent/85 active:scale-[0.97]"
     >
       {finished ? "Повторить курс" : started ? "Продолжить" : "Начать курс"}
-      <span className="hidden max-w-[16rem] truncate font-normal opacity-80 sm:inline">· {nextTopic.title}</span>
+      <span className="hidden max-w-[16rem] truncate font-normal sm:inline">· {nextTopic.title}</span>
       <ArrowRight size={17} aria-hidden className="transition-transform group-hover:translate-x-1" />
     </Link>
   );

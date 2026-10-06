@@ -78,7 +78,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
         <>
           <ul className="m-0 mt-8 grid list-none gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
             <li>
-              <Link href="/flashcards" className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:border-accent/60">
+              <Link href="/flashcards" prefetch={false} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:border-accent/60">
                 <div className="eyebrow">Вспомнить</div>
                 <div className="mt-2 font-display text-[1.28rem] font-normal leading-snug text-fg">Карточки</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">Определения и различия с интервальным повторением. {cardCount} карточек.</p>

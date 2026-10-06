@@ -17,7 +17,7 @@ export function SiteFooter() {
         <nav aria-label="Служебные ссылки" className="flex flex-wrap gap-x-7 gap-y-2 text-[13px] text-fg-muted">
           <Link href="/learn" className="hover:text-fg">Программа</Link>
           <Link href="/playground" className="hover:text-fg">Песочницы</Link>
-          <Link href="/flashcards" className="hover:text-fg">Карточки</Link>
+          <Link href="/flashcards" prefetch={false} className="hover:text-fg">Карточки</Link>
           <Link href="/me" className="hover:text-fg">Мой прогресс</Link>
         </nav>
       </div>

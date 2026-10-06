@@ -77,8 +77,8 @@ export function AnnotatedCode({
                 aria-pressed={on}
                 aria-label={`Показать строки ${tag} в коде`}
                 className={cn(
-                  "mt-[3px] h-fit shrink-0 rounded border px-1.5 py-0.5 font-mono text-[11px] tabular transition-colors",
-                  on ? "border-accent/60 bg-accent/20 text-accent-text" : "border-line-strong text-fg-dim hover:text-fg",
+                  "mt-[3px] h-fit shrink-0 rounded-[2px] border px-1.5 py-0.5 font-mono text-[11px] tabular transition-colors",
+                  on ? "border-accent bg-accent text-accent-ink" : "border-line-strong text-fg-dim hover:text-fg",
                 )}
               >
                 {tag}
