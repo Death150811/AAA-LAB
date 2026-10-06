@@ -34,5 +34,6 @@ export const csDomain: DomainDef = {
     { id: "databases", index: 6, project: "cs.p06-mini-database", title: "Базы данных (теория)", titleEn: "Database Theory", summary: "Теория, стоящая за SQL: отношения, индексы, транзакции.", level: "advanced" },
     { id: "languages", index: 7, title: "Языки программирования", titleEn: "Programming Language Concepts", summary: "Компиляция, интерпретация, парсинг, система типов, модели памяти.", level: "advanced" },
     { id: "software-engineering", index: 8, title: "Программная инженерия", titleEn: "Software Engineering", summary: "Абстракция, модульность, связность, тестирование, архитектура.", level: "engineering" },
+    { id: "capstone", index: 9, project: "cs.p07-mini-ml", title: "Итоговый проект", titleEn: "Final Project", summary: "Мини-ML: лексер, парсер, вывод типов Хиндли — Милнера, интерпретатор и компилятор в байт-код с виртуальной машиной — и тесты, проверяемые мутациями.", level: "mastery" },
   ],
 };

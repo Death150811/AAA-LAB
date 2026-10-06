@@ -5,5 +5,6 @@ import { p03CpuAndCache } from "./p03-cpu-and-cache";
 import { p04SchedulerAndMemory } from "./p04-scheduler-and-memory";
 import { p05WireProtocols } from "./p05-wire-protocols";
 import { p06MiniDatabase } from "./p06-mini-database";
+import { p07MiniMl } from "./p07-mini-ml";
 
-export const csProjects: Project[] = [p01AlgorithmLab, p02DataStructureLibrary, p03CpuAndCache, p04SchedulerAndMemory, p05WireProtocols, p06MiniDatabase];
+export const csProjects: Project[] = [p01AlgorithmLab, p02DataStructureLibrary, p03CpuAndCache, p04SchedulerAndMemory, p05WireProtocols, p06MiniDatabase, p07MiniMl];
