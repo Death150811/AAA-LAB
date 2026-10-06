@@ -3,17 +3,20 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import type { Accent } from "@/content/types";
 
+/** Пигменты доменов: статичные классы (Tailwind должен видеть их целиком). */
 export const ACCENT: Record<Accent, { text: string; border: string; bg: string; solid: string }> = {
-  cyan: { text: "text-cyan", border: "border-cyan/40", bg: "bg-cyan/10", solid: "bg-cyan" },
-  emerald: { text: "text-emerald", border: "border-emerald/40", bg: "bg-emerald/10", solid: "bg-emerald" },
-  indigo: { text: "text-indigo", border: "border-indigo/40", bg: "bg-indigo/10", solid: "bg-indigo" },
-  steel: { text: "text-steel", border: "border-steel/40", bg: "bg-steel/10", solid: "bg-steel" },
+  vermilion: { text: "text-vermilion", border: "border-vermilion/40", bg: "bg-vermilion/10", solid: "bg-vermilion" },
+  lapis: { text: "text-lapis", border: "border-lapis/40", bg: "bg-lapis/10", solid: "bg-lapis" },
+  gamboge: { text: "text-gamboge", border: "border-gamboge/40", bg: "bg-gamboge/10", solid: "bg-gamboge" },
+  verdigris: { text: "text-verdigris", border: "border-verdigris/40", bg: "bg-verdigris/10", solid: "bg-verdigris" },
+  madder: { text: "text-madder", border: "border-madder/40", bg: "bg-madder/10", solid: "bg-madder" },
+  tyrian: { text: "text-tyrian", border: "border-tyrian/40", bg: "bg-tyrian/10", solid: "bg-tyrian" },
 };
 
-type BadgeTone = "neutral" | "cyan" | "emerald" | "indigo" | "amber" | "rose";
+type BadgeTone = "neutral" | "accent" | "emerald" | "indigo" | "amber" | "rose";
 const BADGE: Record<BadgeTone, string> = {
   neutral: "border-line-strong text-fg-muted bg-surface-2",
-  cyan: "border-cyan/35 text-cyan bg-cyan/10",
+  accent: "border-accent/35 text-accent-text bg-accent/10",
   emerald: "border-emerald/35 text-emerald bg-emerald/10",
   indigo: "border-indigo/35 text-indigo bg-indigo/10",
   amber: "border-amber/35 text-amber bg-amber/10",
@@ -24,7 +27,7 @@ export function Badge({ tone = "neutral", className, children }: { tone?: BadgeT
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1 rounded border px-1.5 py-[3px] font-mono text-[10px] font-medium uppercase leading-none tracking-wider",
+        "inline-flex items-center gap-1 rounded-[2px] border px-1.5 py-[3px] font-label text-[9.5px] font-medium uppercase leading-none tracking-wider",
         BADGE[tone],
         className,
       )}
@@ -35,9 +38,9 @@ export function Badge({ tone = "neutral", className, children }: { tone?: BadgeT
 }
 
 const BTN_BASE =
-  "inline-flex items-center justify-center gap-2 rounded-lg border text-sm font-medium transition-[transform,background-color,border-color,color] duration-150 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex items-center justify-center gap-2 rounded-[3px] border text-sm font-medium transition-[transform,background-color,border-color,color] duration-150 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50";
 const BTN: Record<"primary" | "secondary" | "ghost", string> = {
-  primary: "border-cyan bg-cyan text-bg hover:bg-[#5ad6e8] font-semibold",
+  primary: "border-accent bg-accent text-accent-ink hover:bg-accent/85 font-semibold",
   secondary: "border-line-strong bg-surface-2 text-fg hover:border-steel/60 hover:bg-surface-3",
   ghost: "border-transparent text-fg-muted hover:bg-surface-2 hover:text-fg",
 };
@@ -81,7 +84,7 @@ export function Eyebrow({ children, className }: { children: ReactNode; classNam
 
 export function ProgressBar({
   value,
-  accent = "cyan",
+  accent,
   label,
   className,
 }: {
@@ -101,7 +104,7 @@ export function ProgressBar({
       className={cn("h-1 w-full overflow-hidden rounded-full bg-surface-3", className)}
     >
       <div
-        className={cn("h-full rounded-full transition-[width] duration-700 ease-out", ACCENT[accent].solid)}
+        className={cn("h-full rounded-full transition-[width] duration-700 ease-out", accent ? ACCENT[accent].solid : "bg-accent")}
         style={{ width: `${pct}%` }}
       />
     </div>

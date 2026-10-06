@@ -24,7 +24,7 @@ export const jsDomain: DomainDef = {
   ],
   prerequisites: ["Курс HTML (модули 1–5)", "Желательно: основы CSS"],
   estimatedHours: 90,
-  accent: "emerald",
+  accent: "gamboge",
   modules: [
     { id: "language", index: 1, project: "js.p01-data-without-surprises", title: "Основы языка", titleEn: "Language Fundamentals", summary: "Переменные, типы, операторы, приведение, равенство, управляющие конструкции.", level: "foundation" },
     { id: "functions", index: 2, title: "Функции", titleEn: "Functions", summary: "Объявления, выражения, параметры, функции высшего порядка, рекурсия.", level: "foundation" },

@@ -15,7 +15,7 @@ const CALLOUT: Record<
   tip: { icon: <Lightbulb size={16} />, label: "Практика", border: "border-emerald/40", bg: "bg-emerald/[0.07]", fg: "text-emerald" },
   warning: { icon: <TriangleAlert size={16} />, label: "Осторожно", border: "border-amber/40", bg: "bg-amber/[0.07]", fg: "text-amber" },
   danger: { icon: <AlertOctagon size={16} />, label: "Опасно", border: "border-rose/40", bg: "bg-rose/[0.07]", fg: "text-rose" },
-  insight: { icon: <Sparkles size={16} />, label: "Ключевая идея", border: "border-cyan/40", bg: "bg-cyan/[0.07]", fg: "text-cyan" },
+  insight: { icon: <Sparkles size={16} />, label: "Ключевая идея", border: "border-accent/40", bg: "bg-accent/[0.07]", fg: "text-accent-text" },
 };
 
 export async function BlockView({ block }: { block: Block }) {
@@ -74,7 +74,7 @@ export async function BlockView({ block }: { block: Block }) {
             {c.icon}
             <span>{block.title ?? c.label}</span>
           </div>
-          <div className="text-[0.97rem] leading-relaxed text-[#cbd3df]">
+          <div className="text-[0.97rem] leading-relaxed text-fg-body">
             <Inline text={block.text} />
           </div>
         </div>
@@ -107,7 +107,7 @@ export async function BlockView({ block }: { block: Block }) {
               {block.rows.map((row, r) => (
                 <tr key={r} className="border-b border-line last:border-0 odd:bg-surface/40">
                   {row.map((cell, c) => (
-                    <td key={c} className="px-4 py-2.5 align-top leading-snug text-[#cbd3df]">
+                    <td key={c} className="px-4 py-2.5 align-top leading-snug text-fg-body">
                       <Inline text={cell} />
                     </td>
                   ))}
@@ -120,12 +120,12 @@ export async function BlockView({ block }: { block: Block }) {
 
     case "definition":
       return (
-        <div className="rounded-lg border border-line border-l-2 border-l-cyan bg-surface/60 px-5 py-4">
+        <div className="rounded-lg border border-line border-l-2 border-l-accent bg-surface/60 px-5 py-4">
           <div className="mb-1 flex flex-wrap items-baseline gap-x-2.5">
             <span className="text-lg font-semibold tracking-tight text-fg">{block.term}</span>
             {block.en && <span className="font-mono text-xs text-fg-dim">({block.en})</span>}
           </div>
-          <p className="!mt-0 text-[1.02rem] leading-relaxed text-[#d4dbe6]">
+          <p className="!mt-0 text-[1.02rem] leading-relaxed text-code-fg">
             <Inline text={block.text} />
           </p>
         </div>
@@ -163,12 +163,12 @@ export async function BlockView({ block }: { block: Block }) {
                 {i < block.items.length - 1 && (
                   <span aria-hidden className="absolute left-[13px] top-8 bottom-0 w-px bg-line-strong" />
                 )}
-                <span className="relative z-10 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-line-strong bg-surface-2 font-mono text-xs text-cyan tabular">
+                <span className="relative z-10 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-line-strong bg-surface-2 font-mono text-xs text-accent-text tabular">
                   {i + 1}
                 </span>
                 <div className="min-w-0 pt-0.5">
                   <div className="font-semibold text-fg">{s.title}</div>
-                  <div className="mt-0.5 text-[0.95rem] leading-relaxed text-[#bcc6d4]">
+                  <div className="mt-0.5 text-[0.95rem] leading-relaxed text-fg-muted">
                     <Inline text={s.text} />
                   </div>
                 </div>
@@ -180,10 +180,10 @@ export async function BlockView({ block }: { block: Block }) {
 
     case "diagram":
       return (
-        <figure className="m-0 overflow-hidden rounded-lg border border-line bg-[#0b1017]">
+        <figure className="m-0 overflow-hidden rounded-lg border border-line bg-code">
           <div className="scroll-x">
             <pre
-              className="m-0 w-max min-w-full px-5 py-4 font-mono text-[12.5px] leading-[1.55] text-[#b6c2d3]"
+              className="m-0 w-max min-w-full px-5 py-4 font-mono text-[12.5px] leading-[1.55] text-code-fg"
               tabIndex={0}
               aria-label={block.caption ?? "Схема"}
             >
@@ -222,7 +222,7 @@ function CompareCard({
         {label}
       </div>
       <CodeView lang={side.lang} code={side.code} bare />
-      <p className="!mt-0 px-0.5 text-[0.93rem] leading-relaxed text-[#bcc6d4]">
+      <p className="!mt-0 px-0.5 text-[0.93rem] leading-relaxed text-fg-muted">
         <Inline text={side.note} />
       </p>
     </div>

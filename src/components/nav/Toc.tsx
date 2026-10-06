@@ -45,7 +45,7 @@ export function Toc({ items, label = "Содержание" }: { items: TocItem[
                 className={cn(
                   "relative flex gap-2.5 py-1 pl-3 pr-1 text-[13px] leading-snug transition-colors",
                   on
-                    ? "text-fg before:absolute before:inset-y-0 before:-left-px before:w-[2px] before:bg-cyan"
+                    ? "text-fg before:absolute before:inset-y-0 before:-left-px before:w-[2px] before:bg-accent"
                     : "text-fg-muted hover:text-fg",
                 )}
               >

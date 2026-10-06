@@ -9,7 +9,7 @@ export function PlaygroundLink({ code }: { code: string }) {
   return (
     <Link
       href={`/playground#html=${encoded}`}
-      className="inline-flex h-7 items-center gap-1.5 rounded-md border border-line bg-surface-2 px-2 text-[11px] font-medium text-cyan transition-colors hover:border-cyan/50 active:scale-[0.97]"
+      className="inline-flex h-7 items-center gap-1.5 rounded-md border border-line bg-surface-2 px-2 text-[11px] font-medium text-accent-text transition-colors hover:border-accent/50 active:scale-[0.97]"
     >
       <Play size={12} aria-hidden />
       Открыть в песочнице

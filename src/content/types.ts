@@ -12,7 +12,7 @@ export type Level = "foundation" | "core" | "intermediate" | "advanced" | "engin
 
 export type Difficulty = "foundation" | "intermediate" | "advanced";
 
-export type Accent = "cyan" | "emerald" | "indigo" | "steel";
+export type Accent = "vermilion" | "lapis" | "gamboge" | "verdigris" | "madder" | "tyrian";
 
 /* ───────────────────────────── Блоки ───────────────────────────── */
 

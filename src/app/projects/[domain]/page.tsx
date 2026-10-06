@@ -45,7 +45,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ domai
           <span aria-hidden className="absolute bottom-6 left-[19px] top-6 hidden w-px bg-line-strong sm:block" />
           {projects.map((p) => (
             <li key={p.id} className="relative sm:pl-14">
-              <span className="absolute left-0 top-5 hidden h-10 w-10 place-items-center rounded-full border border-line-strong bg-surface font-mono text-sm tabular text-cyan sm:grid">
+              <span className="absolute left-0 top-5 hidden h-10 w-10 place-items-center rounded-full border border-line-strong bg-surface font-mono text-sm tabular text-accent-text sm:grid">
                 {String(p.order).padStart(2, "0")}
               </span>
               <Link
@@ -53,7 +53,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ domai
                 className="group block rounded-xl border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong sm:p-6"
               >
                 <div className="flex flex-wrap items-center gap-2">
-                  <Badge tone="cyan">{LEVEL_LABEL[p.level]}</Badge>
+                  <Badge tone="accent">{LEVEL_LABEL[p.level]}</Badge>
                   {p.isFinal && <Badge tone="amber">Финальный</Badge>}
                   <span className="flex items-center gap-1.5 text-xs text-fg-dim"><Clock size={12} aria-hidden /> ~{p.estimatedHours} ч</span>
                   <span className="ml-auto"><ProjectStatus projectId={p.id} /></span>
@@ -61,7 +61,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ domai
                 <h2 className="mt-3 text-[1.35rem] font-semibold tracking-tight text-fg">{p.title}</h2>
                 <p className="mono mt-1 text-[11px] text-fg-dim">{p.subtitle}</p>
                 <p className="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-fg-muted"><Inline text={p.objective} /></p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm text-cyan">
+                <span className="mt-4 inline-flex items-center gap-1 text-sm text-accent-text">
                   Открыть задание <ArrowRight size={14} aria-hidden className="transition-transform group-hover:translate-x-0.5" />
                 </span>
               </Link>

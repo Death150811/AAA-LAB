@@ -23,7 +23,7 @@ export function ContinueButton({ nav }: { nav: NavDomain }) {
   return (
     <Link
       href={nextTopic.href}
-      className="inline-flex h-12 items-center gap-2.5 rounded-lg border border-cyan bg-cyan px-6 text-[0.95rem] font-semibold text-bg transition-[transform,background-color] hover:bg-[#5ad6e8] active:scale-[0.97]"
+      className="inline-flex h-12 items-center gap-2.5 rounded-lg border border-accent bg-accent px-6 text-[0.95rem] font-semibold text-accent-ink transition-[transform,background-color] hover:bg-[#5ad6e8] active:scale-[0.97]"
     >
       {finished ? "Повторить курс" : started ? "Продолжить" : "Начать курс"}
       <span className="hidden max-w-[16rem] truncate font-normal opacity-80 sm:inline">· {nextTopic.title}</span>
@@ -98,7 +98,7 @@ export function DomainCurriculum({ nav }: { nav: NavDomain }) {
                 <p className="mt-1.5 max-w-2xl text-[0.93rem] leading-relaxed text-fg-muted">{m.summary}</p>
               </div>
               <div className="flex items-center gap-3">
-                <Badge tone={ready ? "cyan" : "neutral"}>{LEVEL_LABEL[m.level]}</Badge>
+                <Badge tone={ready ? "accent" : "neutral"}>{LEVEL_LABEL[m.level]}</Badge>
                 {ready ? (
                   <span className="mono text-xs text-fg-dim tabular">
                     {done}/{m.topics.length}
@@ -119,7 +119,7 @@ export function DomainCurriculum({ nav }: { nav: NavDomain }) {
                         className="group flex h-full items-center gap-3 px-5 py-3 text-[0.93rem] text-fg-muted transition-colors hover:bg-surface-2 hover:text-fg"
                       >
                         {isDone ? (
-                          <Check size={15} aria-label="Изучено" className={cn("shrink-0", ACCENT.emerald.text)} />
+                          <Check size={15} aria-label="Изучено" className={cn("shrink-0", "text-emerald")} />
                         ) : (
                           <Circle size={15} aria-hidden className="shrink-0 text-fg-dim/50" />
                         )}
@@ -137,7 +137,7 @@ export function DomainCurriculum({ nav }: { nav: NavDomain }) {
                 href={m.project.href}
                 className="group flex items-center gap-3 border-t border-line px-5 py-3 text-[0.93rem] text-fg-muted transition-colors hover:bg-surface-2 hover:text-fg"
               >
-                <Hammer size={15} aria-hidden className={cn("shrink-0", ACCENT.cyan.text)} />
+                <Hammer size={15} aria-hidden className={cn("shrink-0", "text-accent-text")} />
                 <span className="mono text-[11px] uppercase tracking-wide text-fg-dim">Проект модуля</span>
                 <span className="min-w-0 flex-1 leading-snug">{m.project.title}</span>
                 <span className="mono shrink-0 text-[11px] text-fg-dim tabular">{m.project.hours} ч</span>

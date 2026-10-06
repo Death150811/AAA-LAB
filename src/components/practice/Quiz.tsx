@@ -192,7 +192,7 @@ function McqCard({
                 checked && "cursor-default",
                 state === "right" && "border-emerald/50 bg-emerald/[0.07]",
                 state === "wrong" && "border-rose/50 bg-rose/[0.07]",
-                state === "idle" && (selected ? "border-cyan/50 bg-cyan/[0.06]" : "border-line hover:border-line-strong hover:bg-surface-2"),
+                state === "idle" && (selected ? "border-accent/50 bg-accent/[0.06]" : "border-line hover:border-line-strong hover:bg-surface-2"),
               )}
             >
               <input
@@ -203,7 +203,7 @@ function McqCard({
                 onChange={() =>
                   setPicked((p) => (multi ? (selected ? p.filter((x) => x !== i) : [...p, i]) : [i]))
                 }
-                className="mt-1 h-4 w-4 shrink-0 accent-[var(--cyan)]"
+                className="mt-1 h-4 w-4 shrink-0 accent-[var(--accent)]"
               />
               <span className="min-w-0 flex-1">
                 <Inline text={opt} />
@@ -221,7 +221,7 @@ function McqCard({
             type="button"
             onClick={check}
             disabled={!picked.length}
-            className="h-9 rounded-lg border border-cyan bg-cyan px-4 text-[13px] font-semibold text-bg transition-transform active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40"
+            className="h-9 rounded-lg border border-accent bg-accent px-4 text-[13px] font-semibold text-accent-ink transition-transform active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Проверить
           </button>
@@ -248,7 +248,7 @@ function McqCard({
           <div className={cn("mb-1 text-[13px] font-semibold", isRight ? "text-emerald" : "text-amber")}>
             {isRight ? "Верно" : "Не совсем"}
           </div>
-          <div className="text-[#c6cfdb]">
+          <div className="text-fg-body">
             <Inline text={q.explanation} />
           </div>
         </div>
@@ -293,7 +293,7 @@ function OpenCard({
         id={id}
         rows={4}
         placeholder="Сформулируйте ответ своими словами, прежде чем смотреть эталон. Текст нигде не сохраняется."
-        className="w-full resize-y rounded-lg border border-line bg-bg-raised px-3 py-2.5 text-[0.93rem] leading-relaxed text-fg placeholder:text-fg-dim focus:border-cyan/60 focus:outline-none"
+        className="w-full resize-y rounded-lg border border-line bg-bg-raised px-3 py-2.5 text-[0.93rem] leading-relaxed text-fg placeholder:text-fg-dim focus:border-accent/60 focus:outline-none"
       />
       {!shown ? (
         <button
@@ -312,7 +312,7 @@ function OpenCard({
               {q.rubric.map((r, i) => (
                 <li key={i}>
                   <label className="flex cursor-pointer items-start gap-2.5 text-[0.92rem] leading-relaxed text-fg-muted">
-                    <input type="checkbox" className="mt-1 h-4 w-4 shrink-0 accent-[var(--cyan)]" />
+                    <input type="checkbox" className="mt-1 h-4 w-4 shrink-0 accent-[var(--accent)]" />
                     <span>{r}</span>
                   </label>
                 </li>

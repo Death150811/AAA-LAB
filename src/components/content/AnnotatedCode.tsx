@@ -43,7 +43,7 @@ export function AnnotatedCode({
     <div className="space-y-3">
       <figure
         className={cn(
-          "m-0 overflow-hidden rounded-lg border border-line bg-[#0b1017]",
+          "m-0 overflow-hidden rounded-lg border border-line bg-code",
           // Короткий код остаётся на виду, пока читаются пояснения (только на широких экранах).
           lines.length <= 14 && "md:sticky md:top-[calc(var(--header-h)+0.75rem)] md:z-10 md:shadow-[0_12px_24px_-12px_rgb(0_0_0/0.8)]",
         )}
@@ -68,7 +68,7 @@ export function AnnotatedCode({
               onMouseEnter={() => setActive(i)}
               className={cn(
                 "!mt-0 flex gap-3 rounded-md border px-3.5 py-2.5 text-[0.95rem] leading-relaxed transition-colors",
-                on ? "border-cyan/40 bg-cyan/[0.06]" : "border-line bg-surface/50",
+                on ? "border-accent/40 bg-accent/[0.06]" : "border-line bg-surface/50",
               )}
             >
               <button
@@ -78,7 +78,7 @@ export function AnnotatedCode({
                 aria-label={`Показать строки ${tag} в коде`}
                 className={cn(
                   "mt-[3px] h-fit shrink-0 rounded border px-1.5 py-0.5 font-mono text-[11px] tabular transition-colors",
-                  on ? "border-cyan/60 bg-cyan/20 text-cyan" : "border-line-strong text-fg-dim hover:text-fg",
+                  on ? "border-accent/60 bg-accent/20 text-accent-text" : "border-line-strong text-fg-dim hover:text-fg",
                 )}
               >
                 {tag}

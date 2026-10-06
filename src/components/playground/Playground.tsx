@@ -21,7 +21,7 @@ const TAB_LABEL: Record<Tab, string> = { html: "HTML", css: "CSS", js: "JavaScri
 const LEVELS = ["log", "info", "warn", "error", "debug"];
 const LEVEL_STYLE: Record<LogLine["level"], string> = {
   log: "text-fg",
-  info: "text-cyan",
+  info: "text-accent-text",
   debug: "text-fg-muted",
   warn: "text-amber",
   error: "text-rose",
@@ -184,7 +184,7 @@ export function Playground() {
               if (ex) loadSource({ html: ex.html, css: ex.css, js: ex.js });
               e.target.value = "";
             }}
-            className="h-9 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg-muted focus:border-cyan/60 focus:outline-none"
+            className="h-9 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg-muted focus:border-accent/60 focus:outline-none"
           >
             <option value="" disabled>
               Загрузить пример…
@@ -195,7 +195,7 @@ export function Playground() {
               </option>
             ))}
           </select>
-          <button type="button" onClick={() => execute(source)} className="inline-flex h-9 items-center gap-2 rounded-lg border border-cyan bg-cyan px-3.5 text-[13px] font-semibold text-bg active:scale-[0.97]">
+          <button type="button" onClick={() => execute(source)} className="inline-flex h-9 items-center gap-2 rounded-lg border border-accent bg-accent px-3.5 text-[13px] font-semibold text-accent-ink active:scale-[0.97]">
             <Play size={14} aria-hidden /> Запустить <kbd className="hidden font-mono text-[10px] opacity-70 sm:inline">Ctrl+Enter</kbd>
           </button>
           <button type="button" onClick={() => loadSource(EMPTY)} className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg">
@@ -212,7 +212,7 @@ export function Playground() {
 
       <div className="grid gap-4 lg:grid-cols-2">
         {/* Редактор */}
-        <section aria-label="Редактор" className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-[#0b1017]">
+        <section aria-label="Редактор" className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-code">
           <div className="flex items-center border-b border-line bg-surface px-2">
             <div role="tablist" aria-label="Язык редактора" className="flex items-center">
             {(Object.keys(TAB_LABEL) as Tab[]).map((t) => (
@@ -226,13 +226,13 @@ export function Playground() {
                 className={cn("relative px-3.5 py-2.5 text-[13px] font-medium transition-colors", tab === t ? "text-fg" : "text-fg-muted hover:text-fg")}
               >
                 {TAB_LABEL[t]}
-                {source[t].trim() && <span aria-hidden className="ml-1.5 inline-block h-1 w-1 rounded-full bg-cyan align-middle" />}
-                {tab === t && <span aria-hidden className="absolute inset-x-2 -bottom-px h-[2px] bg-cyan" />}
+                {source[t].trim() && <span aria-hidden className="ml-1.5 inline-block h-1 w-1 rounded-full bg-accent align-middle" />}
+                {tab === t && <span aria-hidden className="absolute inset-x-2 -bottom-px h-[2px] bg-accent" />}
               </button>
             ))}
             </div>
             <label className="ml-auto flex cursor-pointer items-center gap-2 px-2 text-[12px] text-fg-muted">
-              <input type="checkbox" checked={auto} onChange={(e) => setAuto(e.target.checked)} className="h-3.5 w-3.5 accent-[var(--cyan)]" />
+              <input type="checkbox" checked={auto} onChange={(e) => setAuto(e.target.checked)} className="h-3.5 w-3.5 accent-[var(--accent)]" />
               Автообновление HTML/CSS
             </label>
           </div>
@@ -249,7 +249,7 @@ export function Playground() {
               autoCapitalize="off"
               autoCorrect="off"
               wrap="off"
-              className="block h-full min-h-[22rem] w-full resize-y bg-transparent p-4 font-mono text-[13px] leading-[1.65] text-[#d4dbe6] outline-none"
+              className="block h-full min-h-[22rem] w-full resize-y bg-transparent p-4 font-mono text-[13px] leading-[1.65] text-code-fg outline-none"
               placeholder={tab === "html" ? "<h1>Привет</h1>" : tab === "css" ? "h1 { color: tomato; }" : "console.log('Привет');"}
             />
           </div>
@@ -274,7 +274,7 @@ export function Playground() {
             />
           </section>
 
-          <section aria-label="Консоль" className="overflow-hidden rounded-xl border border-line bg-[#0b1017]">
+          <section aria-label="Консоль" className="overflow-hidden rounded-xl border border-line bg-code">
             <div className="flex items-center justify-between border-b border-line bg-surface px-3 py-2">
               <span className="eyebrow">
                 Консоль{" "}

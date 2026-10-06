@@ -65,7 +65,7 @@ export function ExerciseCard({ id, title, kind, difficulty, topicId, domain, hin
                     type="checkbox"
                     checked={ticked[i]}
                     onChange={(e) => setTicked((t) => t.map((v, j) => (j === i ? e.target.checked : v)))}
-                    className="mt-1 h-4 w-4 shrink-0 accent-[var(--cyan)]"
+                    className="mt-1 h-4 w-4 shrink-0 accent-[var(--accent)]"
                   />
                   <span>
                     <Inline text={c} />
@@ -80,7 +80,7 @@ export function ExerciseCard({ id, title, kind, difficulty, topicId, domain, hin
       {hintCount > 0 && (
         <ol className="m-0 mt-4 list-none space-y-2 p-0">
           {hints.slice(0, hintCount).map((h, i) => (
-            <li key={i} className="flex gap-2.5 rounded-lg border border-amber/25 bg-amber/[0.05] px-3.5 py-2.5 text-[0.93rem] leading-relaxed text-[#cdbf9f]">
+            <li key={i} className="flex gap-2.5 rounded-lg border border-amber/25 bg-amber/[0.05] px-3.5 py-2.5 text-[0.93rem] leading-relaxed text-fg-muted">
               <Lightbulb size={15} aria-hidden className="mt-1 shrink-0 text-amber" />
               <span>
                 <span className="mr-1.5 font-semibold text-amber">Подсказка {i + 1}.</span>
@@ -117,7 +117,7 @@ export function ExerciseCard({ id, title, kind, difficulty, topicId, domain, hin
           disabled={solved}
           className={cn(
             "ml-auto inline-flex h-8 items-center gap-2 rounded-md border px-3 text-[13px] transition-colors",
-            solved ? "border-emerald/40 text-emerald" : "border-cyan/40 text-cyan hover:bg-cyan/10",
+            solved ? "border-emerald/40 text-emerald" : "border-accent/40 text-accent-text hover:bg-accent/10",
           )}
         >
           <Check size={14} aria-hidden />

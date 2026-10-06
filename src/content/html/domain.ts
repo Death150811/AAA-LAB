@@ -25,7 +25,7 @@ export const htmlDomain: DomainDef = {
   ],
   prerequisites: ["Умение пользоваться браузером и текстовым редактором", "Никаких знаний программирования не требуется"],
   estimatedHours: 70,
-  accent: "cyan",
+  accent: "vermilion",
   modules: [
     {
       id: "foundations",

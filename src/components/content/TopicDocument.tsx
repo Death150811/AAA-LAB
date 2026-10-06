@@ -19,7 +19,7 @@ function SectionHeading({ id, suffix }: { id: DocSectionId; suffix?: string }) {
   const m = SECTION_META[id];
   return (
     <h2 id={id} className="group flex flex-wrap items-baseline gap-x-3 border-b border-line pb-3 text-[1.45rem] font-semibold leading-tight tracking-tight text-fg">
-      <span className="mono text-sm font-medium text-cyan tabular">{m.num}</span>
+      <span className="mono text-sm font-medium text-accent-text tabular">{m.num}</span>
       <span>{suffix ? `${m.title}: ${suffix}` : m.title}</span>
       <span className="mono ml-auto hidden text-[11px] font-normal uppercase tracking-wider text-fg-dim sm:inline">{m.en}</span>
       <a href={`#${id}`} aria-label={`Ссылка на раздел «${m.title}»`} className="text-fg-dim opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100">
@@ -68,7 +68,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
           </nav>
 
           <div className="mb-3 flex flex-wrap items-center gap-2">
-            {mod && <Badge tone="cyan">{LEVEL_LABEL[mod.level]}</Badge>}
+            {mod && <Badge tone="accent">{LEVEL_LABEL[mod.level]}</Badge>}
             <span className="flex items-center gap-1.5 text-xs text-fg-dim">
               <Clock size={13} aria-hidden /> {topic.minutes} мин чтения и практики
             </span>
@@ -105,8 +105,8 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
           <details className="group mt-6 rounded-xl border border-line bg-surface/50 xl:hidden">
             <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm text-fg-muted marker:hidden [&::-webkit-details-marker]:hidden">
               <span>Содержание темы</span>
-              <span className="text-xs text-cyan group-open:hidden">Показать</span>
-              <span className="hidden text-xs text-cyan group-open:inline">Скрыть</span>
+              <span className="text-xs text-accent-text group-open:hidden">Показать</span>
+              <span className="hidden text-xs text-accent-text group-open:inline">Скрыть</span>
             </summary>
             <div className="border-t border-line px-4 py-3">
               <Toc items={toc} label="Содержание темы (мобильное)" />
@@ -204,7 +204,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
                 {topic.interview.map((q) => (
                   <details key={q.id} className="group rounded-xl border border-line bg-surface/60 open:bg-surface">
                     <summary className="flex cursor-pointer list-none items-start gap-3 px-4 py-3.5 marker:hidden [&::-webkit-details-marker]:hidden">
-                      <Badge tone={q.level === "basic" ? "emerald" : q.level === "intermediate" ? "cyan" : q.level === "advanced" ? "indigo" : q.level === "engineering" ? "amber" : "rose"} className="mt-0.5 shrink-0">
+                      <Badge tone={q.level === "basic" ? "emerald" : q.level === "intermediate" ? "accent" : q.level === "advanced" ? "indigo" : q.level === "engineering" ? "amber" : "rose"} className="mt-0.5 shrink-0">
                         {INTERVIEW_LEVEL_LABEL[q.level]}
                       </Badge>
                       <span className="flex-1 text-[1rem] font-medium leading-relaxed text-fg">
@@ -288,7 +288,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
             <span />
           )}
           {next && (
-            <Link href={topicHref(next)} className="group rounded-xl border border-line bg-surface p-4 text-right transition-[transform,border-color] hover:-translate-y-0.5 hover:border-cyan/40 sm:col-start-2">
+            <Link href={topicHref(next)} className="group rounded-xl border border-line bg-surface p-4 text-right transition-[transform,border-color] hover:-translate-y-0.5 hover:border-accent/40 sm:col-start-2">
               <span className="eyebrow flex items-center justify-end gap-1.5">Далее <ArrowRight size={12} aria-hidden /></span>
               <span className="mt-2 block text-[0.98rem] font-medium text-fg">{next.title}</span>
             </Link>
@@ -380,13 +380,13 @@ export function TopicRail({ topic }: { topic: Topic }) {
         <div className="eyebrow mb-3">Быстрый переход</div>
         <ul className="m-0 list-none space-y-1 p-0 text-[13px]">
           {topic.exercises.length > 0 && (
-            <li><a className="text-fg-muted hover:text-cyan" href="#practice">Практика · {topic.exercises.length}</a></li>
+            <li><a className="text-fg-muted hover:text-accent-text" href="#practice">Практика · {topic.exercises.length}</a></li>
           )}
           {topic.interview.length > 0 && (
-            <li><a className="text-fg-muted hover:text-cyan" href="#interview">Собеседование · {topic.interview.length}</a></li>
+            <li><a className="text-fg-muted hover:text-accent-text" href="#interview">Собеседование · {topic.interview.length}</a></li>
           )}
           {topic.mastery.length > 0 && (
-            <li><a className="text-fg-muted hover:text-cyan" href="#mastery">Проверка мастерства</a></li>
+            <li><a className="text-fg-muted hover:text-accent-text" href="#mastery">Проверка мастерства</a></li>
           )}
         </ul>
       </div>

@@ -24,9 +24,9 @@ export async function generateMetadata({ params }: { params: Promise<{ domain: s
 const LEVELS = ["all", "basic", "intermediate", "advanced", "engineering", "debugging"] as const;
 type SP = Record<string, string | string[] | undefined>;
 
-const TONE: Record<InterviewLevel, "emerald" | "cyan" | "indigo" | "amber" | "rose"> = {
+const TONE: Record<InterviewLevel, "emerald" | "accent" | "indigo" | "amber" | "rose"> = {
   basic: "emerald",
-  intermediate: "cyan",
+  intermediate: "accent",
   advanced: "indigo",
   engineering: "amber",
   debugging: "rose",
@@ -68,7 +68,7 @@ export default async function InterviewPage({ params, searchParams }: { params: 
           <SeedForm className="mt-8 grid gap-4 rounded-xl border border-line bg-surface p-5 sm:grid-cols-2 lg:grid-cols-4" aria-label="Параметры тренировки">
             <label className="block text-[13px] text-fg-muted">
               <span className="mb-1.5 block">Уровень</span>
-              <select name="level" defaultValue={level} className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-cyan/60 focus:outline-none">
+              <select name="level" defaultValue={level} className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none">
                 {LEVELS.map((l) => (
                   <option key={l} value={l}>{l === "all" ? "Все уровни" : INTERVIEW_LEVEL_LABEL[l]}</option>
                 ))}
@@ -76,7 +76,7 @@ export default async function InterviewPage({ params, searchParams }: { params: 
             </label>
             <label className="block text-[13px] text-fg-muted">
               <span className="mb-1.5 block">Модуль</span>
-              <select name="module" defaultValue={moduleId} className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-cyan/60 focus:outline-none">
+              <select name="module" defaultValue={moduleId} className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none">
                 <option value="all">Все модули</option>
                 {domain.modules.filter((m) => m.topics.length > 0).map((m) => (
                   <option key={m.id} value={m.id}>{m.title}</option>
@@ -85,13 +85,13 @@ export default async function InterviewPage({ params, searchParams }: { params: 
             </label>
             <label className="block text-[13px] text-fg-muted">
               <span className="mb-1.5 block">Вопросов</span>
-              <select name="count" defaultValue={String(count)} className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-cyan/60 focus:outline-none">
+              <select name="count" defaultValue={String(count)} className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none">
                 {[5, 10, 20, 50].map((n) => <option key={n} value={n}>{n}</option>)}
               </select>
             </label>
             <div className="flex items-end">
               <input type="hidden" name="seed" defaultValue="1" />
-              <button type="submit" className="h-10 w-full rounded-lg border border-cyan bg-cyan px-4 text-sm font-semibold text-bg transition-transform active:scale-[0.97]">
+              <button type="submit" className="h-10 w-full rounded-lg border border-accent bg-accent px-4 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97]">
                 Новая подборка
               </button>
             </div>
@@ -106,7 +106,7 @@ export default async function InterviewPage({ params, searchParams }: { params: 
             <section aria-labelledby="iv-list" className="mt-10">
               <div className="mb-5 flex items-center gap-3">
                 <h2 id="iv-list" className="text-xl font-semibold tracking-tight">Подборка №{seed}</h2>
-                <Badge tone="cyan">{picked.length} вопросов</Badge>
+                <Badge tone="accent">{picked.length} вопросов</Badge>
               </div>
               <ol className="m-0 list-none space-y-2.5 p-0">
                 {picked.map(({ q, topic }, i) => (
@@ -138,7 +138,7 @@ export default async function InterviewPage({ params, searchParams }: { params: 
                 ))}
               </ol>
               <div className="mt-6">
-                <ReshuffleLink className="text-sm text-cyan hover:underline">Другая подборка →</ReshuffleLink>
+                <ReshuffleLink className="text-sm text-accent-text hover:underline">Другая подборка →</ReshuffleLink>
               </div>
             </section>
           )}

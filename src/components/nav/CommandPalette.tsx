@@ -254,7 +254,7 @@ export function CommandPalette() {
                 i === active ? "bg-surface-3" : "hover:bg-surface-2",
               )}
             >
-              <span className={cn("mt-0.5 shrink-0", i === active ? "text-cyan" : "text-fg-dim")}>
+              <span className={cn("mt-0.5 shrink-0", i === active ? "text-accent-text" : "text-fg-dim")}>
                 {item.kind ? KIND_ICON[item.kind] : <CornerDownLeft size={15} />}
               </span>
               <span className="min-w-0 flex-1">

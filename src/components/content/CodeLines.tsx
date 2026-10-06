@@ -24,7 +24,7 @@ export function CodeLines({
                 key={i}
                 className={cn(
                   "flex px-4 transition-colors duration-200",
-                  marked && "bg-cyan/10 shadow-[inset_2px_0_0_var(--cyan)]",
+                  marked && "bg-accent/10 shadow-[inset_2px_0_0_var(--accent)]",
                 )}
               >
                 {showNumbers && (

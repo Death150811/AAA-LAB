@@ -74,7 +74,7 @@ export function CurriculumNav({ nav }: { nav: NavDomain }) {
                             className={cn(
                               "relative flex items-start gap-2 rounded-r-md py-1.5 pl-3 pr-2 text-[13px] leading-snug transition-colors",
                               active
-                                ? "bg-cyan/[0.08] text-fg before:absolute before:inset-y-0 before:-left-px before:w-[2px] before:bg-cyan"
+                                ? "bg-accent/[0.08] text-fg before:absolute before:inset-y-0 before:-left-px before:w-[2px] before:bg-accent"
                                 : "text-fg-muted hover:bg-surface-2 hover:text-fg",
                             )}
                           >

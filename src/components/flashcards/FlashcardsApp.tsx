@@ -22,7 +22,7 @@ export interface CardData {
 const GRADES: { grade: 0 | 1 | 2 | 3; label: string; hint: string; cls: string }[] = [
   { grade: 0, label: "Не помню", hint: "повторить сейчас", cls: "border-rose/40 text-rose hover:bg-rose/10" },
   { grade: 1, label: "Трудно", hint: "скоро", cls: "border-amber/40 text-amber hover:bg-amber/10" },
-  { grade: 2, label: "Хорошо", hint: "по графику", cls: "border-cyan/40 text-cyan hover:bg-cyan/10" },
+  { grade: 2, label: "Хорошо", hint: "по графику", cls: "border-accent/40 text-accent-text hover:bg-accent/10" },
   { grade: 3, label: "Легко", hint: "реже", cls: "border-emerald/40 text-emerald hover:bg-emerald/10" },
 ];
 
@@ -118,7 +118,7 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
               setDomain(e.target.value);
               setQueue(null);
             }}
-            className="h-10 rounded-lg border border-line-strong bg-surface px-3 text-sm text-fg focus:border-cyan/60 focus:outline-none"
+            className="h-10 rounded-lg border border-line-strong bg-surface px-3 text-sm text-fg focus:border-accent/60 focus:outline-none"
           >
             <option value="all">Все курсы</option>
             {domains.map((d) => (
@@ -152,7 +152,7 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
             type="button"
             onClick={start}
             disabled={counts.fresh + counts.due === 0}
-            className="mt-6 h-11 rounded-lg border border-cyan bg-cyan px-6 text-sm font-semibold text-bg transition-transform active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40"
+            className="mt-6 h-11 rounded-lg border border-accent bg-accent px-6 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {counts.fresh + counts.due === 0 ? "На сегодня всё повторено" : "Начать сессию"}
           </button>
@@ -172,7 +172,7 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
           <div
             className={cn(
               "min-h-[15rem] rounded-2xl border bg-surface p-8 transition-colors sm:p-10",
-              flipped ? "border-cyan/40" : "border-line",
+              flipped ? "border-accent/40" : "border-line",
             )}
           >
             <div className="eyebrow mb-4">{flipped ? "Ответ" : "Вопрос"}</div>

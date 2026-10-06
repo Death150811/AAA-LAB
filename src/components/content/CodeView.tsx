@@ -71,7 +71,7 @@ export async function CodeView({
   const frame = (
     <figure
       className={cn(
-        "m-0 overflow-hidden rounded-lg border border-line bg-[#0b1017]",
+        "m-0 overflow-hidden rounded-lg border border-line bg-code",
         bare && "rounded-md",
       )}
     >
@@ -94,8 +94,8 @@ export async function CodeView({
             <span className="eyebrow mr-2">Пример</span>
             {filename ?? LANG_LABEL[lang]} · {lines.length} стр.
           </span>
-          <span className="text-xs text-cyan group-open:hidden">Показать</span>
-          <span className="hidden text-xs text-cyan group-open:inline">Скрыть</span>
+          <span className="text-xs text-accent-text group-open:hidden">Показать</span>
+          <span className="hidden text-xs text-accent-text group-open:inline">Скрыть</span>
         </summary>
         <div className="p-2 pt-0">{frame}</div>
       </details>

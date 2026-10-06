@@ -6,6 +6,7 @@
  * WARN   — недостаточная глубина темы относительно стандарта DevDock; исправляется до принятия темы.
  */
 import { allProjects, allTopics, domains } from "../src/content/registry";
+import { LORE } from "../src/content/lore";
 import { SECTION_META } from "../src/content/sections";
 import type { Block, QuizQuestion, Topic } from "../src/content/types";
 
@@ -275,9 +276,34 @@ for (const d of domains) {
   }
 }
 
+/* ───────── «Заметка дня» ───────── */
+{
+  const seen = new Set<string>();
+  const domainIds = new Set(domains.map((d) => d.id));
+  for (const l of LORE) {
+    const where = `lore.${l.id}`;
+    if (seen.has(l.id)) err(where, "повторяющийся id");
+    seen.add(l.id);
+    if ((l.kind === "quote" || l.kind === "law") && (!l.author || !l.source)) err(where, "цитата или закон без автора и источника");
+    if (l.kind === "fact" && !l.source) err(where, "факт без источника");
+    if (l.kind === "attributed" && !l.author) err(where, "приписываемая фраза без указания, кому она приписывается");
+    if (l.kind === "folklore" && (l.author || l.source)) err(where, "фольклор не должен иметь выдуманной атрибуции");
+    if (/[а-яё]/i.test(l.text)) err(where, "text должен быть на английском (перевод — в ru)");
+    if (!/[а-яё]/i.test(l.ru)) err(where, "нужен русский перевод в ru");
+    if (l.text.length > 260) err(where, `слишком длинная фраза: ${l.text.length} знаков`);
+    if (/TODO|lorem|скоро/i.test(l.text + l.ru)) err(where, "заглушка в тексте");
+    if (l.domain !== "all" && !domainIds.has(l.domain)) err(where, `неизвестный домен «${l.domain}»`);
+    if (l.topic && !allTopics.some((t) => t.id === l.topic)) err(where, `тема «${l.topic}» не существует`);
+  }
+  for (const d of domains) {
+    const n = LORE.filter((l) => l.domain === d.id || l.domain === "all").length;
+    if (n < 5) warn(`lore.${d.id}`, `мало заметок для домена: ${n} (ориентир ≥ 5)`);
+  }
+}
+
 /* ───────── отчёт ───────── */
 const topicCount = allTopics.length;
-console.log(`\nПроверено: ${topicCount} тем, ${allProjects.length} проектов, ${domains.length} доменов.`);
+console.log(`\nПроверено: ${topicCount} тем, ${allProjects.length} проектов, ${domains.length} доменов, ${LORE.length} заметок дня.`);
 if (warns.length) {
   console.log(`\nПредупреждения (${warns.length}) — глубина ниже стандарта:`);
   warns.forEach((w) => console.log("  ⚠ " + w));

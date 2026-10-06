@@ -24,7 +24,7 @@ export const sqlDomain: DomainDef = {
   ],
   prerequisites: ["Базовое понимание таблиц и структурированных данных"],
   estimatedHours: 70,
-  accent: "steel",
+  accent: "verdigris",
   modules: [
     { id: "relational", index: 1, project: "sql.p01-shop-schema", title: "Реляционная модель", titleEn: "Relational Model", summary: "Таблицы, строки, ключи, ограничения, NULL, типы данных.", level: "foundation" },
     { id: "queries", index: 2, project: "sql.p02-sales-analytics", title: "Запросы", titleEn: "Querying", summary: "SELECT, WHERE, ORDER BY, GROUP BY, HAVING, DISTINCT, LIMIT.", level: "foundation" },

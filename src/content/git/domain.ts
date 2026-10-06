@@ -24,7 +24,7 @@ export const gitDomain: DomainDef = {
   ],
   prerequisites: ["Умение работать в терминале на базовом уровне"],
   estimatedHours: 65,
-  accent: "emerald",
+  accent: "madder",
   modules: [
     { id: "fundamentals", index: 1, title: "Основы", titleEn: "Fundamentals", summary: "Репозиторий, рабочее дерево, индекс, коммиты, история.", level: "foundation" },
     { id: "core-ops", index: 2, project: "git.p01-tidy-history", title: "Базовые операции", titleEn: "Core Operations", summary: "init, clone, status, add, commit, log, diff, restore, switch.", level: "foundation" },

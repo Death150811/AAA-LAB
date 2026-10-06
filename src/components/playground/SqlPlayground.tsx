@@ -203,7 +203,7 @@ export function SqlPlayground() {
             id="sql-dataset"
             value={datasetId}
             onChange={(e) => changeDataset(e.target.value)}
-            className="h-9 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg focus:border-cyan/60 focus:outline-none"
+            className="h-9 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg focus:border-accent/60 focus:outline-none"
           >
             {PLAYGROUND_DATASETS.map((d) => (
               <option key={d.id} value={d.id}>
@@ -215,7 +215,7 @@ export function SqlPlayground() {
             type="button"
             onClick={() => execute(sql)}
             disabled={loading || !restored}
-            className="inline-flex h-9 items-center gap-2 rounded-lg border border-cyan bg-cyan px-3.5 text-[13px] font-semibold text-bg active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex h-9 items-center gap-2 rounded-lg border border-accent bg-accent px-3.5 text-[13px] font-semibold text-accent-ink active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading ? <Loader2 size={14} className="animate-spin" aria-hidden /> : <Play size={14} aria-hidden />} Выполнить
             <kbd className="hidden font-mono text-[10px] opacity-70 sm:inline">Ctrl+Enter</kbd>
@@ -242,7 +242,7 @@ export function SqlPlayground() {
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_21rem]">
         {/* Редактор и результаты */}
         <div className="min-w-0 space-y-4">
-          <section aria-label="Редактор запросов" className="overflow-hidden rounded-xl border border-line bg-[#0b1017]">
+          <section aria-label="Редактор запросов" className="overflow-hidden rounded-xl border border-line bg-code">
             <label htmlFor="sql-editor" className="sr-only">
               SQL-запрос
             </label>
@@ -260,7 +260,7 @@ export function SqlPlayground() {
               autoCapitalize="off"
               autoCorrect="off"
               rows={Math.min(18, Math.max(8, sql.split("\n").length + 1))}
-              className="block w-full resize-y bg-transparent px-4 py-3 font-mono text-[13px] leading-[1.65] text-[#d4dbe6] focus:outline-none"
+              className="block w-full resize-y bg-transparent px-4 py-3 font-mono text-[13px] leading-[1.65] text-code-fg focus:outline-none"
             />
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-line px-4 py-2 text-[11px] text-fg-dim">
               <span className="inline-flex items-center gap-1.5">
@@ -271,7 +271,7 @@ export function SqlPlayground() {
           </section>
 
           {example && (
-            <div role="note" aria-label="Пояснение к примеру" className="rounded-lg border border-cyan/30 bg-cyan/[0.06] px-4 py-3 text-sm leading-relaxed text-fg-muted">
+            <div role="note" aria-label="Пояснение к примеру" className="rounded-lg border border-accent/30 bg-accent/[0.06] px-4 py-3 text-sm leading-relaxed text-fg-muted">
               <span className="font-semibold text-fg">{example.title}.</span> {example.note}
             </div>
           )}
@@ -368,7 +368,7 @@ export function SqlPlayground() {
                     aria-current={x.id === activeExample ? "true" : undefined}
                     className={cn(
                       "w-full rounded-md border px-3 py-1.5 text-left text-[13px] transition-colors",
-                      x.id === activeExample ? "border-cyan/50 bg-cyan/10 text-fg" : "border-line bg-surface text-fg-muted hover:border-line-strong hover:text-fg",
+                      x.id === activeExample ? "border-accent/50 bg-accent/10 text-fg" : "border-line bg-surface text-fg-muted hover:border-line-strong hover:text-fg",
                     )}
                   >
                     {x.title}

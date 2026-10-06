@@ -42,12 +42,12 @@ export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
 
   const linkCls = (active: boolean) =>
     cn(
-      "relative rounded-md px-2.5 py-1.5 text-[13px] font-medium transition-colors",
+      "relative px-2.5 py-1.5 text-[13px] font-medium transition-colors",
       active ? "text-fg" : "text-fg-muted hover:text-fg",
     );
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line-strong bg-bg">
       <div className="mx-auto flex h-[var(--header-h)] max-w-[1600px] items-center gap-3 px-4 sm:px-6">
         <Logo />
 
@@ -55,9 +55,9 @@ export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
           {domains.map((d) => {
             const active = activeDomain === d.slug;
             return (
-              <Link key={d.slug} href={`/learn/${d.slug}`} className={linkCls(active)} aria-current={active ? "page" : undefined}>
+              <Link key={d.slug} href={`/learn/${d.slug}`} data-domain={d.slug} className={cn(linkCls(active), "group/nav")} aria-current={active ? "page" : undefined}>
                 {d.title === "Computer Science" ? "CS" : d.title}
-                {active && <span aria-hidden className="absolute inset-x-2.5 -bottom-[13px] h-px bg-cyan" />}
+                <span aria-hidden className={cn("absolute inset-x-2.5 -bottom-[17px] h-[2px] origin-left bg-accent transition-transform duration-300", active ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100")} />
               </Link>
             );
           })}
@@ -74,25 +74,25 @@ export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
-            className="flex h-9 items-center gap-2.5 rounded-lg border border-line bg-surface px-3 text-[13px] text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
+            className="flex h-9 items-center gap-2.5 rounded-[3px] border border-line-strong px-3 text-[13px] text-fg-muted transition-colors hover:border-fg-dim hover:text-fg"
             aria-label="Открыть поиск (Ctrl+K)"
           >
             <Search size={15} aria-hidden />
             <span className="hidden sm:inline">Поиск</span>
-            <kbd className="hidden rounded border border-line-strong px-1.5 py-px font-mono text-[10px] text-fg-dim md:inline">
+            <kbd className="hidden rounded-[2px] border border-line-strong px-1.5 py-px font-label text-[9px] text-fg-dim md:inline">
               Ctrl K
             </kbd>
           </button>
           <Link
             href="/me"
-            className="hidden h-9 items-center gap-2 rounded-lg border border-line bg-surface px-3 text-[13px] text-fg-muted transition-colors hover:border-line-strong hover:text-fg sm:flex"
+            className="hidden h-9 items-center gap-2 rounded-[3px] border border-line-strong px-3 text-[13px] text-fg-muted transition-colors hover:border-fg-dim hover:text-fg sm:flex"
           >
             <Bookmark size={15} aria-hidden />
             Моё
           </Link>
           <button
             type="button"
-            className="grid h-9 w-9 place-items-center rounded-lg border border-line bg-surface text-fg-muted hover:text-fg lg:hidden"
+            className="grid h-9 w-9 place-items-center rounded-[3px] border border-line-strong text-fg-muted hover:text-fg lg:hidden"
             aria-label={menu ? "Закрыть меню" : "Открыть меню"}
             aria-expanded={menu}
             aria-controls="mobile-menu"

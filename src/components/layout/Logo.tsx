@@ -1,22 +1,24 @@
 import Link from "next/link";
 
-export function LogoMark({ size = 22 }: { size?: number }) {
+/** Знак: лист атласа с координатной сеткой, одна клетка закрашена пигментом киновари. */
+export function LogoMark({ size = 24 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="5" stroke="var(--line-strong)" strokeWidth="1.2" />
-      <rect x="5" y="6" width="14" height="2.2" rx="1.1" fill="var(--cyan)" />
-      <rect x="5" y="10.9" width="10" height="2.2" rx="1.1" fill="var(--fg-muted)" />
-      <rect x="5" y="15.8" width="6" height="2.2" rx="1.1" fill="var(--steel)" opacity="0.7" />
+      <rect x="1.5" y="1.5" width="21" height="21" stroke="var(--fg)" strokeWidth="1.2" />
+      <path d="M12 1.5v21M1.5 12h21" stroke="var(--fg)" strokeWidth="0.8" opacity="0.55" />
+      <rect x="12.6" y="1.9" width="9.5" height="9.5" fill="var(--vermilion)" />
+      <circle cx="6.8" cy="17.2" r="1.7" fill="var(--fg)" />
     </svg>
   );
 }
 
 export function Logo() {
   return (
-    <Link href="/" className="group flex items-center gap-2.5 rounded-md" aria-label="DevDock Ultra — на главную">
+    <Link href="/" className="group flex items-center gap-3" aria-label="DevDock — на главную">
       <LogoMark />
-      <span className="text-[0.95rem] font-semibold tracking-tight text-fg">
-        DevDock<span className="ml-1 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-cyan">Ultra</span>
+      <span className="flex items-baseline gap-2">
+        <span className="font-display text-[1.32rem] font-medium leading-none tracking-[-0.01em] text-fg">DevDock</span>
+        <span className="label hidden text-[9px] tracking-[0.2em] text-fg-dim sm:inline">Атлас</span>
       </span>
     </Link>
   );

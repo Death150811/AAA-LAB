@@ -73,7 +73,7 @@ export function HintsReveal({ hints }: { hints: string[] }) {
       {n > 0 && (
         <ol className="m-0 mb-3 list-none space-y-2 p-0">
           {hints.slice(0, n).map((h, i) => (
-            <li key={i} className="flex gap-2.5 rounded-lg border border-amber/25 bg-amber/[0.05] px-3.5 py-2.5 text-[0.93rem] leading-relaxed text-[#cdbf9f]">
+            <li key={i} className="flex gap-2.5 rounded-lg border border-amber/25 bg-amber/[0.05] px-3.5 py-2.5 text-[0.93rem] leading-relaxed text-fg-muted">
               <Lightbulb size={15} aria-hidden className="mt-1 shrink-0 text-amber" />
               <span>
                 <span className="mr-1.5 font-semibold text-amber">Подсказка {i + 1}.</span>
@@ -150,7 +150,7 @@ export function RubricSelfEval({ rubric }: { rubric: { criterion: string; weight
                     key={v}
                     className={cn(
                       "cursor-pointer rounded-md border px-3 py-1 text-xs transition-colors",
-                      scores[i] === v ? "border-cyan/60 bg-cyan/15 text-cyan" : "border-line text-fg-muted hover:text-fg",
+                      scores[i] === v ? "border-accent/60 bg-accent/15 text-accent-text" : "border-line text-fg-muted hover:text-fg",
                     )}
                   >
                     <input

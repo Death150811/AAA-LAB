@@ -24,7 +24,7 @@ export const cssDomain: DomainDef = {
   ],
   prerequisites: ["Модуль «Основы документа» и «Семантический HTML» из курса HTML"],
   estimatedHours: 60,
-  accent: "indigo",
+  accent: "lapis",
   modules: [
     { id: "mental-model", index: 1, title: "Ментальная модель CSS", titleEn: "CSS Mental Model", summary: "Селекторы, каскад, наследование, специфичность, значения, единицы и цвета.", level: "foundation" },
     { id: "box-flow", index: 2, project: "css.p01-readable-article", title: "Блочная модель и поток", titleEn: "Box Model & Normal Flow", summary: "Из чего состоит блок, как работает нормальный поток, display, схлопывание отступов.", level: "foundation" },

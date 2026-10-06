@@ -24,7 +24,7 @@ function Section({ id, num, title, children }: { id: string; num: string; title:
   return (
     <section id={id} aria-labelledby={`${id}-h`} className="scroll-mt-24">
       <h2 id={`${id}-h`} className="flex items-baseline gap-3 border-b border-line pb-3 text-xl font-semibold tracking-tight text-fg">
-        <span className="mono text-sm font-medium text-cyan tabular">{num}</span>
+        <span className="mono text-sm font-medium text-accent-text tabular">{num}</span>
         {title}
       </h2>
       <div className="mt-5">{children}</div>
@@ -36,7 +36,7 @@ function Bullets({ items }: { items: string[] }) {
   return (
     <ul className="m-0 list-none space-y-2 p-0">
       {items.map((t, i) => (
-        <li key={i} className="flex gap-3 text-[0.97rem] leading-relaxed text-[#cbd3df]">
+        <li key={i} className="flex gap-3 text-[0.97rem] leading-relaxed text-fg-body">
           <span aria-hidden className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-[1px] bg-steel" />
           <span>
             <Inline text={t} />
@@ -72,7 +72,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ domain
       />
 
       <div className="mt-6 flex flex-wrap items-center gap-2.5 text-xs text-fg-dim">
-        <Badge tone="cyan">{LEVEL_LABEL[project.level]}</Badge>
+        <Badge tone="accent">{LEVEL_LABEL[project.level]}</Badge>
         {project.isFinal && <Badge tone="amber">Финальный проект</Badge>}
         <span className="flex items-center gap-1.5"><Clock size={12} aria-hidden /> ~{project.estimatedHours} ч</span>
         {builds.length > 0 && (
@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ domain
             {builds.map((b, i) => (
               <span key={b.id}>
                 {i > 0 && ", "}
-                <Link href={projectHref(b)} className="text-cyan hover:underline">{b.title}</Link>
+                <Link href={projectHref(b)} className="text-accent-text hover:underline">{b.title}</Link>
               </span>
             ))}
           </span>
@@ -90,7 +90,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ domain
 
       <div className="mt-10 space-y-14">
         <Section id="objective" num="01" title="Цель">
-          <p className="text-[1.05rem] leading-relaxed text-[#d4dbe6]"><Inline text={project.objective} /></p>
+          <p className="text-[1.05rem] leading-relaxed text-code-fg"><Inline text={project.objective} /></p>
           {topics.length > 0 && (
             <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
               <span className="text-fg-dim">Нужны знания:</span>

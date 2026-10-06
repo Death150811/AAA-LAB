@@ -66,7 +66,7 @@ export function BookmarkButton({
       className={cn(
         "inline-flex h-9 items-center gap-2 rounded-lg border px-3 text-[13px] font-medium transition-[transform,background-color,border-color,color] duration-150 active:scale-[0.97]",
         active
-          ? "border-cyan/50 bg-cyan/10 text-cyan"
+          ? "border-accent/50 bg-accent/10 text-accent-text"
           : "border-line-strong bg-surface-2 text-fg-muted hover:border-steel/60 hover:text-fg",
       )}
     >
@@ -137,7 +137,7 @@ export function TopicNotes({ topicId, topicTitle }: { topicId: string; topicTitl
         onBlur={commit}
         rows={4}
         placeholder="Что стоит запомнить? Сохраняется локально в браузере."
-        className="w-full resize-y rounded-lg border border-line bg-bg-raised px-3 py-2 text-[13px] leading-relaxed text-fg placeholder:text-fg-dim focus:border-cyan/60 focus:outline-none"
+        className="w-full resize-y rounded-lg border border-line bg-bg-raised px-3 py-2 text-[13px] leading-relaxed text-fg placeholder:text-fg-dim focus:border-accent/60 focus:outline-none"
       />
     </div>
   );

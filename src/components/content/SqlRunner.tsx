@@ -48,7 +48,7 @@ export function SqlRunner({ code, setup, fixtureName }: Props) {
           type="button"
           onClick={run}
           disabled={state.kind === "busy"}
-          className="inline-flex h-8 items-center gap-1.5 rounded-md border border-cyan/40 bg-cyan/10 px-3 text-xs font-semibold text-cyan transition-colors hover:bg-cyan/20 disabled:opacity-60 active:scale-[0.97]"
+          className="inline-flex h-8 items-center gap-1.5 rounded-md border border-accent/40 bg-accent/10 px-3 text-xs font-semibold text-accent-text transition-colors hover:bg-accent/20 disabled:opacity-60 active:scale-[0.97]"
         >
           {state.kind === "busy" ? <Loader2 size={13} className="animate-spin" aria-hidden /> : <Play size={13} aria-hidden />}
           Выполнить в браузере

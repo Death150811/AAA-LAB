@@ -78,7 +78,7 @@ export default async function ExamPage({ params, searchParams }: { params: Promi
             <Field label="Вопросов" name="count" value={String(count)} options={[["5", "5"], ["10", "10"], ["20", "20"], ["30", "30"]]} />
             <div className="flex items-end">
               <input type="hidden" name="seed" defaultValue="1" />
-              <button type="submit" className="h-10 w-full rounded-lg border border-cyan bg-cyan px-4 text-sm font-semibold text-bg transition-transform active:scale-[0.97]">
+              <button type="submit" className="h-10 w-full rounded-lg border border-accent bg-accent px-4 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97]">
                 Составить вариант
               </button>
             </div>
@@ -92,8 +92,8 @@ export default async function ExamPage({ params, searchParams }: { params: Promi
             <section aria-labelledby="exam-run" className="mt-10">
               <div className="mb-5 flex flex-wrap items-center gap-3">
                 <h2 id="exam-run" className="text-xl font-semibold tracking-tight">Вариант №{seed}</h2>
-                <Badge tone="cyan">{items.length} вопросов</Badge>
-                <ReshuffleLink className="ml-auto text-sm text-cyan hover:underline">Другой вариант →</ReshuffleLink>
+                <Badge tone="accent">{items.length} вопросов</Badge>
+                <ReshuffleLink className="ml-auto text-sm text-accent-text hover:underline">Другой вариант →</ReshuffleLink>
               </div>
               <QuizRunner items={items} />
             </section>
@@ -118,7 +118,7 @@ function Field({ label, name, value, options }: { label: string; name: string; v
       <select
         name={name}
         defaultValue={value}
-        className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-cyan/60 focus:outline-none"
+        className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none"
       >
         {options.map(([v, l]) => (
           <option key={v} value={v}>

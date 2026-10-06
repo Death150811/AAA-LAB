@@ -24,7 +24,7 @@ export const csDomain: DomainDef = {
   ],
   prerequisites: ["Желательно: базовые модули HTML и JavaScript"],
   estimatedHours: 150,
-  accent: "indigo",
+  accent: "tyrian",
   modules: [
     { id: "algorithms", index: 1, project: "cs.p01-algorithm-lab", title: "Алгоритмы и сложность", titleEn: "Algorithms & Complexity", summary: "Big O/Θ/Ω, поиск, сортировка, рекурсия.", level: "foundation" },
     { id: "data-structures", index: 2, project: "cs.p02-data-structure-library", title: "Структуры данных", titleEn: "Data Structures", summary: "Массивы, списки, стеки, очереди, хеш-таблицы, деревья, кучи, графы.", level: "core" },

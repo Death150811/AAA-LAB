@@ -184,7 +184,7 @@ export function MeDashboard({
                 <li key={n.id} className="rounded-xl border border-line bg-surface p-4">
                   <div className="flex items-start justify-between gap-3">
                     {t ? (
-                      <Link href={t.href} className="text-sm font-medium text-fg hover:text-cyan">
+                      <Link href={t.href} className="text-sm font-medium text-fg hover:text-accent-text">
                         {t.title}
                       </Link>
                     ) : (

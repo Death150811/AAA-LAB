@@ -82,7 +82,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
                 <div className="eyebrow">Вспомнить</div>
                 <div className="mt-2 text-[1.05rem] font-semibold text-fg">Карточки</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">Определения и различия с интервальным повторением. {cardCount} карточек.</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-xs text-cyan">Открыть <ArrowRight size={12} aria-hidden /></span>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs text-accent-text">Открыть <ArrowRight size={12} aria-hidden /></span>
               </Link>
             </li>
             {CATEGORIES.filter((c) => c.kind !== "recall").map((c) => (
@@ -100,7 +100,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
                 <div className="eyebrow">Собеседование</div>
                 <div className="mt-2 text-[1.05rem] font-semibold text-fg">Смогу ли я объяснить под давлением?</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">{interviewCount} вопросов: от «что такое X» до отладки и инженерных решений.</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-xs text-cyan">Тренировка <ArrowRight size={12} aria-hidden /></span>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs text-accent-text">Тренировка <ArrowRight size={12} aria-hidden /></span>
               </Link>
             </li>
             <li>
@@ -108,7 +108,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
                 <div className="eyebrow">Экзамен</div>
                 <div className="mt-2 text-[1.05rem] font-semibold text-fg">Решу ли я теоретические вопросы?</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">{questionCount} вопросов с объяснениями; вариант собирается по нарастающей сложности.</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-xs text-cyan">Составить вариант <ArrowRight size={12} aria-hidden /></span>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs text-accent-text">Составить вариант <ArrowRight size={12} aria-hidden /></span>
               </Link>
             </li>
           </ul>

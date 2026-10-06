@@ -26,7 +26,7 @@ export function DomainSubnav({ slug, active }: { slug: string; active: DomainTab
               )}
             >
               {t.label}
-              {t.key === active && <span aria-hidden className="absolute inset-x-3 -bottom-px h-[2px] bg-cyan" />}
+              {t.key === active && <span aria-hidden className="absolute inset-x-3 -bottom-px h-[2px] bg-accent" />}
             </Link>
           </li>
         ))}

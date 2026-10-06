@@ -75,7 +75,7 @@ export function HeroGraph({ domains }: { domains: GraphDomain[] }) {
                 y1={a.y}
                 x2={b.x}
                 y2={b.y}
-                stroke={hot ? "var(--cyan)" : "url(#edge)"}
+                stroke={hot ? "var(--accent)" : "url(#edge)"}
                 strokeWidth={hot ? 1.6 : 1}
                 strokeDasharray={e.dashed ? "3 5" : hot ? "6 6" : undefined}
                 className={cn("transition-[opacity,stroke] duration-300", hot && !e.dashed && "animate-dash")}
@@ -110,7 +110,7 @@ export function HeroGraph({ domains }: { domains: GraphDomain[] }) {
                     height={H}
                     rx={9}
                     fill="var(--surface)"
-                    stroke={on ? "var(--cyan)" : "var(--line-strong)"}
+                    stroke={on ? "var(--accent)" : "var(--line-strong)"}
                     strokeWidth={on ? 1.5 : 1}
                     className="transition-[stroke] duration-200"
                   />
@@ -124,7 +124,7 @@ export function HeroGraph({ domains }: { domains: GraphDomain[] }) {
                     {d.topics ? `${d.topics} тем` : "скоро"}
                   </text>
                   {on && (
-                    <circle cx={p.x + W / 2 - 14} cy={p.y - H / 2 + 14} r="3" fill="var(--cyan)" />
+                    <circle cx={p.x + W / 2 - 14} cy={p.y - H / 2 + 14} r="3" fill="var(--accent)" />
                   )}
                 </Link>
               </motion.g>
