@@ -39,7 +39,7 @@ export function NoteOfDay({ pool, topics, variant = "wide", className }: Props) 
   const saveNote = useUserStore((s) => s.saveNote);
 
   useEffect(() => {
-    // Дата известна только в браузере: до монтирования блок невидим и занимает своё место.
+    // Дата известна только в браузере: до монтирования показана первая заметка.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setToday(new Date());
   }, []);
@@ -92,11 +92,8 @@ export function NoteOfDay({ pool, topics, variant = "wide", className }: Props) 
             </div>
           </header>
 
-          <figure
-            className={cn("relative m-0 transition-opacity duration-500", today ? "opacity-100" : "opacity-0")}
-            key={lore.id}
-            aria-live="polite"
-          >
+          {/* Видна и без JS (по умолчанию — первая заметка); после определения даты плавно сменяется заметкой дня. */}
+          <figure className={cn("relative m-0", today && "animate-fade-up")} key={lore.id} aria-live="polite">
             <span aria-hidden className="pointer-events-none absolute -left-1 -top-7 select-none font-display text-[5.5rem] leading-none text-accent-text/35 lg:-left-9">
               “
             </span>
