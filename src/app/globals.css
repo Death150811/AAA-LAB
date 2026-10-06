@@ -563,6 +563,16 @@ body::before {
   text-decoration-thickness: 1px;
   text-underline-offset: 5px;
 }
+/* На узком экране карта сжимается вдвое: подписи доменов укрупняем, чтобы оставались читаемыми. */
+@media (max-width: 640px) {
+  .km-caption tspan:nth-child(1),
+  .km-caption tspan:nth-child(3) {
+    font-size: 16px;
+  }
+  .km-caption tspan:nth-child(2) {
+    font-size: 31px;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,

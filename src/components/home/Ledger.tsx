@@ -41,13 +41,13 @@ export function Ledger({ totalTopics, className }: { totalTopics: number; classN
   const due = ready ? Object.values(cards).filter((c) => c.due <= now.getTime()).length : 0;
   const pct = ready ? Math.round((done / totalTopics) * 100) : 0;
 
-  const cell = "flex flex-col justify-between gap-6 border-line-strong px-6 py-5 sm:border-l first:border-l-0";
+  const cell = "flex flex-col justify-between gap-5 border-t border-line-strong px-5 py-5 sm:gap-6 sm:px-6 lg:border-l lg:border-t-0";
   const num = "font-display text-[2.6rem] font-light leading-none text-fg tabular";
 
   return (
     <section aria-label="Ваш путь" className={cn("border-b border-line-strong", className)}>
-      <div className="mx-auto grid max-w-[1280px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-        <div className={cell}>
+      <div className="mx-auto grid max-w-[1360px] grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className={cn(cell, "col-span-2 !border-t-0 lg:col-span-1 lg:!border-l-0 lg:!pl-0")}>
           <div className="label text-fg-dim">{recent ? "Продолжить" : "Начало пути"}</div>
           {recent ? (
             <Link href={recent.href} className="group font-display text-[1.45rem] leading-tight text-fg">
@@ -65,17 +65,17 @@ export function Ledger({ totalTopics, className }: { totalTopics: number; classN
           <div className="label text-fg-dim">Серия</div>
           <div>
             <span className={num}>{days}</span>
-            <span className="ml-2 text-[13px] text-fg-muted">{plural(days, ["день", "дня", "дней"])} подряд</span>
+            <span className="ml-2 text-[13px] text-fg-muted">{plural(days, ["день", "дня", "дней"])}<span className="hidden sm:inline"> подряд</span></span>
           </div>
         </div>
-        <Link href="/flashcards" className={cn(cell, "group transition-colors hover:bg-surface/60")}>
+        <Link href="/flashcards" className={cn(cell, "group border-l transition-colors hover:bg-surface/60")}>
           <div className="label text-fg-dim">К повторению</div>
           <div>
             <span className={num}>{due}</span>
             <span className="ml-2 text-[13px] text-fg-muted">{due === 0 ? "всё повторено" : plural(due, ["карточка", "карточки", "карточек"])}</span>
           </div>
         </Link>
-        <Link href="/me" className={cn(cell, "group transition-colors hover:bg-surface/60")}>
+        <Link href="/me" className={cn(cell, "group col-span-2 transition-colors hover:bg-surface/60 lg:col-span-1")}>
           <div className="label text-fg-dim">Пройдено</div>
           <div>
             <span className={num}>{done}</span>

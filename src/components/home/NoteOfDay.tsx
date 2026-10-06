@@ -62,9 +62,9 @@ export function NoteOfDay({ pool, topics, variant = "wide", className }: Props) 
 
   return (
     <section aria-label="Заметка дня" className={cn("relative border-y border-line-strong", className)}>
-      <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
-        <div className={cn("grid gap-x-12 gap-y-6 py-9", wide ? "lg:grid-cols-[13rem_minmax(0,1fr)] lg:py-12" : "")}>
-          <header className={cn("flex items-start justify-between gap-4", wide ? "lg:flex-col lg:justify-start lg:gap-5" : "")}>
+      <div className="mx-auto max-w-[1360px] px-4 sm:px-6">
+        <div className={cn("grid gap-x-12 gap-y-6 py-9 lg:grid-cols-[13rem_minmax(0,1fr)]", wide ? "lg:py-12" : "lg:py-9")}>
+          <header className="flex items-start justify-between gap-4 lg:flex-col lg:justify-start lg:gap-5">
             <div>
               <div className="eyebrow text-accent-text">Заметка дня</div>
               <div className="mt-2 font-display text-[1.35rem] leading-none text-fg tabular" style={{ minHeight: "1.35rem" }}>
@@ -74,7 +74,7 @@ export function NoteOfDay({ pool, topics, variant = "wide", className }: Props) 
                 <span className="tabular">№ {index + 1}</span> из {pool.length}
               </div>
             </div>
-            <div className={cn("flex gap-2", wide ? "lg:flex-col lg:items-start" : "")}>
+            <div className="flex gap-2 lg:flex-col lg:items-start">
               <button
                 type="button"
                 onClick={() => setShift((s) => s + 1)}

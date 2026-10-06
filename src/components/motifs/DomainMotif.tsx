@@ -220,7 +220,7 @@ function CsMotif() {
 }
 
 const MOTIFS: Record<DomainId, () => ReactNode> = { html: HtmlMotif, css: CssMotif, js: JsMotif, sql: SqlMotif, git: GitMotif, cs: CsMotif };
-const LABEL: Record<DomainId, string> = {
+export const MOTIF_LABEL: Record<DomainId, string> = {
   html: "Дерево разбора документа",
   css: "Блочная модель и гибкая раскладка",
   js: "Стек, очереди и цикл событий",
@@ -233,7 +233,7 @@ const LABEL: Record<DomainId, string> = {
 export function DomainMotif({ domain, className }: { domain: DomainId; className?: string }) {
   const Motif = MOTIFS[domain];
   return (
-    <svg viewBox="0 0 320 190" role="img" aria-label={LABEL[domain]} className={className ?? "block h-auto w-full"}>
+    <svg viewBox="0 0 320 190" role="img" aria-label={MOTIF_LABEL[domain]} className={className ?? "block h-auto w-full"}>
       <Motif />
     </svg>
   );

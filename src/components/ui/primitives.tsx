@@ -101,10 +101,10 @@ export function ProgressBar({
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={pct}
-      className={cn("h-1 w-full overflow-hidden rounded-full bg-surface-3", className)}
+      className={cn("h-[3px] w-full overflow-hidden bg-line-strong", className)}
     >
       <div
-        className={cn("h-full rounded-full transition-[width] duration-700 ease-out", accent ? ACCENT[accent].solid : "bg-accent")}
+        className={cn("h-full transition-[width] duration-700 ease-out", accent ? ACCENT[accent].solid : "bg-accent")}
         style={{ width: `${pct}%` }}
       />
     </div>

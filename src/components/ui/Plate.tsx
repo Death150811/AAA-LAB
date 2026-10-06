@@ -20,7 +20,7 @@ export function Plate({ number, title, children, className, caption }: { number?
       <Corner className="-bottom-px -left-px -rotate-90" />
       {(number || title) && (
         <div className="mb-4 flex items-baseline justify-between gap-4">
-          {number && <span className="label text-fg-dim">Таблица {number}</span>}
+          {number && <span className="label shrink-0 whitespace-nowrap text-fg-dim">Таблица {number}</span>}
           {title && <span className="font-display text-[0.95rem] italic text-fg-muted">{title}</span>}
         </div>
       )}

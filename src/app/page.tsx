@@ -10,6 +10,7 @@ import { LORE } from "@/content/lore";
 import { allProjects, allTopics, domains } from "@/content/registry";
 import { LEVEL_LABEL, LEVEL_ORDER, SECTION_META } from "@/content/sections";
 import { buildKnowledgeMap, MAP_H, MAP_W } from "@/lib/knowledge-graph";
+import { roman } from "@/lib/numerals";
 
 const FIVE = [
   ["Что это?", "Точное определение без расплывчатых формулировок."],
@@ -18,8 +19,6 @@ const FIVE = [
   ["Как этим пользоваться?", "Минимальный и реалистичный примеры, разбор по частям."],
   ["Когда это применять?", "Компромиссы, ограничения, альтернативы и крайние случаи."],
 ] as const;
-
-const NUMERALS = ["I", "II", "III", "IV", "V", "VI"];
 
 export default function HomePage() {
   const graph = buildKnowledgeMap(domains, allTopics);
@@ -109,7 +108,7 @@ export default function HomePage() {
           {domains.map((d, i) => (
             <li key={d.id} data-domain={d.id}>
               <Link href={`/learn/${d.slug}`} className="group block h-full">
-                <Plate number={NUMERALS[i]} title={d.subtitle} className="h-full transition-colors duration-300 group-hover:border-accent/60">
+                <Plate number={roman(i + 1)} title={d.subtitle} className="h-full transition-colors duration-300 group-hover:border-accent/60">
                   <DomainMotif domain={d.id} />
                   <div className="mt-5 flex items-baseline justify-between gap-3 border-t border-line pt-5">
                     <h3 className="font-display text-[2rem] font-light leading-none tracking-[-0.02em] text-fg">{d.title}</h3>
