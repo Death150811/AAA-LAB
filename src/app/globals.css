@@ -159,6 +159,10 @@ a {
 .doc a:hover {
   text-decoration-color: var(--cyan);
 }
+/* Длинные неразрывные куски кода внутри текста переносятся и не раздвигают колонку на узких экранах */
+:not(pre) > code {
+  overflow-wrap: anywhere;
+}
 .doc code:not(pre code) {
   font-family: var(--font-mono);
   font-size: 0.86em;
