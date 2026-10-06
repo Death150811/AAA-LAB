@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { useUIStore } from "@/store/ui-store";
+import { AuthControlsSlot } from "@/components/auth/AuthSlots";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -18,7 +19,7 @@ export interface HeaderDomain {
 
 const SECTIONS = ["learn", "projects", "practice", "exam", "interview"];
 
-export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
+export function SiteHeader({ domains, authEnabled = false }: { domains: HeaderDomain[]; authEnabled?: boolean }) {
   const pathname = usePathname();
   const setSearchOpen = useUIStore((s) => s.setSearchOpen);
   // Меню «принадлежит» странице, на которой открыто: при навигации оно закрывается без эффекта.
@@ -91,6 +92,7 @@ export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
             </kbd>
           </button>
           <ThemeToggle />
+          {authEnabled && <AuthControlsSlot />}
           <Link
             href="/me"
             className="hidden h-9 items-center gap-2 rounded-[3px] border border-line-strong px-3 text-[13px] text-fg-muted transition-colors hover:border-fg-dim hover:text-fg sm:flex"
