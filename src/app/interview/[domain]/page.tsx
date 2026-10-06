@@ -49,7 +49,7 @@ export default async function InterviewPage({ params, searchParams }: { params: 
   const picked = seededShuffle(pool, seed).slice(0, count);
 
   return (
-    <div className="mx-auto max-w-[1000px] px-4 pb-10 sm:px-6">
+    <div className="mx-auto max-w-[1360px] px-4 pb-10 sm:px-6">
       <DomainHeader
         domain={domain}
         tab="interview"
@@ -105,7 +105,7 @@ export default async function InterviewPage({ params, searchParams }: { params: 
           ) : (
             <section aria-labelledby="iv-list" className="mt-10">
               <div className="mb-5 flex items-center gap-3">
-                <h2 id="iv-list" className="text-xl font-semibold tracking-tight">Подборка №{seed}</h2>
+                <h2 id="iv-list" className="font-display text-[1.6rem] font-normal leading-tight tracking-[-0.015em]">Подборка №{seed}</h2>
                 <Badge tone="accent">{picked.length} вопросов</Badge>
               </div>
               <ol className="m-0 list-none space-y-2.5 p-0">

@@ -3,7 +3,7 @@
 import { Download, Flame, Trash2, Upload } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { ACCENT, EmptyState, ProgressBar } from "@/components/ui/primitives";
+import { EmptyState, ProgressBar } from "@/components/ui/primitives";
 import type { Accent } from "@/content/types";
 import { cn } from "@/lib/cn";
 import { useHydrated } from "@/store/hydrate";
@@ -81,9 +81,9 @@ export function MeDashboard({
   }
 
   return (
-    <div className="space-y-12">
+    <div className="flex flex-col gap-14">
       {/* Сводка */}
-      <dl className="m-0 grid grid-cols-2 gap-px overflow-hidden rounded-[3px] border border-line bg-line lg:grid-cols-5">
+      <div className="grid grid-cols-2 border-y border-line-strong lg:grid-cols-5">
         {[
           ["Изучено тем", `${topicsDone}/${totalTopics}`],
           ["Проектов", String(projectsDone)],
@@ -91,15 +91,24 @@ export function MeDashboard({
           ["Опыт (XP)", String(s.xp)],
           ["Серия дней", String(s.streak.current)],
         ].map(([k, v], i) => (
-          <div key={k} className="bg-surface px-5 py-4">
-            <dd className="m-0 flex items-center gap-2 text-2xl font-semibold tabular text-fg">
+          <dl
+            key={k}
+            className={cn(
+              "m-0 flex flex-col justify-between gap-5 border-line-strong px-5 py-5 sm:px-6",
+              i % 2 === 1 && "border-l",
+              i > 1 && "border-t lg:border-t-0",
+              i > 0 && "lg:border-l",
+              i === 0 && "lg:!pl-0",
+            )}
+          >
+            <dt className="label text-fg-dim">{k}</dt>
+            <dd className="m-0 flex items-center gap-2 font-display text-[2.6rem] font-light leading-none tabular text-fg">
               {v}
-              {i === 4 && s.streak.current > 0 && <Flame size={16} className="text-amber" aria-hidden />}
+              {i === 4 && s.streak.current > 0 && <Flame size={18} className="text-amber" aria-hidden />}
             </dd>
-            <dt className="mt-0.5 text-xs text-fg-dim">{k}</dt>
-          </div>
+          </dl>
         ))}
-      </dl>
+      </div>
 
       {/* Прогресс по доменам */}
       <section aria-labelledby="progress">
@@ -109,13 +118,12 @@ export function MeDashboard({
         <ul className="m-0 grid list-none gap-3 p-0 md:grid-cols-2">
           {domains.map((d) => {
             const done = d.topics.filter((t) => s.completedTopics[t.id]).length;
-            const a = ACCENT[d.accent];
             return (
-              <li key={d.id}>
-                <Link href={`/learn/${d.slug}`} className="block rounded-[3px] border border-line bg-surface p-4 transition-colors hover:border-line-strong">
+              <li key={d.id} data-domain={d.id}>
+                <Link href={`/learn/${d.slug}`} className="block rounded-[3px] border border-line bg-bg-raised/60 p-5 transition-colors hover:border-accent/60">
                   <div className="flex items-baseline justify-between">
-                    <span className={cn("font-semibold", a.text)}>{d.title}</span>
-                    <span className="mono text-xs text-fg-dim tabular">{d.topics.length ? `${done}/${d.topics.length} тем` : "курс готовится"}</span>
+                    <span className="font-display text-[1.5rem] font-normal leading-none text-accent-text">{d.title}</span>
+                    <span className="label text-fg-dim tabular">{d.topics.length ? `${done}/${d.topics.length} тем` : "курс готовится"}</span>
                   </div>
                   <ProgressBar value={d.topics.length ? done / d.topics.length : 0} accent={d.accent} label={`Прогресс: ${d.title}`} className="mt-3" />
                 </Link>

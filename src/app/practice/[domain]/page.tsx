@@ -60,7 +60,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
   const hasContent = topics.length > 0;
 
   return (
-    <div className="mx-auto max-w-[1000px] px-4 pb-10 sm:px-6">
+    <div className="mx-auto max-w-[1360px] px-4 pb-10 sm:px-6">
       <DomainHeader
         domain={domain}
         tab="practice"
@@ -78,35 +78,35 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
         <>
           <ul className="m-0 mt-8 grid list-none gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
             <li>
-              <Link href="/flashcards" className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+              <Link href="/flashcards" className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:border-accent/60">
                 <div className="eyebrow">Вспомнить</div>
-                <div className="mt-2 text-[1.05rem] font-semibold text-fg">Карточки</div>
+                <div className="mt-2 font-display text-[1.28rem] font-normal leading-snug text-fg">Карточки</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">Определения и различия с интервальным повторением. {cardCount} карточек.</p>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs text-accent-text">Открыть <ArrowRight size={12} aria-hidden /></span>
               </Link>
             </li>
             {CATEGORIES.filter((c) => c.kind !== "recall").map((c) => (
               <li key={c.kind}>
-                <a href={`#${c.kind}`} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+                <a href={`#${c.kind}`} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:border-accent/60">
                   <div className="eyebrow">{c.title}</div>
-                  <div className="mt-2 text-[1.05rem] font-semibold text-fg">{c.question}</div>
+                  <div className="mt-2 font-display text-[1.28rem] font-normal leading-snug text-fg">{c.question}</div>
                   <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">{c.description}</p>
                   <span className="mt-3 inline-flex items-center gap-1 text-xs text-fg-dim">{rows[c.kind]!.length} заданий</span>
                 </a>
               </li>
             ))}
             <li>
-              <Link href={`/interview/${domain.slug}`} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+              <Link href={`/interview/${domain.slug}`} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:border-accent/60">
                 <div className="eyebrow">Собеседование</div>
-                <div className="mt-2 text-[1.05rem] font-semibold text-fg">Смогу ли я объяснить под давлением?</div>
+                <div className="mt-2 font-display text-[1.28rem] font-normal leading-snug text-fg">Смогу ли я объяснить под давлением?</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">{interviewCount} вопросов: от «что такое X» до отладки и инженерных решений.</p>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs text-accent-text">Тренировка <ArrowRight size={12} aria-hidden /></span>
               </Link>
             </li>
             <li>
-              <Link href={`/exam/${domain.slug}`} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+              <Link href={`/exam/${domain.slug}`} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:border-accent/60">
                 <div className="eyebrow">Экзамен</div>
-                <div className="mt-2 text-[1.05rem] font-semibold text-fg">Решу ли я теоретические вопросы?</div>
+                <div className="mt-2 font-display text-[1.28rem] font-normal leading-snug text-fg">Решу ли я теоретические вопросы?</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">{questionCount} вопросов с объяснениями; вариант собирается по нарастающей сложности.</p>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs text-accent-text">Составить вариант <ArrowRight size={12} aria-hidden /></span>
               </Link>
@@ -116,7 +116,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
           {CATEGORIES.filter((c) => c.kind !== "recall").map((c) => (
             <section key={c.kind} id={c.kind} aria-labelledby={`h-${c.kind}`} className="mt-14 scroll-mt-24">
               <div className="flex items-baseline gap-3 border-b border-line pb-3">
-                <h2 id={`h-${c.kind}`} className="text-xl font-semibold tracking-tight">{c.title}</h2>
+                <h2 id={`h-${c.kind}`} className="font-display text-[1.6rem] font-normal leading-tight tracking-[-0.015em]">{c.title}</h2>
                 <span className="text-sm text-fg-dim">{c.question}</span>
               </div>
               {rows[c.kind]!.length === 0 ? (

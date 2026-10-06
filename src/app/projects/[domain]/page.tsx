@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DomainHeader } from "@/components/layout/DomainHeader";
 import { ProjectStatus } from "@/components/practice/ProjectStatus";
-import { Badge, EmptyState } from "@/components/ui/primitives";
+import { EmptyState } from "@/components/ui/primitives";
 import { domains, getDomain, getProjects, projectHref } from "@/content/registry";
 import { LEVEL_LABEL } from "@/content/sections";
 import { Inline } from "@/lib/inline";
@@ -26,7 +26,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ domai
   const projects = getProjects(domain.id);
 
   return (
-    <div className="mx-auto max-w-[1000px] px-4 pb-10 sm:px-6">
+    <div className="mx-auto max-w-[1360px] px-4 pb-10 sm:px-6">
       <DomainHeader
         domain={domain}
         tab="projects"
@@ -41,29 +41,37 @@ export default async function ProjectsPage({ params }: { params: Promise<{ domai
           </EmptyState>
         </div>
       ) : (
-        <ol className="relative m-0 mt-10 list-none space-y-5 p-0">
-          <span aria-hidden className="absolute bottom-6 left-[19px] top-6 hidden w-px bg-line-strong sm:block" />
+        <ol className="m-0 mt-12 list-none border-b border-line-strong p-0">
           {projects.map((p) => (
-            <li key={p.id} className="relative sm:pl-14">
-              <span className="absolute left-0 top-5 hidden h-10 w-10 place-items-center rounded-full border border-line-strong bg-surface font-mono text-sm tabular text-accent-text sm:grid">
-                {String(p.order).padStart(2, "0")}
-              </span>
+            <li key={p.id} className="border-t border-line-strong">
               <Link
                 href={projectHref(p)}
-                className="group block rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong sm:p-6"
+                className="group relative -mx-4 grid gap-x-8 gap-y-4 px-4 py-8 transition-colors hover:bg-surface/50 sm:-mx-5 sm:px-5 md:grid-cols-[5.5rem_minmax(0,1fr)_auto]"
               >
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge tone="accent">{LEVEL_LABEL[p.level]}</Badge>
-                  {p.isFinal && <Badge tone="amber">Финальный</Badge>}
-                  <span className="flex items-center gap-1.5 text-xs text-fg-dim"><Clock size={12} aria-hidden /> ~{p.estimatedHours} ч</span>
-                  <span className="ml-auto"><ProjectStatus projectId={p.id} /></span>
-                </div>
-                <h2 className="mt-3 text-[1.35rem] font-semibold tracking-tight text-fg">{p.title}</h2>
-                <p className="mono mt-1 text-[11px] text-fg-dim">{p.subtitle}</p>
-                <p className="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-fg-muted"><Inline text={p.objective} /></p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm text-accent-text">
-                  Открыть задание <ArrowRight size={14} aria-hidden className="transition-transform group-hover:translate-x-0.5" />
+                <span aria-hidden className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-accent transition-transform duration-300 group-hover:scale-y-100" />
+                <span aria-hidden className="font-display text-[3.4rem] font-light leading-[0.85] text-accent-text/70 tabular md:text-[4.2rem]">
+                  {String(p.order).padStart(2, "0")}
                 </span>
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <span className="label border border-line-strong px-2 py-1 text-fg-muted">{LEVEL_LABEL[p.level]}</span>
+                    {p.isFinal && <span className="label border border-amber/40 px-2 py-1 text-amber">Финальный</span>}
+                    <span className="label flex items-center gap-1.5 text-fg-dim">
+                      <Clock size={11} aria-hidden /> ~{p.estimatedHours} ч
+                    </span>
+                  </div>
+                  <h2 className="mt-4 font-display text-[1.75rem] font-normal leading-tight tracking-[-0.015em] text-fg">{p.title}</h2>
+                  <p className="mt-1 font-display text-[1.05rem] italic text-fg-dim">{p.subtitle}</p>
+                  <p className="mt-4 max-w-2xl font-serif text-[1rem] leading-relaxed text-fg-muted">
+                    <Inline text={p.objective} />
+                  </p>
+                </div>
+                <div className="flex items-end justify-between gap-4 md:flex-col md:items-end">
+                  <ProjectStatus projectId={p.id} />
+                  <span className="inline-flex items-center gap-1.5 text-[0.9rem] text-accent-text">
+                    Открыть задание <ArrowRight size={14} aria-hidden className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
               </Link>
             </li>
           ))}

@@ -144,8 +144,8 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
 
       {queue === null && (
         <div className="rounded-[3px] border border-line bg-surface p-8 text-center">
-          <p className="mx-auto max-w-lg text-[0.97rem] leading-relaxed text-fg-muted">
-            Карточки закрепляют **определения, различия и правила**, а не заменяют понимание. Сначала попытайтесь
+          <p className="mx-auto max-w-lg font-serif text-[1.02rem] leading-relaxed text-fg-muted">
+            Карточки закрепляют <strong className="font-semibold text-fg">определения, различия и правила</strong>, а не заменяют понимание. Сначала попытайтесь
             ответить вслух, затем переверните карточку и честно оцените себя: интервал повторения зависит от оценки.
           </p>
           <button

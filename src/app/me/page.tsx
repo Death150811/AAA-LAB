@@ -19,10 +19,10 @@ export default function MePage() {
   const topicIndex = Object.fromEntries(allTopics.map((t) => [t.id, { title: t.title, href: topicHref(t) }]));
 
   return (
-    <div className="mx-auto max-w-[1000px] px-4 py-12 sm:px-6">
+    <div className="mx-auto max-w-[1360px] px-4 py-12 sm:px-6">
       <div className="eyebrow">Личное</div>
-      <h1 className="mt-3 text-[2.2rem] font-semibold tracking-tight">Моя система знаний</h1>
-      <p className="mt-3 max-w-2xl text-fg-muted">Прогресс, закладки, заметки и история практики. Хранятся локально, без регистрации.</p>
+      <h1 className="mt-4 font-display text-[clamp(2.3rem,5vw,3.6rem)] font-light leading-[1.04] tracking-[-0.03em]">Моя система знаний</h1>
+      <p className="mt-5 max-w-2xl font-serif text-[1.12rem] leading-[1.65] text-fg-muted">Прогресс, закладки, заметки и история практики. Хранятся локально, без регистрации.</p>
       <div className="mt-10">
         <MeDashboard domains={summaries} topicIndex={topicIndex} />
       </div>

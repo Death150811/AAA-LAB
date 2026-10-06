@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ domain: s
 function Section({ id, num, title, children }: { id: string; num: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} aria-labelledby={`${id}-h`} className="scroll-mt-24">
-      <h2 id={`${id}-h`} className="flex items-baseline gap-3 border-b border-line pb-3 text-xl font-semibold tracking-tight text-fg">
-        <span className="mono text-sm font-medium text-accent-text tabular">{num}</span>
+      <h2 id={`${id}-h`} className="flex items-baseline gap-4 border-b border-line-strong pb-3 font-display text-[1.75rem] font-normal leading-tight tracking-[-0.015em] text-fg">
+        <span className="font-label text-[11px] font-medium tracking-[0.1em] text-accent-text tabular">{num}</span>
         {title}
       </h2>
       <div className="mt-5">{children}</div>
@@ -36,8 +36,8 @@ function Bullets({ items }: { items: string[] }) {
   return (
     <ul className="m-0 list-none space-y-2 p-0">
       {items.map((t, i) => (
-        <li key={i} className="flex gap-3 text-[0.97rem] leading-relaxed text-fg-body">
-          <span aria-hidden className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-[1px] bg-steel" />
+        <li key={i} className="flex gap-3 font-serif text-[1.02rem] leading-relaxed text-fg-body">
+          <span aria-hidden className="mt-[0.72em] h-1.5 w-1.5 shrink-0 bg-accent" />
           <span>
             <Inline text={t} />
           </span>
@@ -63,7 +63,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ domain
   });
 
   return (
-    <div className="mx-auto max-w-[900px] px-4 pb-10 sm:px-6">
+    <div className="mx-auto max-w-[1360px] px-4 pb-16 sm:px-6">
       <DomainHeader
         domain={domain}
         tab="projects"
@@ -88,14 +88,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ domain
         )}
       </div>
 
-      <div className="mt-10 space-y-14">
+      <div className="mt-12 max-w-[58rem] space-y-16">
         <Section id="objective" num="01" title="Цель">
-          <p className="text-[1.05rem] leading-relaxed text-code-fg"><Inline text={project.objective} /></p>
+          <p className="font-serif text-[1.15rem] leading-[1.7] text-fg-body"><Inline text={project.objective} /></p>
           {topics.length > 0 && (
             <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
               <span className="text-fg-dim">Нужны знания:</span>
               {topics.map((t) => (
-                <Link key={t.id} href={topicHref(t)} className="rounded-md border border-line px-2 py-0.5 text-[13px] text-fg-muted hover:border-line-strong hover:text-fg">
+                <Link key={t.id} href={topicHref(t)} className="rounded-[3px] border border-line px-2 py-0.5 text-[13px] text-fg-muted hover:border-accent/60 hover:text-fg">
                   {t.title}
                 </Link>
               ))}

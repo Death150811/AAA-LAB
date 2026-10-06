@@ -21,14 +21,14 @@ export default function FlashcardsPage() {
   const domainsWithCards = domains.filter((d) => cards.some((c) => c.domain === d.id)).map((d) => ({ id: d.id, title: d.title }));
 
   return (
-    <div className="mx-auto max-w-[760px] px-4 py-12 sm:px-6">
+    <div className="mx-auto max-w-[1360px] px-4 py-12 sm:px-6">
       <div className="eyebrow">Повторение</div>
-      <h1 className="mt-3 text-[2.2rem] font-semibold tracking-tight">Карточки</h1>
-      <p className="mt-3 max-w-xl text-fg-muted">
+      <h1 className="mt-4 font-display text-[clamp(2.3rem,5vw,3.6rem)] font-light leading-[1.04] tracking-[-0.03em]">Карточки</h1>
+      <p className="mt-5 max-w-xl font-serif text-[1.12rem] leading-[1.65] text-fg-muted">
         Вспомогательный инструмент: определения, различия, правила и крайние случаи. Понимание строится в темах — карточки
         помогают его не забыть.
       </p>
-      <div className="mt-10">
+      <div className="mt-10 max-w-[46rem]">
         <FlashcardsApp cards={cards} domains={domainsWithCards} />
       </div>
     </div>

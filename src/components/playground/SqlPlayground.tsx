@@ -193,7 +193,7 @@ export function SqlPlayground() {
       <div className="mb-4 flex flex-wrap items-center gap-3">
         <div>
           <div className="eyebrow">Песочница</div>
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight">SQL</h1>
+          <h1 className="mt-1 font-display text-[2.2rem] font-light leading-tight tracking-[-0.02em]">SQL</h1>
         </div>
         <div className="ml-auto flex flex-wrap items-center gap-2">
           <label className="sr-only" htmlFor="sql-dataset">

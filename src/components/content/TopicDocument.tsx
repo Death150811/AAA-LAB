@@ -164,7 +164,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
                   <Target size={16} aria-hidden />
                   <span className="eyebrow !text-indigo">Задача</span>
                 </div>
-                <h3 className="text-xl font-semibold tracking-tight text-fg">{topic.challenge.title}</h3>
+                <h3 className="font-display text-[1.6rem] font-normal leading-tight tracking-[-0.015em] text-fg">{topic.challenge.title}</h3>
                 <div className="doc mt-4">
                   <Blocks blocks={topic.challenge.scenario} />
                 </div>
@@ -265,7 +265,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 rounded-[3px] border border-line px-3 py-2 text-[13px] text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
+                    className="flex items-center gap-2.5 rounded-[3px] border border-line px-3 py-2 text-[13px] text-fg-muted transition-colors hover:border-accent/60 hover:text-fg"
                   >
                     <ExternalLink size={13} aria-hidden className="shrink-0 text-fg-dim" />
                     <span className="min-w-0 flex-1 truncate">{s.title}</span>
@@ -280,7 +280,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
         {/* ───── Навигация ───── */}
         <nav aria-label="Предыдущая и следующая тема" className="mt-12 grid gap-3 sm:grid-cols-2">
           {prev ? (
-            <Link href={topicHref(prev)} className="group rounded-[3px] border border-line bg-surface p-4 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+            <Link href={topicHref(prev)} className="group rounded-[3px] border border-line bg-surface p-4 transition-[transform,border-color] hover:border-accent/60">
               <span className="eyebrow flex items-center gap-1.5"><ArrowLeft size={12} aria-hidden /> Назад</span>
               <span className="mt-2 block text-[0.98rem] font-medium text-fg">{prev.title}</span>
             </Link>
@@ -288,7 +288,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
             <span />
           )}
           {next && (
-            <Link href={topicHref(next)} className="group rounded-[3px] border border-line bg-surface p-4 text-right transition-[transform,border-color] hover:-translate-y-0.5 hover:border-accent/40 sm:col-start-2">
+            <Link href={topicHref(next)} className="group rounded-[3px] border border-line bg-surface p-4 text-right transition-[transform,border-color] hover:border-accent/40 sm:col-start-2">
               <span className="eyebrow flex items-center justify-end gap-1.5">Далее <ArrowRight size={12} aria-hidden /></span>
               <span className="mt-2 block text-[0.98rem] font-medium text-fg">{next.title}</span>
             </Link>

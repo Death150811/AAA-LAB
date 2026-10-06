@@ -45,7 +45,7 @@ export function ExerciseCard({ id, title, kind, difficulty, topicId, domain, hin
           </Badge>
         )}
       </header>
-      <h3 className="mb-3 text-[1.05rem] font-semibold tracking-tight text-fg">{title}</h3>
+      <h3 className="mb-3 font-display text-[1.28rem] font-normal leading-snug text-fg">{title}</h3>
       <div className="doc !text-[1rem] space-y-3">{promptNode}</div>
       {starterNode && (
         <div className="mt-4">

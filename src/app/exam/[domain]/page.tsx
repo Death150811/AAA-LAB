@@ -55,7 +55,7 @@ export default async function ExamPage({ params, searchParams }: { params: Promi
   const totalAvailable = questionPool(domain.id, { level: "all", module: "all", format: "all" }).length;
 
   return (
-    <div className="mx-auto max-w-[1000px] px-4 pb-10 sm:px-6">
+    <div className="mx-auto max-w-[1360px] px-4 pb-10 sm:px-6">
       <DomainHeader
         domain={domain}
         tab="exam"
@@ -91,7 +91,7 @@ export default async function ExamPage({ params, searchParams }: { params: Promi
           {started && items.length > 0 && (
             <section aria-labelledby="exam-run" className="mt-10">
               <div className="mb-5 flex flex-wrap items-center gap-3">
-                <h2 id="exam-run" className="text-xl font-semibold tracking-tight">Вариант №{seed}</h2>
+                <h2 id="exam-run" className="font-display text-[1.6rem] font-normal leading-tight tracking-[-0.015em]">Вариант №{seed}</h2>
                 <Badge tone="accent">{items.length} вопросов</Badge>
                 <ReshuffleLink className="ml-auto text-sm text-accent-text hover:underline">Другой вариант →</ReshuffleLink>
               </div>
