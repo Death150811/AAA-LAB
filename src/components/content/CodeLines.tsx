@@ -28,7 +28,7 @@ export function CodeLines({
                 )}
               >
                 {showNumbers && (
-                  <span aria-hidden className="mr-4 inline-block w-5 shrink-0 select-none text-right text-fg-dim/70 tabular">
+                  <span aria-hidden className="mr-4 inline-block w-5 shrink-0 select-none text-right text-fg-dim tabular">
                     {n}
                   </span>
                 )}

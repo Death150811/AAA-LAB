@@ -213,7 +213,8 @@ export function Playground() {
       <div className="grid gap-4 lg:grid-cols-2">
         {/* Редактор */}
         <section aria-label="Редактор" className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-[#0b1017]">
-          <div role="tablist" aria-label="Язык редактора" className="flex items-center border-b border-line bg-surface px-2">
+          <div className="flex items-center border-b border-line bg-surface px-2">
+            <div role="tablist" aria-label="Язык редактора" className="flex items-center">
             {(Object.keys(TAB_LABEL) as Tab[]).map((t) => (
               <button
                 key={t}
@@ -229,6 +230,7 @@ export function Playground() {
                 {tab === t && <span aria-hidden className="absolute inset-x-2 -bottom-px h-[2px] bg-cyan" />}
               </button>
             ))}
+            </div>
             <label className="ml-auto flex cursor-pointer items-center gap-2 px-2 text-[12px] text-fg-muted">
               <input type="checkbox" checked={auto} onChange={(e) => setAuto(e.target.checked)} className="h-3.5 w-3.5 accent-[var(--cyan)]" />
               Автообновление HTML/CSS

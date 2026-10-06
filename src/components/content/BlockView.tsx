@@ -29,9 +29,9 @@ export async function BlockView({ block }: { block: Block }) {
 
     case "h":
       return (
-        <h4 className="!mt-7 text-base font-semibold tracking-tight text-fg">
+        <h3 className="!mt-7 text-base font-semibold tracking-tight text-fg">
           {block.text}
-        </h4>
+        </h3>
       );
 
     case "list": {
@@ -97,7 +97,7 @@ export async function BlockView({ block }: { block: Block }) {
                     scope="col"
                     className="border-b border-line px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-fg-muted"
                   >
-                    <Inline text={h} />
+                    {h.trim() ? <Inline text={h} /> : <span className="sr-only">Строка</span>}
                   </th>
                 ))}
               </tr>

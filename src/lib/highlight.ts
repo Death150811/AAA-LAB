@@ -19,7 +19,7 @@ const theme: ThemeRegistrationRaw = {
   // Внимание: Shiki читает правила из `settings` и игнорирует `tokenColors`, если `settings` задан.
   settings: [
     { settings: { foreground: "#d4dbe6", background: "#0b1017" } },
-    { scope: ["comment", "punctuation.definition.comment"], settings: { foreground: "#62748d", fontStyle: "italic" } },
+    { scope: ["comment", "punctuation.definition.comment"], settings: { foreground: "#7a8ca6", fontStyle: "italic" } },
     { scope: ["string", "string.quoted", "punctuation.definition.string"], settings: { foreground: "#94dcae" } },
     { scope: ["constant.numeric", "constant.language", "constant.character", "keyword.other.unit"], settings: { foreground: "#e8b877" } },
     { scope: ["keyword", "storage", "storage.type", "storage.modifier", "keyword.control", "keyword.operator.new"], settings: { foreground: "#9ba8ff" } },

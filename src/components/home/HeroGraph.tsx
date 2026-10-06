@@ -37,7 +37,7 @@ const EDGES: { from: string; to: string; dashed?: boolean }[] = [
   { from: "js", to: "sql" },
 ];
 
-const W = 136;
+const W = 150;
 const H = 54;
 
 export function HeroGraph({ domains }: { domains: GraphDomain[] }) {
