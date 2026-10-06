@@ -258,9 +258,9 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
         {topic.sources && topic.sources.length > 0 && (
           <footer className="mt-14 border-t border-line pt-6">
             <div className="eyebrow mb-3">Первоисточники для углубления</div>
-            <ul className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
+            <ul className="m-0 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2">
               {topic.sources.map((s) => (
-                <li key={s.url}>
+                <li key={s.url} className="min-w-0">
                   <a
                     href={s.url}
                     target="_blank"

@@ -33,7 +33,7 @@ export default async function DomainPage({ params }: { params: Promise<{ domain:
   return (
     <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
       <header className="relative pt-12 pb-8 sm:pt-16">
-        <div aria-hidden className="bg-blueprint pointer-events-none absolute inset-x-[-2rem] top-0 h-72 opacity-70" />
+        <div aria-hidden className="bg-blueprint pointer-events-none absolute inset-x-[-1rem] top-0 h-72 opacity-70 sm:inset-x-[-2rem]" />
         <div className="relative">
           <div className="flex items-center gap-3">
             <span className={`mono text-sm tabular ${a.text}`}>DOMAIN {domain.code}</span>
