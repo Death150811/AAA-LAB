@@ -32,7 +32,7 @@ export function ExerciseCard({ id, title, kind, difficulty, topicId, domain, hin
   const record = useUserStore((s) => s.recordAttempt);
 
   return (
-    <article id={id} className="scroll-mt-24 rounded-xl border border-line bg-surface/70 p-4 sm:p-5">
+    <article id={id} className="scroll-mt-24 rounded-[3px] border border-line bg-surface/70 p-4 sm:p-5">
       <header className="mb-3 flex flex-wrap items-center gap-2">
         <span className="mono text-xs text-fg-dim tabular">Задание {index}</span>
         <Badge tone={difficulty === "advanced" ? "rose" : difficulty === "intermediate" ? "amber" : "emerald"}>
@@ -80,7 +80,7 @@ export function ExerciseCard({ id, title, kind, difficulty, topicId, domain, hin
       {hintCount > 0 && (
         <ol className="m-0 mt-4 list-none space-y-2 p-0">
           {hints.slice(0, hintCount).map((h, i) => (
-            <li key={i} className="flex gap-2.5 rounded-lg border border-amber/25 bg-amber/[0.05] px-3.5 py-2.5 text-[0.93rem] leading-relaxed text-fg-muted">
+            <li key={i} className="flex gap-2.5 rounded-[3px] border border-amber/25 bg-amber/[0.05] px-3.5 py-2.5 text-[0.93rem] leading-relaxed text-fg-muted">
               <Lightbulb size={15} aria-hidden className="mt-1 shrink-0 text-amber" />
               <span>
                 <span className="mr-1.5 font-semibold text-amber">Подсказка {i + 1}.</span>
@@ -126,7 +126,7 @@ export function ExerciseCard({ id, title, kind, difficulty, topicId, domain, hin
       </div>
 
       {solution && (
-        <div className="mt-4 rounded-lg border border-line bg-bg-raised/60 p-4">
+        <div className="mt-4 rounded-[3px] border border-line bg-bg-raised/60 p-4">
           <div className="eyebrow mb-3">Решение</div>
           <div className="doc !text-[0.98rem] space-y-3">{solutionNode}</div>
         </div>

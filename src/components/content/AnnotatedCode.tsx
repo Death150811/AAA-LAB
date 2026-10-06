@@ -43,7 +43,7 @@ export function AnnotatedCode({
     <div className="space-y-3">
       <figure
         className={cn(
-          "m-0 overflow-hidden rounded-lg border border-line bg-code",
+          "m-0 overflow-hidden rounded-[3px] border border-line bg-code",
           // Короткий код остаётся на виду, пока читаются пояснения (только на широких экранах).
           lines.length <= 14 && "md:sticky md:top-[calc(var(--header-h)+0.75rem)] md:z-10 md:shadow-[0_12px_24px_-12px_rgb(0_0_0/0.8)]",
         )}

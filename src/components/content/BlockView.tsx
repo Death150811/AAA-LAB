@@ -11,11 +11,11 @@ const CALLOUT: Record<
   CalloutBlock["tone"],
   { icon: ReactNode; label: string; border: string; bg: string; fg: string }
 > = {
-  note: { icon: <Info size={16} />, label: "Заметка", border: "border-steel/40", bg: "bg-steel/[0.07]", fg: "text-steel" },
-  tip: { icon: <Lightbulb size={16} />, label: "Практика", border: "border-emerald/40", bg: "bg-emerald/[0.07]", fg: "text-emerald" },
-  warning: { icon: <TriangleAlert size={16} />, label: "Осторожно", border: "border-amber/40", bg: "bg-amber/[0.07]", fg: "text-amber" },
-  danger: { icon: <AlertOctagon size={16} />, label: "Опасно", border: "border-rose/40", bg: "bg-rose/[0.07]", fg: "text-rose" },
-  insight: { icon: <Sparkles size={16} />, label: "Ключевая идея", border: "border-accent/40", bg: "bg-accent/[0.07]", fg: "text-accent-text" },
+  note: { icon: <Info size={15} />, label: "Заметка", border: "border-l-steel", bg: "bg-steel/[0.07]", fg: "text-steel" },
+  tip: { icon: <Lightbulb size={15} />, label: "Практика", border: "border-l-emerald", bg: "bg-emerald/[0.07]", fg: "text-emerald" },
+  warning: { icon: <TriangleAlert size={15} />, label: "Осторожно", border: "border-l-amber", bg: "bg-amber/[0.07]", fg: "text-amber" },
+  danger: { icon: <AlertOctagon size={15} />, label: "Опасно", border: "border-l-rose", bg: "bg-rose/[0.07]", fg: "text-rose" },
+  insight: { icon: <Sparkles size={15} />, label: "Ключевая идея", border: "border-l-accent", bg: "bg-accent/[0.08]", fg: "text-accent-text" },
 };
 
 export async function BlockView({ block }: { block: Block }) {
@@ -29,7 +29,7 @@ export async function BlockView({ block }: { block: Block }) {
 
     case "h":
       return (
-        <h3 className="!mt-7 text-base font-semibold tracking-tight text-fg">
+        <h3 className="!mt-8 font-display text-[1.3rem] font-medium leading-snug tracking-[-0.005em] text-fg">
           {block.text}
         </h3>
       );
@@ -67,10 +67,10 @@ export async function BlockView({ block }: { block: Block }) {
       return (
         <div
           role="note"
-          className={cn("rounded-lg border px-4 py-3.5", c.border, c.bg)}
+          className={cn("border-l-[3px] py-3.5 pl-5 pr-4", c.border, c.bg)}
           aria-label={block.title ?? c.label}
         >
-          <div className={cn("mb-1.5 flex items-center gap-2 text-[13px] font-semibold", c.fg)}>
+          <div className={cn("mb-2 flex items-center gap-2 font-label text-[10.5px] font-medium uppercase tracking-[0.14em]", c.fg)}>
             {c.icon}
             <span>{block.title ?? c.label}</span>
           </div>
@@ -83,7 +83,7 @@ export async function BlockView({ block }: { block: Block }) {
 
     case "table":
       return (
-        <div className="scroll-x rounded-lg border border-line" tabIndex={0}>
+        <div className="scroll-x rounded-[3px] border border-line" tabIndex={0}>
           <table className="w-full min-w-[32rem] border-collapse text-left text-[0.92rem]">
             {block.caption && (
               <caption className="border-b border-line bg-surface px-4 py-2 text-left text-[13px] text-fg-muted">
@@ -96,7 +96,7 @@ export async function BlockView({ block }: { block: Block }) {
                   <th
                     key={i}
                     scope="col"
-                    className="border-b border-line px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-fg-muted"
+                    className="border-b border-line-strong px-4 py-2.5 font-label text-[10px] font-medium uppercase tracking-[0.12em] text-fg-muted"
                   >
                     {h.trim() ? <Inline text={h} /> : <span className="sr-only">Строка</span>}
                   </th>
@@ -120,12 +120,12 @@ export async function BlockView({ block }: { block: Block }) {
 
     case "definition":
       return (
-        <div className="rounded-lg border border-line border-l-2 border-l-accent bg-surface/60 px-5 py-4">
-          <div className="mb-1 flex flex-wrap items-baseline gap-x-2.5">
-            <span className="text-lg font-semibold tracking-tight text-fg">{block.term}</span>
-            {block.en && <span className="font-mono text-xs text-fg-dim">({block.en})</span>}
+        <div className="border-y border-line-strong border-l-[3px] border-l-accent bg-surface/60 py-4 pl-5 pr-5">
+          <div className="mb-1.5 flex flex-wrap items-baseline gap-x-3">
+            <span className="font-display text-[1.6rem] font-normal leading-tight tracking-[-0.01em] text-fg">{block.term}</span>
+            {block.en && <span className="font-label text-[11px] text-fg-dim">{block.en}</span>}
           </div>
-          <p className="!mt-0 text-[1.02rem] leading-relaxed text-code-fg">
+          <p className="!mt-0 text-[1.04rem] leading-relaxed text-fg-body">
             <Inline text={block.text} />
           </p>
         </div>
@@ -155,7 +155,7 @@ export async function BlockView({ block }: { block: Block }) {
 
     case "steps":
       return (
-        <div className="rounded-lg border border-line bg-surface/40 px-5 py-4">
+        <div className="rounded-[3px] border border-line bg-surface/40 px-5 py-4">
           {block.title && <div className="eyebrow mb-3">{block.title}</div>}
           <ol className="!m-0 !list-none !p-0">
             {block.items.map((s, i) => (
@@ -163,7 +163,7 @@ export async function BlockView({ block }: { block: Block }) {
                 {i < block.items.length - 1 && (
                   <span aria-hidden className="absolute left-[13px] top-8 bottom-0 w-px bg-line-strong" />
                 )}
-                <span className="relative z-10 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-line-strong bg-surface-2 font-mono text-xs text-accent-text tabular">
+                <span className="relative z-10 grid h-7 w-7 shrink-0 place-items-center border border-accent/60 bg-bg font-label text-[11px] text-accent-text tabular">
                   {i + 1}
                 </span>
                 <div className="min-w-0 pt-0.5">
@@ -180,7 +180,7 @@ export async function BlockView({ block }: { block: Block }) {
 
     case "diagram":
       return (
-        <figure className="m-0 overflow-hidden rounded-lg border border-line bg-code">
+        <figure className="m-0 overflow-hidden rounded-[3px] border border-line bg-code">
           <div className="scroll-x">
             <pre
               className="m-0 w-max min-w-full px-5 py-4 font-mono text-[12.5px] leading-[1.55] text-code-fg"
@@ -213,7 +213,7 @@ function CompareCard({
   return (
     <div
       className={cn(
-        "flex min-w-0 flex-col gap-2.5 rounded-lg border p-3",
+        "flex min-w-0 flex-col gap-2.5 rounded-[3px] border p-3",
         bad ? "border-rose/30 bg-rose/[0.04]" : "border-emerald/30 bg-emerald/[0.04]",
       )}
     >

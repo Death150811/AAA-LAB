@@ -118,7 +118,7 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
               setDomain(e.target.value);
               setQueue(null);
             }}
-            className="h-10 rounded-lg border border-line-strong bg-surface px-3 text-sm text-fg focus:border-accent/60 focus:outline-none"
+            className="h-10 rounded-[3px] border border-line-strong bg-surface px-3 text-sm text-fg focus:border-accent/60 focus:outline-none"
           >
             <option value="all">Все курсы</option>
             {domains.map((d) => (
@@ -143,7 +143,7 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
       </div>
 
       {queue === null && (
-        <div className="rounded-xl border border-line bg-surface p-8 text-center">
+        <div className="rounded-[3px] border border-line bg-surface p-8 text-center">
           <p className="mx-auto max-w-lg text-[0.97rem] leading-relaxed text-fg-muted">
             Карточки закрепляют **определения, различия и правила**, а не заменяют понимание. Сначала попытайтесь
             ответить вслух, затем переверните карточку и честно оцените себя: интервал повторения зависит от оценки.
@@ -152,7 +152,7 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
             type="button"
             onClick={start}
             disabled={counts.fresh + counts.due === 0}
-            className="mt-6 h-11 rounded-lg border border-accent bg-accent px-6 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40"
+            className="mt-6 h-11 rounded-[3px] border border-accent bg-accent px-6 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {counts.fresh + counts.due === 0 ? "На сегодня всё повторено" : "Начать сессию"}
           </button>
@@ -185,7 +185,7 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
             <button
               type="button"
               onClick={() => setFlipped(true)}
-              className="mt-4 h-11 w-full rounded-lg border border-line-strong bg-surface-2 text-sm font-medium text-fg hover:bg-surface-3"
+              className="mt-4 h-11 w-full rounded-[3px] border border-line-strong bg-surface-2 text-sm font-medium text-fg hover:bg-surface-3"
             >
               Показать ответ <kbd className="ml-2 font-mono text-[10px] text-fg-dim">Space</kbd>
             </button>
@@ -196,7 +196,7 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
                   key={g.grade}
                   type="button"
                   onClick={() => grade(g.grade)}
-                  className={cn("rounded-lg border px-3 py-2.5 text-sm font-medium transition-transform active:scale-[0.97]", g.cls)}
+                  className={cn("rounded-[3px] border px-3 py-2.5 text-sm font-medium transition-transform active:scale-[0.97]", g.cls)}
                 >
                   {g.label}
                   <span className="mt-0.5 block text-[11px] font-normal opacity-70">
@@ -210,13 +210,13 @@ export function FlashcardsApp({ cards, domains }: { cards: CardData[]; domains: 
       )}
 
       {finished && (
-        <div className="rounded-xl border border-emerald/30 bg-emerald/[0.05] p-8 text-center">
+        <div className="rounded-[3px] border border-emerald/30 bg-emerald/[0.05] p-8 text-center">
           <p className="text-lg font-semibold text-fg">Сессия завершена</p>
           <p className="mt-1 text-sm text-fg-muted">Оценено карточек: {reviewed}. Следующее повторение — по графику.</p>
           <button
             type="button"
             onClick={() => setQueue(null)}
-            className="mt-5 inline-flex h-10 items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-4 text-sm text-fg hover:bg-surface-3"
+            className="mt-5 inline-flex h-10 items-center gap-2 rounded-[3px] border border-line-strong bg-surface-2 px-4 text-sm text-fg hover:bg-surface-3"
           >
             <RotateCcw size={14} aria-hidden /> К началу
           </button>

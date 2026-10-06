@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { useUIStore } from "@/store/ui-store";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 export interface HeaderDomain {
   slug: string;
@@ -83,6 +84,7 @@ export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
               Ctrl K
             </kbd>
           </button>
+          <ThemeToggle />
           <Link
             href="/me"
             className="hidden h-9 items-center gap-2 rounded-[3px] border border-line-strong px-3 text-[13px] text-fg-muted transition-colors hover:border-fg-dim hover:text-fg sm:flex"
@@ -110,7 +112,7 @@ export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
               <li key={d.slug}>
                 <Link
                   href={`/learn/${d.slug}`}
-                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-fg-muted hover:bg-surface-2 hover:text-fg"
+                  className="flex items-center gap-3 rounded-[3px] px-3 py-2.5 text-sm text-fg-muted hover:bg-surface-2 hover:text-fg"
                 >
                   <span className="mono text-[11px] text-fg-dim">{d.code}</span>
                   <span className="flex-1">{d.title}</span>
@@ -124,7 +126,7 @@ export function SiteHeader({ domains }: { domains: HeaderDomain[] }) {
               ["/me", "Моё: прогресс, заметки, закладки"],
             ].map(([href, label]) => (
               <li key={href}>
-                <Link href={href!} className="block rounded-lg px-3 py-2.5 text-sm text-fg-muted hover:bg-surface-2 hover:text-fg">
+                <Link href={href!} className="block rounded-[3px] px-3 py-2.5 text-sm text-fg-muted hover:bg-surface-2 hover:text-fg">
                   {label}
                 </Link>
               </li>

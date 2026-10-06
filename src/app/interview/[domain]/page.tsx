@@ -65,10 +65,10 @@ export default async function InterviewPage({ params, searchParams }: { params: 
         </div>
       ) : (
         <>
-          <SeedForm className="mt-8 grid gap-4 rounded-xl border border-line bg-surface p-5 sm:grid-cols-2 lg:grid-cols-4" aria-label="Параметры тренировки">
+          <SeedForm className="mt-8 grid gap-4 rounded-[3px] border border-line bg-surface p-5 sm:grid-cols-2 lg:grid-cols-4" aria-label="Параметры тренировки">
             <label className="block text-[13px] text-fg-muted">
               <span className="mb-1.5 block">Уровень</span>
-              <select name="level" defaultValue={level} className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none">
+              <select name="level" defaultValue={level} className="h-10 w-full rounded-[3px] border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none">
                 {LEVELS.map((l) => (
                   <option key={l} value={l}>{l === "all" ? "Все уровни" : INTERVIEW_LEVEL_LABEL[l]}</option>
                 ))}
@@ -76,7 +76,7 @@ export default async function InterviewPage({ params, searchParams }: { params: 
             </label>
             <label className="block text-[13px] text-fg-muted">
               <span className="mb-1.5 block">Модуль</span>
-              <select name="module" defaultValue={moduleId} className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none">
+              <select name="module" defaultValue={moduleId} className="h-10 w-full rounded-[3px] border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none">
                 <option value="all">Все модули</option>
                 {domain.modules.filter((m) => m.topics.length > 0).map((m) => (
                   <option key={m.id} value={m.id}>{m.title}</option>
@@ -85,13 +85,13 @@ export default async function InterviewPage({ params, searchParams }: { params: 
             </label>
             <label className="block text-[13px] text-fg-muted">
               <span className="mb-1.5 block">Вопросов</span>
-              <select name="count" defaultValue={String(count)} className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none">
+              <select name="count" defaultValue={String(count)} className="h-10 w-full rounded-[3px] border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none">
                 {[5, 10, 20, 50].map((n) => <option key={n} value={n}>{n}</option>)}
               </select>
             </label>
             <div className="flex items-end">
               <input type="hidden" name="seed" defaultValue="1" />
-              <button type="submit" className="h-10 w-full rounded-lg border border-accent bg-accent px-4 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97]">
+              <button type="submit" className="h-10 w-full rounded-[3px] border border-accent bg-accent px-4 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97]">
                 Новая подборка
               </button>
             </div>
@@ -111,7 +111,7 @@ export default async function InterviewPage({ params, searchParams }: { params: 
               <ol className="m-0 list-none space-y-2.5 p-0">
                 {picked.map(({ q, topic }, i) => (
                   <li key={q.id}>
-                    <details className="group rounded-xl border border-line bg-surface/60 open:bg-surface">
+                    <details className="group rounded-[3px] border border-line bg-surface/60 open:bg-surface">
                       <summary className="flex cursor-pointer list-none items-start gap-3 px-4 py-3.5 marker:hidden [&::-webkit-details-marker]:hidden">
                         <span className="mono mt-0.5 w-6 shrink-0 text-xs text-fg-dim tabular">{i + 1}</span>
                         <Badge tone={TONE[q.level]} className="mt-0.5 shrink-0">{INTERVIEW_LEVEL_LABEL[q.level]}</Badge>
@@ -122,7 +122,7 @@ export default async function InterviewPage({ params, searchParams }: { params: 
                       <div className="doc space-y-3 border-t border-line px-4 py-4 text-[0.98rem]">
                         <Blocks blocks={q.answer} />
                         {q.followUps && q.followUps.length > 0 && (
-                          <div className="!mt-5 rounded-lg border border-line bg-bg-raised/60 px-4 py-3">
+                          <div className="!mt-5 rounded-[3px] border border-line bg-bg-raised/60 px-4 py-3">
                             <div className="eyebrow mb-2">Уточняющие вопросы</div>
                             <ul className="!m-0 !pl-5 text-[0.93rem]">
                               {q.followUps.map((f, k) => <li key={k}><Inline text={f} /></li>)}

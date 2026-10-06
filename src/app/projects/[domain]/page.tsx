@@ -50,7 +50,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ domai
               </span>
               <Link
                 href={projectHref(p)}
-                className="group block rounded-xl border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong sm:p-6"
+                className="group block rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong sm:p-6"
               >
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge tone="accent">{LEVEL_LABEL[p.level]}</Badge>

@@ -134,7 +134,7 @@ export function HeroGraph({ domains }: { domains: GraphDomain[] }) {
 
         <div
           aria-live="polite"
-          className="mt-2 rounded-xl border border-line bg-surface/70 px-5 py-3.5 backdrop-blur-sm"
+          className="mt-2 rounded-[3px] border border-line bg-surface/70 px-5 py-3.5 backdrop-blur-sm"
         >
           <div className="flex items-baseline justify-between gap-3">
             <span className="text-[0.95rem] font-semibold text-fg">{info.title}</span>

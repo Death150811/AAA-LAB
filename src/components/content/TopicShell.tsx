@@ -44,7 +44,7 @@ export function TopicShell({
           onClick={() => setOpen(true)}
           aria-expanded={open}
           aria-controls="curriculum-panel"
-          className="flex h-9 items-center gap-2 rounded-lg border border-line bg-surface px-3 text-[13px] text-fg-muted hover:text-fg"
+          className="flex h-9 items-center gap-2 rounded-[3px] border border-line bg-surface px-3 text-[13px] text-fg-muted hover:text-fg"
         >
           <ListTree size={15} aria-hidden />
           {navLabel}

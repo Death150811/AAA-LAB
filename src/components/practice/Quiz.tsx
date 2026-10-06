@@ -70,7 +70,7 @@ export function QuizRunner({
         <div
           role="status"
           aria-live="polite"
-          className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-line bg-surface px-5 py-4"
+          className="flex flex-wrap items-center justify-between gap-3 rounded-[3px] border border-line bg-surface px-5 py-4"
         >
           <div>
             <div className="eyebrow">Итог</div>
@@ -90,7 +90,7 @@ export function QuizRunner({
             <button
               type="button"
               onClick={onComplete}
-              className="inline-flex h-9 items-center gap-2 rounded-lg border border-emerald/50 bg-emerald/10 px-3.5 text-[13px] font-medium text-emerald transition-transform active:scale-[0.97]"
+              className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-emerald/50 bg-emerald/10 px-3.5 text-[13px] font-medium text-emerald transition-transform active:scale-[0.97]"
             >
               <Check size={15} aria-hidden />
               {completeLabel ?? "Отметить тему изученной"}
@@ -121,7 +121,7 @@ function QuestionCard({
 }) {
   const q = item.question;
   return (
-    <article className="rounded-xl border border-line bg-surface/70 p-4 sm:p-5">
+    <article className="rounded-[3px] border border-line bg-surface/70 p-4 sm:p-5">
       <header className="mb-3 flex flex-wrap items-center gap-2">
         <span className="mono text-xs text-fg-dim tabular">№ {index}</span>
         <Badge tone={q.difficulty === "advanced" ? "rose" : q.difficulty === "intermediate" ? "amber" : "emerald"}>
@@ -188,7 +188,7 @@ function McqCard({
             <label
               key={i}
               className={cn(
-                "flex cursor-pointer items-start gap-3 rounded-lg border px-3.5 py-2.5 text-[0.95rem] leading-relaxed transition-colors",
+                "flex cursor-pointer items-start gap-3 rounded-[3px] border px-3.5 py-2.5 text-[0.95rem] leading-relaxed transition-colors",
                 checked && "cursor-default",
                 state === "right" && "border-emerald/50 bg-emerald/[0.07]",
                 state === "wrong" && "border-rose/50 bg-rose/[0.07]",
@@ -221,7 +221,7 @@ function McqCard({
             type="button"
             onClick={check}
             disabled={!picked.length}
-            className="h-9 rounded-lg border border-accent bg-accent px-4 text-[13px] font-semibold text-accent-ink transition-transform active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40"
+            className="h-9 rounded-[3px] border border-accent bg-accent px-4 text-[13px] font-semibold text-accent-ink transition-transform active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Проверить
           </button>
@@ -229,7 +229,7 @@ function McqCard({
           <button
             type="button"
             onClick={reset}
-            className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg-muted hover:text-fg"
+            className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg-muted hover:text-fg"
           >
             <RotateCcw size={14} aria-hidden />
             Ещё раз
@@ -241,7 +241,7 @@ function McqCard({
         <div
           role="status"
           className={cn(
-            "mt-4 rounded-lg border px-4 py-3 text-[0.94rem] leading-relaxed",
+            "mt-4 rounded-[3px] border px-4 py-3 text-[0.94rem] leading-relaxed",
             isRight ? "border-emerald/30 bg-emerald/[0.05]" : "border-amber/30 bg-amber/[0.05]",
           )}
         >
@@ -293,19 +293,19 @@ function OpenCard({
         id={id}
         rows={4}
         placeholder="Сформулируйте ответ своими словами, прежде чем смотреть эталон. Текст нигде не сохраняется."
-        className="w-full resize-y rounded-lg border border-line bg-bg-raised px-3 py-2.5 text-[0.93rem] leading-relaxed text-fg placeholder:text-fg-dim focus:border-accent/60 focus:outline-none"
+        className="w-full resize-y rounded-[3px] border border-line bg-bg-raised px-3 py-2.5 text-[0.93rem] leading-relaxed text-fg placeholder:text-fg-dim focus:border-accent/60 focus:outline-none"
       />
       {!shown ? (
         <button
           type="button"
           onClick={() => setShown(true)}
-          className="mt-3 h-9 rounded-lg border border-line-strong bg-surface-2 px-4 text-[13px] font-medium text-fg hover:bg-surface-3"
+          className="mt-3 h-9 rounded-[3px] border border-line-strong bg-surface-2 px-4 text-[13px] font-medium text-fg hover:bg-surface-3"
         >
           Показать эталонный ответ
         </button>
       ) : (
         <div className="mt-4 space-y-4">
-          <div className="doc rounded-lg border border-line bg-bg-raised/60 p-4 !text-[0.97rem]">{item.answerNode}</div>
+          <div className="doc rounded-[3px] border border-line bg-bg-raised/60 p-4 !text-[0.97rem]">{item.answerNode}</div>
           <div>
             <div className="eyebrow mb-2">Критерии самооценки</div>
             <ul className="m-0 list-none space-y-1.5 p-0">

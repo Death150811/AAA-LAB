@@ -24,7 +24,7 @@ export function AcceptanceChecklist({ projectId, items }: { projectId: string; i
           <li key={i}>
             <label
               className={cn(
-                "flex cursor-pointer items-start gap-3 rounded-lg border px-3.5 py-2.5 text-[0.95rem] leading-relaxed transition-colors",
+                "flex cursor-pointer items-start gap-3 rounded-[3px] border px-3.5 py-2.5 text-[0.95rem] leading-relaxed transition-colors",
                 set.has(i) ? "border-emerald/40 bg-emerald/[0.05] text-fg" : "border-line text-fg-muted hover:border-line-strong",
               )}
             >
@@ -56,7 +56,7 @@ export function CompleteProjectButton({ projectId }: { projectId: string }) {
       onClick={() => toggle(projectId)}
       aria-pressed={on}
       className={cn(
-        "inline-flex h-10 items-center gap-2 rounded-lg border px-4 text-sm font-medium transition-[transform,background-color,border-color] active:scale-[0.97]",
+        "inline-flex h-10 items-center gap-2 rounded-[3px] border px-4 text-sm font-medium transition-[transform,background-color,border-color] active:scale-[0.97]",
         on ? "border-emerald/50 bg-emerald/10 text-emerald" : "border-line-strong bg-surface-2 text-fg hover:border-steel/60 hover:bg-surface-3",
       )}
     >
@@ -73,7 +73,7 @@ export function HintsReveal({ hints }: { hints: string[] }) {
       {n > 0 && (
         <ol className="m-0 mb-3 list-none space-y-2 p-0">
           {hints.slice(0, n).map((h, i) => (
-            <li key={i} className="flex gap-2.5 rounded-lg border border-amber/25 bg-amber/[0.05] px-3.5 py-2.5 text-[0.93rem] leading-relaxed text-fg-muted">
+            <li key={i} className="flex gap-2.5 rounded-[3px] border border-amber/25 bg-amber/[0.05] px-3.5 py-2.5 text-[0.93rem] leading-relaxed text-fg-muted">
               <Lightbulb size={15} aria-hidden className="mt-1 shrink-0 text-amber" />
               <span>
                 <span className="mr-1.5 font-semibold text-amber">Подсказка {i + 1}.</span>
@@ -87,7 +87,7 @@ export function HintsReveal({ hints }: { hints: string[] }) {
         <button
           type="button"
           onClick={() => setN((v) => v + 1)}
-          className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg-muted hover:text-fg"
+          className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg-muted hover:text-fg"
         >
           <Lightbulb size={14} aria-hidden />
           Показать подсказку {n + 1} из {hints.length}
@@ -104,7 +104,7 @@ export function SolutionReveal({ children }: { children: ReactNode }) {
   return (
     <div>
       {!open ? (
-        <div className="rounded-xl border border-dashed border-line-strong p-5">
+        <div className="rounded-[3px] border border-dashed border-line-strong p-5">
           <p className="text-[0.95rem] text-fg-muted">
             Решение раскрывается отдельно. Сначала сделайте собственную попытку и сверьтесь с критериями приёмки и
             рубрикой — разбор решения полезнее, когда у вас уже есть своё.
@@ -112,14 +112,14 @@ export function SolutionReveal({ children }: { children: ReactNode }) {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="mt-4 inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg hover:bg-surface-3"
+            className="mt-4 inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg hover:bg-surface-3"
           >
             <Eye size={14} aria-hidden />
             Я попробовал(а) — показать решение
           </button>
         </div>
       ) : (
-        <div className="doc space-y-3 rounded-xl border border-line bg-bg-raised/60 p-5">{children}</div>
+        <div className="doc space-y-3 rounded-[3px] border border-line bg-bg-raised/60 p-5">{children}</div>
       )}
     </div>
   );
@@ -134,7 +134,7 @@ export function RubricSelfEval({ rubric }: { rubric: { criterion: string; weight
     <div className="space-y-3">
       <ul className="m-0 list-none space-y-3 p-0">
         {rubric.map((r, i) => (
-          <li key={r.criterion} className="rounded-xl border border-line bg-surface/60 p-4">
+          <li key={r.criterion} className="rounded-[3px] border border-line bg-surface/60 p-4">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <span className="font-medium text-fg">{r.criterion}</span>
               <span className="mono text-xs text-fg-dim tabular">вес {r.weight}%</span>
@@ -168,7 +168,7 @@ export function RubricSelfEval({ rubric }: { rubric: { criterion: string; weight
           </li>
         ))}
       </ul>
-      <div role="status" aria-live="polite" className="flex items-center gap-3 rounded-xl border border-line bg-surface px-5 py-3.5">
+      <div role="status" aria-live="polite" className="flex items-center gap-3 rounded-[3px] border border-line bg-surface px-5 py-3.5">
         <Check size={16} aria-hidden className={rounded >= 70 ? "text-emerald" : "text-fg-dim"} />
         <span className="text-sm text-fg-muted">
           Итог самооценки: <span className="mono tabular text-lg font-semibold text-fg">{rounded}</span> / 100

@@ -83,7 +83,7 @@ export function MeDashboard({
   return (
     <div className="space-y-12">
       {/* Сводка */}
-      <dl className="m-0 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line lg:grid-cols-5">
+      <dl className="m-0 grid grid-cols-2 gap-px overflow-hidden rounded-[3px] border border-line bg-line lg:grid-cols-5">
         {[
           ["Изучено тем", `${topicsDone}/${totalTopics}`],
           ["Проектов", String(projectsDone)],
@@ -112,7 +112,7 @@ export function MeDashboard({
             const a = ACCENT[d.accent];
             return (
               <li key={d.id}>
-                <Link href={`/learn/${d.slug}`} className="block rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong">
+                <Link href={`/learn/${d.slug}`} className="block rounded-[3px] border border-line bg-surface p-4 transition-colors hover:border-line-strong">
                   <div className="flex items-baseline justify-between">
                     <span className={cn("font-semibold", a.text)}>{d.title}</span>
                     <span className="mono text-xs text-fg-dim tabular">{d.topics.length ? `${done}/${d.topics.length} тем` : "курс готовится"}</span>
@@ -134,7 +134,7 @@ export function MeDashboard({
           {s.recent.length === 0 ? (
             <EmptyState title="Пока ничего">Откройте любую тему — она появится здесь.</EmptyState>
           ) : (
-            <ul className="m-0 list-none divide-y divide-line rounded-xl border border-line bg-surface p-0">
+            <ul className="m-0 list-none divide-y divide-line rounded-[3px] border border-line bg-surface p-0">
               {s.recent.slice(0, 8).map((r) => (
                 <li key={r.id}>
                   <Link href={r.href} className="block px-4 py-2.5 text-[0.93rem] text-fg-muted hover:text-fg">
@@ -153,7 +153,7 @@ export function MeDashboard({
           {s.bookmarks.length === 0 ? (
             <EmptyState title="Закладок нет">Нажмите «В закладки» на странице темы.</EmptyState>
           ) : (
-            <ul className="m-0 list-none divide-y divide-line rounded-xl border border-line bg-surface p-0">
+            <ul className="m-0 list-none divide-y divide-line rounded-[3px] border border-line bg-surface p-0">
               {s.bookmarks.map((b) => (
                 <li key={b.id} className="flex items-center gap-2 px-4">
                   <Link href={b.href} className="min-w-0 flex-1 truncate py-2.5 text-[0.93rem] text-fg-muted hover:text-fg">
@@ -181,7 +181,7 @@ export function MeDashboard({
             {s.notes.map((n) => {
               const t = n.topicId ? topicIndex[n.topicId] : undefined;
               return (
-                <li key={n.id} className="rounded-xl border border-line bg-surface p-4">
+                <li key={n.id} className="rounded-[3px] border border-line bg-surface p-4">
                   <div className="flex items-start justify-between gap-3">
                     {t ? (
                       <Link href={t.href} className="text-sm font-medium text-fg hover:text-accent-text">
@@ -210,7 +210,7 @@ export function MeDashboard({
         {s.attempts.length === 0 ? (
           <EmptyState title="Ответов пока нет">Решайте упражнения и вопросы — результаты появятся здесь.</EmptyState>
         ) : (
-          <ul className="m-0 list-none divide-y divide-line rounded-xl border border-line bg-surface p-0">
+          <ul className="m-0 list-none divide-y divide-line rounded-[3px] border border-line bg-surface p-0">
             {s.attempts.slice(0, 12).map((a) => {
               const t = a.topicId ? topicIndex[a.topicId] : undefined;
               const label = a.correct === true ? "Верно" : a.correct === false ? "Неверно" : "Частично";
@@ -229,7 +229,7 @@ export function MeDashboard({
       </section>
 
       {/* Данные */}
-      <section aria-labelledby="data" className="rounded-xl border border-line bg-surface p-5">
+      <section aria-labelledby="data" className="rounded-[3px] border border-line bg-surface p-5">
         <h2 id="data" className="eyebrow mb-2">
           Ваши данные
         </h2>
@@ -237,10 +237,10 @@ export function MeDashboard({
           Всё хранится только в вашем браузере (localStorage). Сделайте резервную копию, если хотите перенести прогресс на другое устройство.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <button type="button" onClick={exportData} className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg hover:bg-surface-3">
+          <button type="button" onClick={exportData} className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg hover:bg-surface-3">
             <Download size={14} aria-hidden /> Экспорт
           </button>
-          <button type="button" onClick={() => fileRef.current?.click()} className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg hover:bg-surface-3">
+          <button type="button" onClick={() => fileRef.current?.click()} className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface-2 px-3.5 text-[13px] text-fg hover:bg-surface-3">
             <Upload size={14} aria-hidden /> Импорт
           </button>
           <input
@@ -263,7 +263,7 @@ export function MeDashboard({
                 setMessage("Данные удалены.");
               }
             }}
-            className="inline-flex h-9 items-center gap-2 rounded-lg border border-rose/40 px-3.5 text-[13px] text-rose hover:bg-rose/10"
+            className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-rose/40 px-3.5 text-[13px] text-rose hover:bg-rose/10"
           >
             <Trash2 size={14} aria-hidden /> Сбросить всё
           </button>

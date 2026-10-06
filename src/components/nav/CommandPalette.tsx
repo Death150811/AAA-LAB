@@ -196,7 +196,7 @@ export function CommandPalette() {
         if (e.target === dialogRef.current) setOpen(false);
       }}
       aria-label="Поиск по платформе"
-      className="m-auto mt-[10vh] w-[min(42rem,calc(100vw-1.5rem))] overflow-hidden rounded-xl border border-line-strong bg-surface p-0 text-fg shadow-[0_24px_80px_-12px_rgb(0_0_0/0.7)] backdrop:bg-black/60 backdrop:backdrop-blur-[2px]"
+      className="m-auto mt-[10vh] w-[min(42rem,calc(100vw-1.5rem))] overflow-hidden rounded-[3px] border border-line-strong bg-surface p-0 text-fg shadow-[0_24px_80px_-12px_rgb(0_0_0/0.7)] backdrop:bg-black/60 backdrop:backdrop-blur-[2px]"
     >
       <div className="flex items-center gap-3 border-b border-line px-4">
         <Search size={17} className="shrink-0 text-fg-dim" aria-hidden />
@@ -250,7 +250,7 @@ export function CommandPalette() {
               onMouseMove={() => setActive(i)}
               onClick={() => go(item.href)}
               className={cn(
-                "flex cursor-pointer items-start gap-3 rounded-lg px-3 py-2.5",
+                "flex cursor-pointer items-start gap-3 rounded-[3px] px-3 py-2.5",
                 i === active ? "bg-surface-3" : "hover:bg-surface-2",
               )}
             >

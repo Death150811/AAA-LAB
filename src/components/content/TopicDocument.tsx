@@ -18,10 +18,10 @@ import { Inline } from "@/lib/inline";
 function SectionHeading({ id, suffix }: { id: DocSectionId; suffix?: string }) {
   const m = SECTION_META[id];
   return (
-    <h2 id={id} className="group flex flex-wrap items-baseline gap-x-3 border-b border-line pb-3 text-[1.45rem] font-semibold leading-tight tracking-tight text-fg">
-      <span className="mono text-sm font-medium text-accent-text tabular">{m.num}</span>
+    <h2 id={id} className="group flex flex-wrap items-baseline gap-x-4 border-b border-line-strong pb-3 font-display text-[1.75rem] font-normal leading-tight tracking-[-0.015em] text-fg">
+      <span className="font-label text-[11px] font-medium tracking-[0.1em] text-accent-text tabular">{m.num}</span>
       <span>{suffix ? `${m.title}: ${suffix}` : m.title}</span>
-      <span className="mono ml-auto hidden text-[11px] font-normal uppercase tracking-wider text-fg-dim sm:inline">{m.en}</span>
+      <span className="font-label ml-auto hidden text-[10px] font-normal uppercase tracking-[0.14em] text-fg-dim sm:inline">{m.en}</span>
       <a href={`#${id}`} aria-label={`Ссылка на раздел «${m.title}»`} className="text-fg-dim opacity-0 transition-opacity focus:opacity-100 group-hover:opacity-100">
         <Link2 size={15} />
       </a>
@@ -61,8 +61,8 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
       <article id="topic-article" className="min-w-0 py-8 lg:py-10">
         {/* ───── Заголовок ───── */}
         <header className="mb-10">
-          <nav aria-label="Хлебные крошки" className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-fg-dim">
-            <Link href={`/learn/${domain.slug}`} className="hover:text-fg">{domain.title}</Link>
+          <nav aria-label="Хлебные крошки" className="mb-6 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-label text-[10.5px] uppercase tracking-[0.1em] text-fg-dim">
+            <Link href={`/learn/${domain.slug}`} className="text-accent-text hover:underline">{domain.title}</Link>
             <span aria-hidden>/</span>
             <span>Модуль {String(mod?.index ?? 0).padStart(2, "0")} · {mod?.title}</span>
           </nav>
@@ -74,11 +74,11 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
             </span>
           </div>
 
-          <h1 className="text-[2rem] font-semibold leading-[1.15] tracking-tight text-fg sm:text-[2.5rem]">
+          <h1 className="font-display text-[clamp(2.2rem,4.6vw,3.5rem)] font-light leading-[1.04] tracking-[-0.03em] text-fg">
             {topic.title}
           </h1>
-          {topic.titleEn && <p className="mono mt-2 text-sm text-fg-dim">{topic.titleEn}</p>}
-          <p className="mt-5 max-w-3xl text-[1.12rem] leading-relaxed text-fg-muted">
+          {topic.titleEn && <p className="mt-3 font-display text-[1.15rem] italic text-fg-dim">{topic.titleEn}</p>}
+          <p className="mt-6 max-w-3xl font-serif text-[1.2rem] leading-[1.65] text-fg-muted">
             <Inline text={topic.summary} />
           </p>
 
@@ -88,7 +88,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
           </div>
 
           {topic.prerequisites.length > 0 && (
-            <div className="mt-6 rounded-xl border border-line bg-surface/50 p-4">
+            <div className="mt-6 rounded-[3px] border border-line bg-surface/50 p-4">
               <div className="eyebrow mb-2.5 flex items-center gap-2">
                 <Layers size={12} aria-hidden /> Перед этой темой
               </div>
@@ -102,7 +102,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
           )}
 
           {/* Содержание на малых экранах */}
-          <details className="group mt-6 rounded-xl border border-line bg-surface/50 xl:hidden">
+          <details className="group mt-6 rounded-[3px] border border-line bg-surface/50 xl:hidden">
             <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm text-fg-muted marker:hidden [&::-webkit-details-marker]:hidden">
               <span>Содержание темы</span>
               <span className="text-xs text-accent-text group-open:hidden">Показать</span>
@@ -159,7 +159,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
           {topic.challenge && (
             <section aria-labelledby="challenge" className="scroll-mt-24">
               <SectionHeading id="challenge" />
-              <div className="mt-6 rounded-xl border border-indigo/30 bg-indigo/[0.04] p-5 sm:p-6">
+              <div className="mt-6 rounded-[3px] border border-indigo/30 bg-indigo/[0.04] p-5 sm:p-6">
                 <div className="mb-1 flex items-center gap-2 text-indigo">
                   <Target size={16} aria-hidden />
                   <span className="eyebrow !text-indigo">Задача</span>
@@ -173,7 +173,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
                   <ChallengeList title="Ограничения" items={topic.challenge.constraints} />
                   <ChallengeList title="Критерии приёмки" items={topic.challenge.acceptance} />
                 </div>
-                <details className="mt-6 rounded-lg border border-line bg-bg-raised/50">
+                <details className="mt-6 rounded-[3px] border border-line bg-bg-raised/50">
                   <summary className="cursor-pointer px-4 py-2.5 text-sm text-fg-muted hover:text-fg">Подсказки</summary>
                   <ol className="m-0 space-y-2 px-4 pb-4 pl-9 text-[0.95rem] leading-relaxed text-fg-muted">
                     {topic.challenge.hints.map((h, i) => (
@@ -181,7 +181,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
                     ))}
                   </ol>
                 </details>
-                <details className="mt-3 rounded-lg border border-line bg-bg-raised/50">
+                <details className="mt-3 rounded-[3px] border border-line bg-bg-raised/50">
                   <summary className="cursor-pointer px-4 py-2.5 text-sm text-fg-muted hover:text-fg">
                     Разбор решения (откройте после попытки)
                   </summary>
@@ -202,7 +202,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
               </p>
               <div className="mt-6 space-y-2.5">
                 {topic.interview.map((q) => (
-                  <details key={q.id} className="group rounded-xl border border-line bg-surface/60 open:bg-surface">
+                  <details key={q.id} className="group rounded-[3px] border border-line bg-surface/60 open:bg-surface">
                     <summary className="flex cursor-pointer list-none items-start gap-3 px-4 py-3.5 marker:hidden [&::-webkit-details-marker]:hidden">
                       <Badge tone={q.level === "basic" ? "emerald" : q.level === "intermediate" ? "accent" : q.level === "advanced" ? "indigo" : q.level === "engineering" ? "amber" : "rose"} className="mt-0.5 shrink-0">
                         {INTERVIEW_LEVEL_LABEL[q.level]}
@@ -214,7 +214,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
                     <div className="doc space-y-3 border-t border-line px-4 py-4 text-[0.98rem]">
                       <Blocks blocks={q.answer} />
                       {q.followUps && q.followUps.length > 0 && (
-                        <div className="!mt-5 rounded-lg border border-line bg-bg-raised/60 px-4 py-3">
+                        <div className="!mt-5 rounded-[3px] border border-line bg-bg-raised/60 px-4 py-3">
                           <div className="eyebrow mb-2">Уточняющие вопросы интервьюера</div>
                           <ul className="!m-0 !pl-5 text-[0.93rem]">
                             {q.followUps.map((f, i) => (
@@ -265,7 +265,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 rounded-lg border border-line px-3 py-2 text-[13px] text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
+                    className="flex items-center gap-2.5 rounded-[3px] border border-line px-3 py-2 text-[13px] text-fg-muted transition-colors hover:border-line-strong hover:text-fg"
                   >
                     <ExternalLink size={13} aria-hidden className="shrink-0 text-fg-dim" />
                     <span className="min-w-0 flex-1 truncate">{s.title}</span>
@@ -280,7 +280,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
         {/* ───── Навигация ───── */}
         <nav aria-label="Предыдущая и следующая тема" className="mt-12 grid gap-3 sm:grid-cols-2">
           {prev ? (
-            <Link href={topicHref(prev)} className="group rounded-xl border border-line bg-surface p-4 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+            <Link href={topicHref(prev)} className="group rounded-[3px] border border-line bg-surface p-4 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
               <span className="eyebrow flex items-center gap-1.5"><ArrowLeft size={12} aria-hidden /> Назад</span>
               <span className="mt-2 block text-[0.98rem] font-medium text-fg">{prev.title}</span>
             </Link>
@@ -288,7 +288,7 @@ export async function TopicDocument({ topic, domain }: { topic: Topic; domain: D
             <span />
           )}
           {next && (
-            <Link href={topicHref(next)} className="group rounded-xl border border-line bg-surface p-4 text-right transition-[transform,border-color] hover:-translate-y-0.5 hover:border-accent/40 sm:col-start-2">
+            <Link href={topicHref(next)} className="group rounded-[3px] border border-line bg-surface p-4 text-right transition-[transform,border-color] hover:-translate-y-0.5 hover:border-accent/40 sm:col-start-2">
               <span className="eyebrow flex items-center justify-end gap-1.5">Далее <ArrowRight size={12} aria-hidden /></span>
               <span className="mt-2 block text-[0.98rem] font-medium text-fg">{next.title}</span>
             </Link>
@@ -335,7 +335,7 @@ export function TopicRail({ topic }: { topic: Topic }) {
           <div className="eyebrow mb-3">Ключевые понятия</div>
           <dl className="m-0 space-y-3">
             {topic.keyConcepts.map((k) => (
-              <div key={k.term} className="rounded-lg border border-line bg-surface/50 px-3 py-2.5">
+              <div key={k.term} className="rounded-[3px] border border-line bg-surface/50 px-3 py-2.5">
                 <dt className="flex flex-wrap items-baseline gap-x-2 font-semibold text-fg">
                   {k.term}
                   {k.en && <span className="mono text-[10px] font-normal text-fg-dim">{k.en}</span>}

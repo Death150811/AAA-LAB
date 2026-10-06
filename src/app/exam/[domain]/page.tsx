@@ -71,14 +71,14 @@ export default async function ExamPage({ params, searchParams }: { params: Promi
         </div>
       ) : (
         <>
-          <SeedForm className="mt-8 grid gap-4 rounded-xl border border-line bg-surface p-5 sm:grid-cols-2 lg:grid-cols-5" aria-label="Параметры варианта экзамена">
+          <SeedForm className="mt-8 grid gap-4 rounded-[3px] border border-line bg-surface p-5 sm:grid-cols-2 lg:grid-cols-5" aria-label="Параметры варианта экзамена">
             <Field label="Сложность" name="level" value={level} options={LEVELS.map((v) => [v, v === "all" ? "Все уровни" : DIFFICULTY_LABEL[v as Difficulty]])} />
             <Field label="Модуль" name="module" value={moduleId} options={[["all", "Все модули"], ...domain.modules.filter((m) => m.topics.length > 0).map((m) => [m.id, m.title] as [string, string])]} />
             <Field label="Тип вопроса" name="format" value={format} options={FORMATS.map((v) => [v, FORMAT_LABEL[v]])} />
             <Field label="Вопросов" name="count" value={String(count)} options={[["5", "5"], ["10", "10"], ["20", "20"], ["30", "30"]]} />
             <div className="flex items-end">
               <input type="hidden" name="seed" defaultValue="1" />
-              <button type="submit" className="h-10 w-full rounded-lg border border-accent bg-accent px-4 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97]">
+              <button type="submit" className="h-10 w-full rounded-[3px] border border-accent bg-accent px-4 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97]">
                 Составить вариант
               </button>
             </div>
@@ -118,7 +118,7 @@ function Field({ label, name, value, options }: { label: string; name: string; v
       <select
         name={name}
         defaultValue={value}
-        className="h-10 w-full rounded-lg border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none"
+        className="h-10 w-full rounded-[3px] border border-line-strong bg-bg-raised px-3 text-sm text-fg focus:border-accent/60 focus:outline-none"
       >
         {options.map(([v, l]) => (
           <option key={v} value={v}>

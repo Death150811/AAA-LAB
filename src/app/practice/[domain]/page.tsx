@@ -78,7 +78,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
         <>
           <ul className="m-0 mt-8 grid list-none gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
             <li>
-              <Link href="/flashcards" className="group block h-full rounded-xl border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+              <Link href="/flashcards" className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
                 <div className="eyebrow">Вспомнить</div>
                 <div className="mt-2 text-[1.05rem] font-semibold text-fg">Карточки</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">Определения и различия с интервальным повторением. {cardCount} карточек.</p>
@@ -87,7 +87,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
             </li>
             {CATEGORIES.filter((c) => c.kind !== "recall").map((c) => (
               <li key={c.kind}>
-                <a href={`#${c.kind}`} className="group block h-full rounded-xl border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+                <a href={`#${c.kind}`} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
                   <div className="eyebrow">{c.title}</div>
                   <div className="mt-2 text-[1.05rem] font-semibold text-fg">{c.question}</div>
                   <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">{c.description}</p>
@@ -96,7 +96,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
               </li>
             ))}
             <li>
-              <Link href={`/interview/${domain.slug}`} className="group block h-full rounded-xl border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+              <Link href={`/interview/${domain.slug}`} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
                 <div className="eyebrow">Собеседование</div>
                 <div className="mt-2 text-[1.05rem] font-semibold text-fg">Смогу ли я объяснить под давлением?</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">{interviewCount} вопросов: от «что такое X» до отладки и инженерных решений.</p>
@@ -104,7 +104,7 @@ export default async function PracticePage({ params }: { params: Promise<{ domai
               </Link>
             </li>
             <li>
-              <Link href={`/exam/${domain.slug}`} className="group block h-full rounded-xl border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
+              <Link href={`/exam/${domain.slug}`} className="group block h-full rounded-[3px] border border-line bg-surface p-5 transition-[transform,border-color] hover:-translate-y-0.5 hover:border-line-strong">
                 <div className="eyebrow">Экзамен</div>
                 <div className="mt-2 text-[1.05rem] font-semibold text-fg">Решу ли я теоретические вопросы?</div>
                 <p className="mt-1 text-[13px] leading-relaxed text-fg-muted">{questionCount} вопросов с объяснениями; вариант собирается по нарастающей сложности.</p>

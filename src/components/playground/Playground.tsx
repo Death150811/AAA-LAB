@@ -184,7 +184,7 @@ export function Playground() {
               if (ex) loadSource({ html: ex.html, css: ex.css, js: ex.js });
               e.target.value = "";
             }}
-            className="h-9 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg-muted focus:border-accent/60 focus:outline-none"
+            className="h-9 rounded-[3px] border border-line-strong bg-surface px-3 text-[13px] text-fg-muted focus:border-accent/60 focus:outline-none"
           >
             <option value="" disabled>
               Загрузить пример…
@@ -195,16 +195,16 @@ export function Playground() {
               </option>
             ))}
           </select>
-          <button type="button" onClick={() => execute(source)} className="inline-flex h-9 items-center gap-2 rounded-lg border border-accent bg-accent px-3.5 text-[13px] font-semibold text-accent-ink active:scale-[0.97]">
+          <button type="button" onClick={() => execute(source)} className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-accent bg-accent px-3.5 text-[13px] font-semibold text-accent-ink active:scale-[0.97]">
             <Play size={14} aria-hidden /> Запустить <kbd className="hidden font-mono text-[10px] opacity-70 sm:inline">Ctrl+Enter</kbd>
           </button>
-          <button type="button" onClick={() => loadSource(EMPTY)} className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg">
+          <button type="button" onClick={() => loadSource(EMPTY)} className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg">
             <RotateCcw size={14} aria-hidden /> Сброс
           </button>
-          <button type="button" onClick={shareLink} className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg">
+          <button type="button" onClick={shareLink} className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg">
             {copied ? <Check size={14} className="text-emerald" aria-hidden /> : <Link2 size={14} aria-hidden />} {copied ? "Ссылка скопирована" : "Ссылка"}
           </button>
-          <button type="button" onClick={saveAsSnippet} className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg">
+          <button type="button" onClick={saveAsSnippet} className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg">
             {saved ? <Check size={14} className="text-emerald" aria-hidden /> : <BookmarkPlus size={14} aria-hidden />} {saved ? "Сохранено" : "В сниппеты"}
           </button>
         </div>
@@ -212,7 +212,7 @@ export function Playground() {
 
       <div className="grid gap-4 lg:grid-cols-2">
         {/* Редактор */}
-        <section aria-label="Редактор" className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-code">
+        <section aria-label="Редактор" className="flex min-w-0 flex-col overflow-hidden rounded-[3px] border border-line bg-code">
           <div className="flex items-center border-b border-line bg-surface px-2">
             <div role="tablist" aria-label="Язык редактора" className="flex items-center">
             {(Object.keys(TAB_LABEL) as Tab[]).map((t) => (
@@ -260,7 +260,7 @@ export function Playground() {
 
         {/* Результат и консоль */}
         <div className="flex min-w-0 flex-col gap-4">
-          <section aria-label="Результат" className="overflow-hidden rounded-xl border border-line bg-white">
+          <section aria-label="Результат" className="overflow-hidden rounded-[3px] border border-line bg-white">
             <div className="flex items-center justify-between border-b border-line bg-surface px-3 py-2">
               <span className="eyebrow">Результат</span>
               <span className="text-[11px] text-fg-dim">изолированный фрейм · без доступа к сайту и сети</span>
@@ -274,7 +274,7 @@ export function Playground() {
             />
           </section>
 
-          <section aria-label="Консоль" className="overflow-hidden rounded-xl border border-line bg-code">
+          <section aria-label="Консоль" className="overflow-hidden rounded-[3px] border border-line bg-code">
             <div className="flex items-center justify-between border-b border-line bg-surface px-3 py-2">
               <span className="eyebrow">
                 Консоль{" "}
@@ -308,7 +308,7 @@ export function Playground() {
           </h2>
           <ul className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {snippets.slice(0, 9).map((s) => (
-              <li key={s.id} className="flex items-center gap-2 rounded-lg border border-line bg-surface px-3 py-2">
+              <li key={s.id} className="flex items-center gap-2 rounded-[3px] border border-line bg-surface px-3 py-2">
                 <button type="button" onClick={() => loadSource({ html: s.code, css: "", js: "" })} className="min-w-0 flex-1 truncate text-left text-sm text-fg-muted hover:text-fg">
                   {s.title}
                 </button>

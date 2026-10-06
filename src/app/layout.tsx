@@ -15,6 +15,7 @@ import { CommandPalette } from "@/components/nav/CommandPalette";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader, type HeaderDomain } from "@/components/layout/SiteHeader";
 import { domains } from "@/content/registry";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 import { StoreHydrator } from "@/store/hydrate";
 
 export const metadata: Metadata = {
@@ -40,7 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }));
 
   return (
-    <html lang="ru">
+    <html lang="ru" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body>
         <a
           href="#main"

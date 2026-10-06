@@ -62,7 +62,7 @@ export function ButtonLink({
 }
 
 export function Card({ className, ...rest }: ComponentProps<"div">) {
-  return <div className={cn("rounded-xl border border-line bg-surface", className)} {...rest} />;
+  return <div className={cn("rounded-[3px] border border-line bg-surface", className)} {...rest} />;
 }
 
 /** Карточка-ссылка с контролируемым подъёмом при наведении. */
@@ -70,7 +70,7 @@ export function CardLink({ className, ...rest }: ComponentProps<typeof Link>) {
   return (
     <Link
       className={cn(
-        "group block rounded-xl border border-line bg-surface transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:bg-surface-2",
+        "group block rounded-[3px] border border-line bg-surface transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:bg-surface-2",
         className,
       )}
       {...rest}
@@ -113,7 +113,7 @@ export function ProgressBar({
 
 export function EmptyState({ title, children, action }: { title: string; children?: ReactNode; action?: ReactNode }) {
   return (
-    <div className="rounded-xl border border-dashed border-line-strong bg-surface/40 px-6 py-10 text-center">
+    <div className="rounded-[3px] border border-dashed border-line-strong bg-surface/40 px-6 py-10 text-center">
       <p className="text-[0.98rem] font-medium text-fg">{title}</p>
       {children && <div className="mx-auto mt-1.5 max-w-md text-sm text-fg-muted">{children}</div>}
       {action && <div className="mt-5 flex justify-center">{action}</div>}

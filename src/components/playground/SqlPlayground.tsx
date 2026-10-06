@@ -203,7 +203,7 @@ export function SqlPlayground() {
             id="sql-dataset"
             value={datasetId}
             onChange={(e) => changeDataset(e.target.value)}
-            className="h-9 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg focus:border-accent/60 focus:outline-none"
+            className="h-9 rounded-[3px] border border-line-strong bg-surface px-3 text-[13px] text-fg focus:border-accent/60 focus:outline-none"
           >
             {PLAYGROUND_DATASETS.map((d) => (
               <option key={d.id} value={d.id}>
@@ -215,7 +215,7 @@ export function SqlPlayground() {
             type="button"
             onClick={() => execute(sql)}
             disabled={loading || !restored}
-            className="inline-flex h-9 items-center gap-2 rounded-lg border border-accent bg-accent px-3.5 text-[13px] font-semibold text-accent-ink active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-accent bg-accent px-3.5 text-[13px] font-semibold text-accent-ink active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading ? <Loader2 size={14} className="animate-spin" aria-hidden /> : <Play size={14} aria-hidden />} Выполнить
             <kbd className="hidden font-mono text-[10px] opacity-70 sm:inline">Ctrl+Enter</kbd>
@@ -224,14 +224,14 @@ export function SqlPlayground() {
             type="button"
             onClick={resetData}
             disabled={loading}
-            className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg disabled:opacity-50"
+            className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg disabled:opacity-50"
           >
             <RotateCcw size={14} aria-hidden /> Сбросить данные
           </button>
           <button
             type="button"
             onClick={saveAsSnippet}
-            className="inline-flex h-9 items-center gap-2 rounded-lg border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg"
+            className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-line-strong bg-surface px-3 text-[13px] text-fg-muted hover:text-fg"
           >
             {saved ? <Check size={14} className="text-emerald" aria-hidden /> : <BookmarkPlus size={14} aria-hidden />} {saved ? "Сохранено" : "В сниппеты"}
           </button>
@@ -242,7 +242,7 @@ export function SqlPlayground() {
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_21rem]">
         {/* Редактор и результаты */}
         <div className="min-w-0 space-y-4">
-          <section aria-label="Редактор запросов" className="overflow-hidden rounded-xl border border-line bg-code">
+          <section aria-label="Редактор запросов" className="overflow-hidden rounded-[3px] border border-line bg-code">
             <label htmlFor="sql-editor" className="sr-only">
               SQL-запрос
             </label>
@@ -271,7 +271,7 @@ export function SqlPlayground() {
           </section>
 
           {example && (
-            <div role="note" aria-label="Пояснение к примеру" className="rounded-lg border border-accent/30 bg-accent/[0.06] px-4 py-3 text-sm leading-relaxed text-fg-muted">
+            <div role="note" aria-label="Пояснение к примеру" className="rounded-[3px] border border-accent/30 bg-accent/[0.06] px-4 py-3 text-sm leading-relaxed text-fg-muted">
               <span className="font-semibold text-fg">{example.title}.</span> {example.note}
             </div>
           )}
@@ -283,7 +283,7 @@ export function SqlPlayground() {
               </p>
             )}
             {run.kind === "idle" && !engineError && (
-              <p className="rounded-lg border border-dashed border-line-strong px-4 py-6 text-center text-sm text-fg-dim">
+              <p className="rounded-[3px] border border-dashed border-line-strong px-4 py-6 text-center text-sm text-fg-dim">
                 Результат появится здесь. Нажмите «Выполнить» или Ctrl+Enter; щёлкните таблицу справа, чтобы посмотреть её строки.
               </p>
             )}
@@ -309,10 +309,10 @@ export function SqlPlayground() {
               <Table2 size={12} aria-hidden /> Схема
             </h2>
             {loading && <p className="text-sm text-fg-dim">Загрузка…</p>}
-            {schema && schema.tables.length === 0 && <p className="rounded-lg border border-dashed border-line-strong px-3 py-3 text-sm text-fg-dim">В базе нет таблиц. Создайте их запросом CREATE TABLE.</p>}
+            {schema && schema.tables.length === 0 && <p className="rounded-[3px] border border-dashed border-line-strong px-3 py-3 text-sm text-fg-dim">В базе нет таблиц. Создайте их запросом CREATE TABLE.</p>}
             <ul className="m-0 list-none space-y-2 p-0">
               {schema?.tables.map((t) => (
-                <li key={t.name} className="rounded-lg border border-line bg-surface">
+                <li key={t.name} className="rounded-[3px] border border-line bg-surface">
                   <button
                     type="button"
                     onClick={() => previewTable(t.name)}

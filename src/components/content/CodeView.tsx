@@ -71,7 +71,7 @@ export async function CodeView({
   const frame = (
     <figure
       className={cn(
-        "m-0 overflow-hidden rounded-lg border border-line bg-code",
+        "m-0 overflow-hidden rounded-[3px] border border-line bg-code",
         bare && "rounded-md",
       )}
     >
@@ -88,7 +88,7 @@ export async function CodeView({
 
   if (collapsed) {
     return (
-      <details className="group rounded-lg border border-line bg-surface/40">
+      <details className="group rounded-[3px] border border-line bg-surface/40">
         <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-2.5 text-sm text-fg-muted marker:hidden hover:text-fg">
           <span>
             <span className="eyebrow mr-2">Пример</span>

@@ -23,20 +23,28 @@ export function CompleteButton({ topicId, className }: { topicId: string; classN
   const toggle = useUserStore((s) => s.toggleTopic);
   const hydrated = useHydrated();
   const on = hydrated && done;
+  // Каждое включение перезапускает короткую анимацию «галочка + круг».
+  const [burst, setBurst] = useState(0);
   return (
     <button
       type="button"
-      onClick={() => toggle(topicId)}
+      onClick={() => {
+        if (!on) setBurst((b) => b + 1);
+        toggle(topicId);
+      }}
       aria-pressed={on}
       className={cn(
-        "inline-flex h-9 items-center gap-2 rounded-lg border px-3.5 text-[13px] font-medium transition-[transform,background-color,border-color,color] duration-150 active:scale-[0.97]",
+        "inline-flex h-9 items-center gap-2 rounded-[3px] border px-3.5 text-[13px] font-medium transition-[transform,background-color,border-color,color] duration-150 active:scale-[0.97]",
         on
           ? "border-emerald/50 bg-emerald/10 text-emerald"
           : "border-line-strong bg-surface-2 text-fg hover:border-steel/60 hover:bg-surface-3",
         className,
       )}
     >
-      {on ? <CircleCheck size={15} aria-hidden /> : <CircleDashed size={15} aria-hidden />}
+      <span className="relative grid h-[15px] w-[15px] place-items-center">
+        {on && burst > 0 && <span key={`r${burst}`} aria-hidden className="check-ring pointer-events-none absolute inset-0 rounded-full border border-emerald" />}
+        {on ? <CircleCheck key={`c${burst}`} size={15} aria-hidden className={burst > 0 ? "check-pop" : undefined} /> : <CircleDashed size={15} aria-hidden />}
+      </span>
       {on ? "Тема изучена" : "Отметить изученной"}
     </button>
   );
@@ -64,7 +72,7 @@ export function BookmarkButton({
       onClick={() => toggle({ id, kind, ref: refId, title, href })}
       aria-pressed={active}
       className={cn(
-        "inline-flex h-9 items-center gap-2 rounded-lg border px-3 text-[13px] font-medium transition-[transform,background-color,border-color,color] duration-150 active:scale-[0.97]",
+        "inline-flex h-9 items-center gap-2 rounded-[3px] border px-3 text-[13px] font-medium transition-[transform,background-color,border-color,color] duration-150 active:scale-[0.97]",
         active
           ? "border-accent/50 bg-accent/10 text-accent-text"
           : "border-line-strong bg-surface-2 text-fg-muted hover:border-steel/60 hover:text-fg",
@@ -137,7 +145,7 @@ export function TopicNotes({ topicId, topicTitle }: { topicId: string; topicTitl
         onBlur={commit}
         rows={4}
         placeholder="Что стоит запомнить? Сохраняется локально в браузере."
-        className="w-full resize-y rounded-lg border border-line bg-bg-raised px-3 py-2 text-[13px] leading-relaxed text-fg placeholder:text-fg-dim focus:border-accent/60 focus:outline-none"
+        className="w-full resize-y rounded-[3px] border border-line bg-bg-raised px-3 py-2 text-[13px] leading-relaxed text-fg placeholder:text-fg-dim focus:border-accent/60 focus:outline-none"
       />
     </div>
   );

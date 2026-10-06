@@ -10,7 +10,7 @@ const ITEMS = [
 export function PlaygroundSwitch({ current }: { current: "web" | "sql" }) {
   return (
     <nav aria-label="Песочницы" className="mx-auto max-w-[1600px] px-4 pt-5 sm:px-6">
-      <ul className="m-0 inline-flex list-none gap-1 rounded-lg border border-line bg-surface p-1">
+      <ul className="m-0 inline-flex list-none gap-1 rounded-[3px] border border-line bg-surface p-1">
         {ITEMS.map((i) => (
           <li key={i.id}>
             <Link
