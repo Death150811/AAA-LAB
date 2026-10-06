@@ -7,6 +7,7 @@ import { hasProgress, snapshotState } from "@/store/snapshot";
 import { useUserStore } from "@/store/user-store";
 
 const TS_KEY = "devdock-local-updated";
+const USER_KEY = "devdock-synced-user";
 const PUSH_DELAY_MS = 2500;
 
 const readTs = () => {
@@ -14,6 +15,20 @@ const readTs = () => {
     return Number(localStorage.getItem(TS_KEY) ?? 0) || 0;
   } catch {
     return 0;
+  }
+};
+const readUser = () => {
+  try {
+    return localStorage.getItem(USER_KEY);
+  } catch {
+    return null;
+  }
+};
+const writeUser = (id: string) => {
+  try {
+    localStorage.setItem(USER_KEY, id);
+  } catch {
+    /* хранилище недоступно */
   }
 };
 const writeTs = (ts: number) => {
@@ -31,15 +46,21 @@ const writeTs = (ts: number) => {
 export default function CloudSync() {
   const { isLoaded, isSignedIn, userId } = useAuth();
   const hydrated = useHydrated();
+  const hydratedRef = useRef(false);
   const importing = useRef(false);
   const ready = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const push = useRef<() => Promise<void>>(async () => {});
 
+  useEffect(() => {
+    hydratedRef.current = hydrated;
+  }, [hydrated]);
+
   // Любое локальное изменение двигает метку времени и (после первой сверки) планирует отправку.
   useEffect(() => {
     const unsub = useUserStore.subscribe(() => {
-      if (importing.current) return;
+      // Восстановление из localStorage и применение серверного состояния — не «правки пользователя».
+      if (importing.current || !hydratedRef.current) return;
       writeTs(Date.now());
       if (!ready.current) return;
       if (timer.current) clearTimeout(timer.current);
@@ -74,7 +95,15 @@ export default function CloudSync() {
         if (!res.ok || cancelled) return; // 503: база не настроена
         const { state, updatedAt } = (await res.json()) as { state: Record<string, unknown> | null; updatedAt: string | null };
         const serverTs = updatedAt ? Date.parse(updatedAt) : 0;
-        if (state && serverTs > readTs()) {
+        const owner = readUser();
+        if (owner && owner !== userId) {
+          // В этом браузере раньше работал другой аккаунт: его данные нельзя отправлять в чужой профиль.
+          importing.current = true;
+          if (state) useUserStore.getState().importState(state);
+          else useUserStore.getState().reset();
+          importing.current = false;
+          writeTs(serverTs);
+        } else if (state && serverTs > readTs()) {
           importing.current = true;
           useUserStore.getState().importState(state);
           importing.current = false;
@@ -82,6 +111,7 @@ export default function CloudSync() {
         } else if (hasProgress()) {
           await push.current();
         }
+        if (userId) writeUser(userId);
         ready.current = true;
       } catch {
         /* сеть недоступна: остаёмся в локальном режиме */
