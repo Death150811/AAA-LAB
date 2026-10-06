@@ -2,58 +2,10 @@
 
 import { Database, Loader2, Play } from "lucide-react";
 import { useRef, useState } from "react";
-import { cn } from "@/lib/cn";
-
-interface ResultSet {
-  columns: string[];
-  values: unknown[][];
-}
-interface SqlDb {
-  run(sql: string): void;
-  exec(sql: string): ResultSet[];
-  close(): void;
-}
-interface SqlJs {
-  Database: new () => SqlDb;
-}
-declare global {
-  interface Window {
-    initSqlJs?: (config: { locateFile: (file: string) => string }) => Promise<SqlJs>;
-  }
-}
+import { loadSqlEngine, type ResultSet } from "@/lib/sql-engine";
+import { SqlResultTables } from "./SqlResultTables";
 
 const MAX_ROWS = 200;
-let enginePromise: Promise<{ SQL: SqlJs; version: string }> | null = null;
-
-/** Движок SQLite (sql.js, WebAssembly) загружается один раз и только по требованию. */
-function loadEngine() {
-  enginePromise ??= new Promise<{ SQL: SqlJs; version: string }>((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = "/sql/sql-wasm.js";
-    script.onload = () => {
-      window
-        .initSqlJs?.({ locateFile: (file) => `/sql/${file}` })
-        .then((SQL) => {
-          const db = new SQL.Database();
-          const version = String(db.exec("select sqlite_version()")[0]?.values[0]?.[0] ?? "");
-          db.close();
-          resolve({ SQL, version });
-        }, reject);
-    };
-    script.onerror = () => reject(new Error("Не удалось загрузить движок SQLite."));
-    document.head.append(script);
-  }).catch((e: unknown) => {
-    enginePromise = null;
-    throw e;
-  });
-  return enginePromise;
-}
-
-function Cell({ value }: { value: unknown }) {
-  if (value === null || value === undefined) return <span className="italic text-fg-dim">NULL</span>;
-  if (value instanceof Uint8Array) return <span className="italic text-fg-dim">[blob {value.length} Б]</span>;
-  return <>{String(value)}</>;
-}
 
 interface Props {
   code: string;
@@ -72,7 +24,7 @@ export function SqlRunner({ code, setup, fixtureName }: Props) {
     setState({ kind: "busy" });
     let version: string | undefined;
     try {
-      const engine = await loadEngine();
+      const engine = await loadSqlEngine();
       version = engine.version;
       const db = new engine.SQL.Database();
       try {
@@ -117,37 +69,7 @@ export function SqlRunner({ code, setup, fixtureName }: Props) {
         {state.kind === "done" && (
           <div className="space-y-3">
             {state.sets.length === 0 && <p className="text-xs text-fg-muted">Запрос выполнен, строк не возвращено.</p>}
-            {state.sets.map((set, i) => (
-              <div key={i} className="overflow-x-auto rounded-md border border-line">
-                <table className="w-full border-collapse text-left font-mono text-xs">
-                  <caption className="sr-only">Результат {i + 1}</caption>
-                  <thead className="bg-surface-2 text-fg-muted">
-                    <tr>
-                      {set.columns.map((c, j) => (
-                        <th key={j} scope="col" className="whitespace-nowrap border-b border-line px-3 py-1.5 font-semibold">
-                          {c}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {set.values.slice(0, MAX_ROWS).map((row, r) => (
-                      <tr key={r} className={cn(r % 2 === 1 && "bg-surface/50")}>
-                        {row.map((v, c) => (
-                          <td key={c} className="whitespace-nowrap px-3 py-1 text-fg">
-                            <Cell value={v} />
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <p className="border-t border-line px-3 py-1 text-[11px] text-fg-dim">
-                  {set.values.length} {set.values.length === 1 ? "строка" : "строк"}
-                  {set.values.length > MAX_ROWS && ` (показаны первые ${MAX_ROWS})`}
-                </p>
-              </div>
-            ))}
+            <SqlResultTables sets={state.sets} max={MAX_ROWS} />
             <p className="text-[11px] text-fg-dim">
               Выполнено движком SQLite {state.version} (sql.js, в вашем браузере) за {state.ms.toFixed(1)} мс. Диалект отличается от PostgreSQL, на котором получены результаты в тексте.
             </p>
